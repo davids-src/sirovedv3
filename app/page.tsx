@@ -36,7 +36,7 @@ export default function Home() {
                   'Távoli megfigyelés mobilon',
                   'Felhő alapú tároló',
                 ]}
-                href="/szolgaltatasok#kamerarendszerek"
+                href="/szolgaltatasok/kamerarendszerek"
               />
 
               <ServiceCard
@@ -49,7 +49,7 @@ export default function Home() {
                   'Azonnali értesítések',
                   '24/7 megfigyelés',
                 ]}
-                href="/szolgaltatasok#riasztórendszerek"
+                href="/szolgaltatasok/riasztorendszerek"
               />
 
               <ServiceCard
@@ -62,7 +62,7 @@ export default function Home() {
                   'Automatikus riasztás',
                   'Rendszeres karbantartás',
                 ]}
-                href="/szolgaltatasok#tuzjelzo"
+                href="/szolgaltatasok/tuzjelzo-rendszerek"
               />
             </div>
           </div>

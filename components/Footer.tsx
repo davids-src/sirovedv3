@@ -17,6 +17,7 @@ export default function Footer() {
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Biztonságtechnikai megoldások otthonok és vállalkozások számára.
+              Székesfehérváron és Fejér megyében.
             </p>
           </div>
 
@@ -61,9 +62,21 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Szolgáltatások</h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">Kamerarendszerek</li>
-              <li className="text-gray-400">Riasztórendszerek</li>
-              <li className="text-gray-400">Tűzjelző rendszerek</li>
+              <li>
+                <Link href="/szolgaltatasok/kamerarendszerek" className="text-gray-400 hover:text-white transition-colors">
+                  Kamerarendszerek
+                </Link>
+              </li>
+              <li>
+                <Link href="/szolgaltatasok/riasztorendszerek" className="text-gray-400 hover:text-white transition-colors">
+                  Riasztórendszerek
+                </Link>
+              </li>
+              <li>
+                <Link href="/szolgaltatasok/tuzjelzo-rendszerek" className="text-gray-400 hover:text-white transition-colors">
+                  Tűzjelző rendszerek
+                </Link>
+              </li>
             </ul>
           </div>
 

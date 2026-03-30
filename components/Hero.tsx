@@ -28,7 +28,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/kapcsolat">
                 <Button size="lg" className="bg-red-600 hover:bg-red-700 group">
-                  Kérj ajánlatot
+                  Ingyenes konzultáció
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -37,6 +37,12 @@ export default function Hero() {
                   Szolgáltatások
                 </Button>
               </Link>
+            </div>
+
+            <div className="flex flex-wrap gap-3 text-sm text-gray-500">
+              <span>✓ Ingyenes, kötelezettségmentes konzultáció</span>
+              <span>✓ Gyors kiszállás</span>
+              <span>✓ Meglévő rendszerek javítását is vállaljuk</span>
             </div>
 
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">

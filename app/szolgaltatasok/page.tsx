@@ -6,8 +6,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Szolgáltatások - Siro Véd',
-  description: 'Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése és karbantartása.',
+  title: 'Biztonságtechnikai Szolgáltatások Székesfehérváron – Siro Véd',
+  description: 'Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében. Ingyenes konzultáció, gyors kiszállás.',
+  keywords: ['kamerarendszer Székesfehérvár', 'riasztórendszer Fejér megye', 'biztonságtechnika', 'kamerarendszer telepítés', 'riasztórendszer javítás'],
 };
 
 export default function Szolgaltatasok() {
@@ -21,10 +22,25 @@ export default function Szolgaltatasok() {
               <h1 className="text-5xl font-bold text-gray-900 mb-6">
                 Szolgáltatásaink
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Komplett biztonságtechnikai megoldások otthonok, üzletek és irodák számára.
-                Minden szolgáltatásunk magában foglalja a telepítést, beüzemelést és a folyamatos támogatást.
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                Komplett biztonságtechnikai megoldások otthonok, üzletek és irodák számára
+                Székesfehérváron és Fejér megyében. Minden szolgáltatásunk magában foglalja
+                a telepítést, beüzemelést és a folyamatos támogatást.
               </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm">
+                <span className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium">
+                  <CheckCircle className="h-4 w-4" />
+                  <span>Ingyenes, kötelezettségmentes konzultáció</span>
+                </span>
+                <span className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium">
+                  <CheckCircle className="h-4 w-4" />
+                  <span>Gyors kiszállás</span>
+                </span>
+                <span className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium">
+                  <CheckCircle className="h-4 w-4" />
+                  <span>Javítást is vállalunk</span>
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -87,10 +103,9 @@ export default function Szolgaltatasok() {
                   </div>
                 </div>
 
-                <Link href="/kapcsolat">
+                <Link href="/szolgaltatasok/kamerarendszerek">
                   <Button size="lg" className="bg-red-600 hover:bg-red-700">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Kérj ajánlatot
+                    További információk
                   </Button>
                 </Link>
               </div>
@@ -206,10 +221,9 @@ export default function Szolgaltatasok() {
                   </div>
                 </div>
 
-                <Link href="/kapcsolat">
+                <Link href="/szolgaltatasok/riasztorendszerek">
                   <Button size="lg" className="bg-red-600 hover:bg-red-700">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Kérj ajánlatot
+                    További információk
                   </Button>
                 </Link>
               </div>
@@ -282,10 +296,9 @@ export default function Szolgaltatasok() {
                   </p>
                 </div>
 
-                <Link href="/kapcsolat">
+                <Link href="/szolgaltatasok/tuzjelzo-rendszerek">
                   <Button size="lg" className="bg-red-600 hover:bg-red-700">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Előzetes ajánlat
+                    További információk
                   </Button>
                 </Link>
               </div>

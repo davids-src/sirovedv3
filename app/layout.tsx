@@ -5,12 +5,12 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Siro Véd - Biztonságtechnikai megoldások',
-  description: 'Kamerarendszerek és riasztórendszerek telepítése és karbantartása. Válaszd a Siro Véd megbízható szolgáltatásait!',
-  keywords: ['kamerarendszer telepítés', 'riasztórendszer telepítés', 'biztonságtechnika', 'megfigyelőrendszer'],
+  title: 'Siro Véd – Biztonságtechnika Székesfehérváron',
+  description: 'Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében. Ingyenes konzultáció, gyors kiszállás.',
+  keywords: ['kamerarendszer telepítés', 'riasztórendszer telepítés', 'biztonságtechnika', 'megfigyelőrendszer', 'Székesfehérvár', 'Fejér megye', 'kamerarendszer javítás', 'riasztórendszer javítás'],
   openGraph: {
-    title: 'Siro Véd - Biztonságtechnikai megoldások',
-    description: 'Kamerarendszerek és riasztórendszerek telepítése és karbantartása.',
+    title: 'Siro Véd – Biztonságtechnika Székesfehérváron',
+    description: 'Kamerarendszerek és riasztórendszerek telepítése, javítása Székesfehérváron és Fejér megyében.',
     type: 'website',
     locale: 'hu_HU',
   },
