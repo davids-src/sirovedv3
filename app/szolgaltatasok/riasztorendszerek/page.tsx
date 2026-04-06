@@ -48,7 +48,7 @@ export default function RiasztórendszerekPage() {
               Egy jól megtervezett riasztórendszer azonnal értesít, ha valami nincs rendben.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/kapcsolat">
+              <Link href="/kalkulator">
                 <Button size="lg" className="bg-red-600 hover:bg-red-700 group">
                   Kérj ingyenes konzultációt
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -261,12 +261,12 @@ export default function RiasztórendszerekPage() {
             <p className="text-xl mb-4 text-red-100">Az első konzultáció minden esetben ingyenes és kötelezettségmentes.</p>
             <p className="text-red-200 mb-8 text-sm">Akkor is keress minket, ha csak egy kisebb problémát szeretnél megoldani.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/kapcsolat">
+              <Link href="/kalkulator">
                 <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100">
                   <Phone className="mr-2 h-5 w-5" />Kérj ajánlatot
                 </Button>
               </Link>
-              <Link href="/kapcsolat">
+              <Link href="/kalkulator">
                 <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-red-600">
                   Ingyenes konzultáció
                 </Button>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Shield, Menu, X } from 'lucide-react';
+import { Shield, Menu, X, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Navbar() {
@@ -27,9 +27,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -50,9 +49,10 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/kapcsolat">
-              <Button className="bg-red-600 hover:bg-red-700">
-                Kérj ajánlatot
+            <Link href="/kalkulator">
+              <Button className="relative bg-red-600 hover:bg-red-700 shadow-[0_0_12px_rgba(220,38,38,0.45)] hover:shadow-[0_0_18px_rgba(220,38,38,0.65)] transition-shadow">
+                <Sparkles className="h-3.5 w-3.5 mr-1.5 opacity-90" />
+                Intelligens díjkalkulátor
               </Button>
             </Link>
           </div>
@@ -83,9 +83,10 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/kapcsolat" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full bg-red-600 hover:bg-red-700">
-                Kérj ajánlatot
+            <Link href="/kalkulator" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="w-full bg-red-600 hover:bg-red-700 shadow-[0_0_12px_rgba(220,38,38,0.35)]">
+                <Sparkles className="h-3.5 w-3.5 mr-1.5 opacity-90" />
+                Intelligens díjkalkulátor
               </Button>
             </Link>
           </div>

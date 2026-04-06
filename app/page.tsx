@@ -177,12 +177,12 @@ export default function Home() {
               személyre szabott ajánlatot.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/kapcsolat">
+              <Link href="/kalkulator">
                 <Button
                   size="lg"
                   className="bg-white text-red-600 hover:bg-gray-100 group"
                 >
-                  Kapcsolatfelvétel
+                  Árajánlatkérés kalkulátorral
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>

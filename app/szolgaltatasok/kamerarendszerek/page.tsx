@@ -83,7 +83,7 @@ export default function KamerarendszerekPage() {
               kamerarendszer megadja azt a nyugalmat, hogy mindig látod, mi folyik körülötted.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/kapcsolat">
+              <Link href="/kalkulator">
                 <Button size="lg" className="bg-red-600 hover:bg-red-700 group">
                   Kérj ingyenes konzultációt
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -331,13 +331,13 @@ export default function KamerarendszerekPage() {
               Nem csak teljes rendszerek kiépítésével foglalkozunk — meglévő rendszerek javítását és karbantartását is vállaljuk.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/kapcsolat">
+              <Link href="/kalkulator">
                 <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100">
                   <Phone className="mr-2 h-5 w-5" />
                   Kérj ajánlatot
                 </Button>
               </Link>
-              <Link href="/kapcsolat">
+              <Link href="/kalkulator">
                 <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-red-600">
                   Ingyenes konzultáció
                 </Button>

@@ -339,10 +339,10 @@ export default function Szolgaltatasok() {
             <p className="text-xl mb-8 text-red-100">
               Lépj velünk kapcsolatba, és segítünk kiválasztani a számodra legmegfelelőbb rendszert!
             </p>
-            <Link href="/kapcsolat">
+            <Link href="/kalkulator">
               <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100">
                 <Phone className="mr-2 h-5 w-5" />
-                Ingyenes konzultáció
+                Árajánlat kalkulátor
               </Button>
             </Link>
           </div>

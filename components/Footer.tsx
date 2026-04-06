@@ -50,6 +50,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/kalkulator"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Árajánlat kalkulátor
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/kapcsolat"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
