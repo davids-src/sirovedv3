@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { Metadata } from 'next';
+import { SITE } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Kapcsolat - Siro Véd',
@@ -53,10 +54,10 @@ export default function Kapcsolat() {
                         Telefonszám
                       </h3>
                       <a
-                        href="tel:+36XXXXXXXXX"
+                        href={SITE.phoneTel}
                         className="text-lg text-red-600 hover:text-red-700 font-medium"
                       >
-                        +36 XX XXX XXXX
+                        {SITE.phone}
                       </a>
                       <p className="text-sm text-gray-600 mt-1">
                         Hívj bátran munkanapokon 8:00-18:00 között
@@ -73,10 +74,10 @@ export default function Kapcsolat() {
                         Email cím
                       </h3>
                       <a
-                        href="mailto:info@siroved.hu"
+                        href={SITE.emailHref}
                         className="text-lg text-red-600 hover:text-red-700 font-medium"
                       >
-                        info@siroved.hu
+                        {SITE.email}
                       </a>
                       <p className="text-sm text-gray-600 mt-1">
                         Válaszolunk 24 órán belül
@@ -92,11 +93,9 @@ export default function Kapcsolat() {
                       <h3 className="font-semibold text-gray-900 mb-2">
                         Cím
                       </h3>
-                      <p className="text-lg text-gray-700">
-                        Budapest, Magyarország
-                      </p>
+                      <p className="text-lg text-gray-700">{SITE.address}</p>
                       <p className="text-sm text-gray-600 mt-1">
-                        Helyszíni konzultációra is van lehetőség
+                        {SITE.region} · Helyszíni konzultációra is van lehetőség
                       </p>
                     </div>
                   </div>

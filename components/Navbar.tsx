@@ -21,6 +21,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Főoldal' },
     { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+    { href: '/referenciak', label: 'Referenciák' },
     { href: '/rolunk', label: 'Rólunk' },
     { href: '/kapcsolat', label: 'Kapcsolat' },
   ];

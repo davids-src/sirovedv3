@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import KalkulatorWizard from '@/components/calculator/KalkulatorWizard';
 import { Metadata } from 'next';
 import { CheckCircle2, Phone, Mail, ShieldCheck } from 'lucide-react';
+import { SITE } from '@/lib/config';
 
 export const metadata: Metadata = {
     title: 'Ingyenes Árajánlat Kalkulátor – Siro Véd Biztonságtechnika',
@@ -100,18 +101,18 @@ export default function KalkulatorPage() {
                         <p className="text-gray-600 font-medium mb-4">Inkább személyesen kérdezne?</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
-                                href="tel:+36XXXXXXXXX"
+                                href={SITE.phoneTel}
                                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-colors"
                             >
                                 <Phone className="h-4 w-4" />
-                                +36 XX XXX XXXX
+                                {SITE.phone}
                             </a>
                             <a
-                                href="mailto:info@siroved.hu"
+                                href={SITE.emailHref}
                                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-gray-200 text-gray-700 text-sm font-semibold hover:border-red-300 transition-colors"
                             >
                                 <Mail className="h-4 w-4" />
-                                info@siroved.hu
+                                {SITE.email}
                             </a>
                         </div>
                     </div>

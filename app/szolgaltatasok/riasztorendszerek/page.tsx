@@ -54,7 +54,7 @@ export default function RiasztórendszerekPage() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="tel:+36XXXXXXXXX">
+              <Link href="tel:+36702735532">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
                   <Phone className="mr-2 h-5 w-5" />
                   Hívj most

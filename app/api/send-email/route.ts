@@ -1,87 +1,87 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import {
-    CalculatorAnswers,
-    calculatePrice,
-    priceRange,
-    formatHuf,
-    ExtraType,
+  CalculatorAnswers,
+  calculatePrice,
+  priceRange,
+  formatHuf,
+  ExtraType,
 } from '@/components/calculator/types';
 
 // ─── Label maps ──────────────────────────────────────────────────────────────
 
 const INGATLAN_LABELS: Record<string, string> = {
-    lakas: 'Lakás / lakóingatlan',
-    iroda: 'Iroda / üzlethelyiség',
-    raktar: 'Raktár / gyártócsarnok',
-    vendeg: 'Vendéglátás / bolt / szalon',
-    egeszseg: 'Egészségügyi rendelő / klinika',
-    egyeb: 'Egyéb / vegyes',
+  lakas: 'Lakás / lakóingatlan',
+  iroda: 'Iroda / üzlethelyiség',
+  raktar: 'Raktár / gyártócsarnok',
+  vendeg: 'Vendéglátás / bolt / szalon',
+  egeszseg: 'Egészségügyi rendelő / klinika',
+  egyeb: 'Egyéb / vegyes',
 };
 
 const MERET_LABELS: Record<string, string> = {
-    xs: '50 m² alatt',
-    s: '50–150 m²',
-    m: '150–400 m²',
-    l: '400–1000 m²',
-    xl: '1000 m² felett',
+  xs: '50 m² alatt',
+  s: '50–150 m²',
+  m: '150–400 m²',
+  l: '400–1000 m²',
+  xl: '1000 m² felett',
 };
 
 const KAMERA_LABELS: Record<string, string> = {
-    nincs: 'Nem kért kamerát',
-    ip: 'IP kamerarendszer',
-    analog: 'Analóg kamerarendszer',
-    nemtudom: 'Ajánlást kér',
+  nincs: 'Nem kért kamerát',
+  ip: 'IP kamerarendszer',
+  analog: 'Analóg kamerarendszer',
+  nemtudom: 'Ajánlást kér',
 };
 
 const RIASZTO_LABELS: Record<string, string> = {
-    nincs: 'Nem kért riasztót',
-    uj: 'Új riasztórendszer',
-    bovites: 'Meglévő riasztó bővítése',
-    karbantartas: 'Meglévő riasztó karbantartása',
+  nincs: 'Nem kért riasztót',
+  uj: 'Új riasztórendszer',
+  bovites: 'Meglévő riasztó bővítése',
+  karbantartas: 'Meglévő riasztó karbantartása',
 };
 
 const EXTRA_LABELS: Record<ExtraType, string> = {
-    tavfelügyelet: 'Távfelügyelet összekötés',
-    belepto: 'Beléptető rendszer',
-    karb: 'Havidíjas karbantartási csomag',
-    tuzjelzo: 'Tűzjelző rendszer (érdeklődés)',
+  tavfelügyelet: 'Távfelügyelet összekötés',
+  belepto: 'Beléptető rendszer',
+  karb: 'Havidíjas karbantartási csomag',
+  tuzjelzo: 'Tűzjelző rendszer (érdeklődés)',
 };
 
 // ─── Request body type ────────────────────────────────────────────────────────
 
 interface RequestBody {
-    answers: CalculatorAnswers;
-    accepted: boolean;
+  answers: CalculatorAnswers;
+  accepted: boolean;
 }
 
 // ─── Transporter ─────────────────────────────────────────────────────────────
 
 function createTransporter() {
-    return nodemailer.createTransport({
-        host: process.env.SMTP_HOST || 'smtp.gmail.com',
-        port: Number(process.env.SMTP_PORT) || 587,
-        secure: process.env.SMTP_SECURE === 'true',
-        auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
-        },
-    });
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
 }
 
 // ─── Admin email HTML ─────────────────────────────────────────────────────────
 
 function buildAdminHtml(answers: CalculatorAnswers, accepted: boolean): string {
-    const exact = calculatePrice(answers);
-    const { low, high } = priceRange(exact);
-    const contact = answers.q8!;
-    const hasFire = answers.q7.includes('tuzjelzo');
+  const exact = calculatePrice(answers);
+  const { low, high } = priceRange(exact);
+  const contact = answers.q8!;
+  const hasFire = answers.q7.includes('tuzjelzo');
 
-    const extrasList = answers.q7
-        .map((e) => `<li>${EXTRA_LABELS[e]}</li>`)
-        .join('');
+  const extrasList = answers.q7
+    .map((e) => `<li>${EXTRA_LABELS[e]}</li>`)
+    .join('');
 
-    return `
+  return `
 <html><body style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;color:#1a1a1a">
   <div style="background:#D85A30;padding:24px;border-radius:8px 8px 0 0">
     <h1 style="color:#fff;margin:0;font-size:20px">Új biztonságtechnika ajánlatkérés – Siro Véd</h1>
@@ -148,35 +148,35 @@ function buildAdminHtml(answers: CalculatorAnswers, accepted: boolean): string {
 // ─── Client email HTML ────────────────────────────────────────────────────────
 
 function buildClientHtml(answers: CalculatorAnswers, accepted: boolean): string {
-    const exact = calculatePrice(answers);
-    const { low, high } = priceRange(exact);
-    const contact = answers.q8!;
-    const hasCam = answers.q3 && answers.q3 !== 'nincs';
-    const hasAlarm = answers.q5 && answers.q5 !== 'nincs';
-    const hasFire = answers.q7.includes('tuzjelzo');
+  const exact = calculatePrice(answers);
+  const { low, high } = priceRange(exact);
+  const contact = answers.q8!;
+  const hasCam = answers.q3 && answers.q3 !== 'nincs';
+  const hasAlarm = answers.q5 && answers.q5 !== 'nincs';
+  const hasFire = answers.q7.includes('tuzjelzo');
 
-    const items: string[] = [];
-    if (hasCam) {
-        const totalCam = answers.q4.beltéri + answers.q4.kültéri + answers.q4.ptz;
-        items.push(`${totalCam > 0 ? totalCam + ' kamera telepítés és bekötés (munkadíj)' : 'Kamera telepítés munkadíj'}`);
-        if (answers.q3 === 'ip' || answers.q3 === 'nemtudom') items.push('NVR rögzítő konfiguráció, mobilos távelérés beállítás');
-        if (answers.q3 === 'analog') items.push('DVR rögzítő konfiguráció, mobilos távelérés beállítás');
-    }
-    if (answers.q5 === 'uj') items.push('Riasztóközpont telepítés és programozás');
-    if ((answers.q5 === 'uj' || answers.q5 === 'bovites') && (answers.q6.pir + answers.q6.nyitas + answers.q6.uveg > 0)) {
-        const total = answers.q6.pir + answers.q6.nyitas + answers.q6.uveg;
-        items.push(`${total} érzékelő telepítése (PIR, nyitás, üvegtörés)`);
-    }
-    if (answers.q5 === 'karbantartas') items.push('Meglévő riasztó felülvizsgálat és karbantartás');
-    if (answers.q7.includes('tavfelügyelet')) items.push('Távfelügyelet GSM/IP összekötés beállítása');
-    if (answers.q7.includes('belepto')) items.push('Beléptető rendszer tervezés és telepítés');
-    if (answers.q7.includes('karb')) items.push('Havidíjas felügyeleti csomag (éves felülvizsgálattal)');
-    items.push('Kezelési útmutató és átadás-átvételi dokumentáció');
-    items.push('Ingyenes helyszíni felmérés az ajánlat véglegesítéséhez');
+  const items: string[] = [];
+  if (hasCam) {
+    const totalCam = answers.q4.beltéri + answers.q4.kültéri + answers.q4.ptz;
+    items.push(`${totalCam > 0 ? totalCam + ' kamera telepítés és bekötés (munkadíj)' : 'Kamera telepítés munkadíj'}`);
+    if (answers.q3 === 'ip' || answers.q3 === 'nemtudom') items.push('NVR rögzítő konfiguráció, mobilos távelérés beállítás');
+    if (answers.q3 === 'analog') items.push('DVR rögzítő konfiguráció, mobilos távelérés beállítás');
+  }
+  if (answers.q5 === 'uj') items.push('Riasztóközpont telepítés és programozás');
+  if ((answers.q5 === 'uj' || answers.q5 === 'bovites') && (answers.q6.pir + answers.q6.nyitas + answers.q6.uveg > 0)) {
+    const total = answers.q6.pir + answers.q6.nyitas + answers.q6.uveg;
+    items.push(`${total} érzékelő telepítése (PIR, nyitás, üvegtörés)`);
+  }
+  if (answers.q5 === 'karbantartas') items.push('Meglévő riasztó felülvizsgálat és karbantartás');
+  if (answers.q7.includes('tavfelügyelet')) items.push('Távfelügyelet GSM/IP összekötés beállítása');
+  if (answers.q7.includes('belepto')) items.push('Beléptető rendszer tervezés és telepítés');
+  if (answers.q7.includes('karb')) items.push('Havidíjas felügyeleti csomag (éves felülvizsgálattal)');
+  items.push('Kezelési útmutató és átadás-átvételi dokumentáció');
+  items.push('Ingyenes helyszíni felmérés az ajánlat véglegesítéséhez');
 
-    const itemsHtml = items.map((i) => `<li style="padding:4px 0">${i}</li>`).join('');
+  const itemsHtml = items.map((i) => `<li style="padding:4px 0">${i}</li>`).join('');
 
-    return `
+  return `
 <html><body style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a">
   <div style="background:#D85A30;padding:28px 24px;border-radius:8px 8px 0 0;text-align:center">
     <h1 style="color:#fff;margin:0;font-size:22px">🛡️ Siro Véd – Biztonságtechnika</h1>
@@ -205,8 +205,8 @@ function buildClientHtml(answers: CalculatorAnswers, accepted: boolean): string 
 
     <h2 style="font-size:15px;color:#1a1a1a;border-bottom:2px solid #D85A30;padding-bottom:6px;margin-top:24px">Elérhetőségeink</h2>
     <table style="font-size:14px;border-collapse:collapse">
-      <tr><td style="padding:3px 16px 3px 0;color:#666">📞 Telefon:</td><td>+36 XX XXX XXXX</td></tr>
-      <tr><td style="padding:3px 16px 3px 0;color:#666">✉️ E-mail:</td><td>info@siroved.hu</td></tr>
+      <tr><td style="padding:3px 16px 3px 0;color:#666">📞 Telefon:</td><td><a href="tel:+36702735532">+36 70 273 5532</a></td></tr>
+      <tr><td style="padding:3px 16px 3px 0;color:#666">✉️ E-mail:</td><td><a href="mailto:hello@sironic.hu">hello@sironic.hu</a></td></tr>
       <tr><td style="padding:3px 16px 3px 0;color:#666">🌐 Weboldal:</td><td>siroved.hu</td></tr>
     </table>
 
@@ -221,43 +221,43 @@ function buildClientHtml(answers: CalculatorAnswers, accepted: boolean): string 
 // ─── Route handler ────────────────────────────────────────────────────────────
 
 export async function POST(request: Request) {
-    try {
-        const body: RequestBody = await request.json();
-        const { answers, accepted } = body;
+  try {
+    const body: RequestBody = await request.json();
+    const { answers, accepted } = body;
 
-        if (!answers.q8?.email || !answers.q8?.nev) {
-            return NextResponse.json({ error: 'Hiányzó kapcsolati adatok.' }, { status: 400 });
-        }
-
-        const adminEmail = process.env.SIROVED_ADMIN_EMAIL;
-        if (!adminEmail) {
-            return NextResponse.json({ error: 'Admin email nincs beállítva.' }, { status: 500 });
-        }
-
-        const transporter = createTransporter();
-        const contact = answers.q8;
-        const acceptedLabel = accepted ? 'ELFOGADTA' : 'csak tájékozódott';
-        const city = contact.helyszin.split(',')[0].trim();
-
-        // Admin email
-        await transporter.sendMail({
-            from: `"Siro Véd Kalkulátor" <${process.env.SMTP_USER}>`,
-            to: adminEmail,
-            subject: `Új ajánlatkérés – ${contact.nev} – ${city} – ${acceptedLabel}`,
-            html: buildAdminHtml(answers, accepted),
-        });
-
-        // Client email
-        await transporter.sendMail({
-            from: `"Siro Véd Biztonságtechnika" <${process.env.SMTP_USER}>`,
-            to: contact.email,
-            subject: 'Biztonságtechnika árajánlat – Siro Véd',
-            html: buildClientHtml(answers, accepted),
-        });
-
-        return NextResponse.json({ success: true });
-    } catch (err) {
-        console.error('Email sending error:', err);
-        return NextResponse.json({ error: 'Email küldési hiba.' }, { status: 500 });
+    if (!answers.q8?.email || !answers.q8?.nev) {
+      return NextResponse.json({ error: 'Hiányzó kapcsolati adatok.' }, { status: 400 });
     }
+
+    const adminEmail = process.env.SIROVED_ADMIN_EMAIL;
+    if (!adminEmail) {
+      return NextResponse.json({ error: 'Admin email nincs beállítva.' }, { status: 500 });
+    }
+
+    const transporter = createTransporter();
+    const contact = answers.q8;
+    const acceptedLabel = accepted ? 'ELFOGADTA' : 'csak tájékozódott';
+    const city = contact.helyszin.split(',')[0].trim();
+
+    // Admin email
+    await transporter.sendMail({
+      from: `"Siro Véd Kalkulátor" <${process.env.SMTP_USER}>`,
+      to: adminEmail,
+      subject: `Új ajánlatkérés – ${contact.nev} – ${city} – ${acceptedLabel}`,
+      html: buildAdminHtml(answers, accepted),
+    });
+
+    // Client email
+    await transporter.sendMail({
+      from: `"Siro Véd Biztonságtechnika" <${process.env.SMTP_USER}>`,
+      to: contact.email,
+      subject: 'Biztonságtechnika árajánlat – Siro Véd',
+      html: buildClientHtml(answers, accepted),
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error('Email sending error:', err);
+    return NextResponse.json({ error: 'Email küldési hiba.' }, { status: 500 });
+  }
 }
