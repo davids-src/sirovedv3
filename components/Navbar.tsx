@@ -21,7 +21,6 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Főoldal' },
     { href: '/szolgaltatasok', label: 'Szolgáltatások' },
-    { href: '/referenciak', label: 'Referenciák' },
     { href: '/rolunk', label: 'Rólunk' },
     { href: '/kapcsolat', label: 'Kapcsolat' },
   ];
@@ -37,7 +36,7 @@ export default function Navbar() {
             <div className="bg-red-600 p-2 rounded-lg group-hover:bg-red-700 transition-colors">
               <Shield className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Siro Véd</span>
+            <span className="text-xl font-bold text-gray-900 tracking-wide">SIRO-VÉD</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

@@ -138,7 +138,7 @@ export default function Home() {
                 Ügyfeleink mondták
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Több mint 500 elégedett ügyfél bízik bennünk
+                Valós visszajelzések vállalkozásoktól és lakostulajdonosoktól
               </p>
             </div>
 
@@ -170,11 +170,11 @@ export default function Home() {
         <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-bold mb-6">
-              Kérj ajánlatot még ma
+              Kérj ajánlatot percek alatt
             </h2>
             <p className="text-xl mb-8 text-red-100">
-              Vedd fel velünk a kapcsolatot, és hamarosan elkészítjük számodra a
-              személyre szabott ajánlatot.
+              Használd az <strong>intelligens díjkalkulátorunkat</strong> – percek alatt pontos árajánlatot kapsz,
+              teljesen kötelezettségmentesen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/kalkulator">

@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rólunk - Siro Véd',
-  description: 'Ismerd meg a Siro Véd csapatát és értékeinket. Több mint 10 év tapasztalat a biztonságtechnika területén.',
+  title: 'Rólunk - SIRO-VÉD',
+  description: 'Ismerd meg a SIRO-VÉD csapatát és értékeinket. Biztonságtechnikai megoldások Székesfehérváron és Fejér megyében.',
 };
 
 export default function Rolunk() {
@@ -22,8 +22,8 @@ export default function Rolunk() {
                 Rólunk
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                A Siro Véd célja, hogy ügyfeleink számára valódi biztonságot nyújtson,
-                nem csak eszközöket. Tapasztalatunkkal segítünk a megfelelő rendszer
+                A SIRO-VÉD célja, hogy ügyféleink számára valódi biztonságot nyújtson,
+                nem csak eszközöket. Segítünk a megfelelő rendszer
                 kiválasztásában és hosszú távú üzemeltetésében.
               </p>
             </div>
@@ -33,16 +33,16 @@ export default function Rolunk() {
                 <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Award className="h-8 w-8 text-red-600" />
                 </div>
-                <h3 className="text-3xl font-bold text-red-600 mb-2">10+</h3>
-                <p className="text-gray-600">Év tapasztalat</p>
+                <h3 className="text-3xl font-bold text-red-600 mb-2">Fejér m.</h3>
+                <p className="text-gray-600">helyi lefedettség</p>
               </div>
 
               <div className="bg-white rounded-xl p-8 shadow-lg text-center">
                 <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Users className="h-8 w-8 text-red-600" />
                 </div>
-                <h3 className="text-3xl font-bold text-red-600 mb-2">500+</h3>
-                <p className="text-gray-600">Elégedett ügyfél</p>
+                <h3 className="text-3xl font-bold text-red-600 mb-2">&lt;24h</h3>
+                <p className="text-gray-600">kiszállás</p>
               </div>
 
               <div className="bg-white rounded-xl p-8 shadow-lg text-center">
@@ -64,9 +64,8 @@ export default function Rolunk() {
                   Küldetésünk
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  A Siro Véd 2013 óta működik a biztonságtechnikai piacon. Kezdetben
-                  kisebb otthoni rendszerek telepítésével foglalkoztunk, mára pedig
-                  komplett vállalati megoldásokat is nyújtunk.
+                  A SIRO-VÉD Székesfehérváron és Fejér megyében nyújtunk megbízható
+                  biztonságtechnikai megoldásokat maganosoknak és vállalkozásoknak.
                 </p>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Hiszünk abban, hogy a biztonság nem luxus, hanem alapvető szükséglet.
@@ -83,13 +82,12 @@ export default function Rolunk() {
               <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-2xl p-12 text-white">
                 <Shield className="h-24 w-24 mb-6 text-white" />
                 <h3 className="text-2xl font-bold mb-4">
-                  Több mint 10 év tapasztalat
+                  Friss szemlélet, modern technológia
                 </h3>
                 <p className="text-red-100 leading-relaxed">
-                  A biztonságtechnika területén szerzett évtizedes tapasztalatunk
-                  garancia arra, hogy minden projektet a legmagasabb színvonalon
-                  valósítunk meg. Ügyfeleinktől kapott folyamatos pozitív
-                  visszajelzések motiválnak minket.
+                  A legmodernebb biztonságtechnikai megoldásokat hozzuk
+                  Fejér megyébe. Nincs felesleges bürokrácia – csak gyors,
+                  pontos és korrekt munkávégzés.
                 </p>
               </div>
             </div>

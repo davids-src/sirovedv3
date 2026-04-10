@@ -8,11 +8,11 @@ import StickyKalkulatorCTA from '@/components/StickyKalkulatorCTA';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Siro Véd – Biztonságtechnika Székesfehérváron',
+  title: 'SIRO-VÉD – Biztonságtechnika Székesfehérváron',
   description: 'Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében. Ingyenes konzultáció, gyors kiszállás.',
   keywords: ['kamerarendszer telepítés', 'riasztórendszer telepítés', 'biztonságtechnika', 'megfigyelőrendszer', 'Székesfehérvár', 'Fejér megye', 'kamerarendszer javítás', 'riasztórendszer javítás'],
   openGraph: {
-    title: 'Siro Véd – Biztonságtechnika Székesfehérváron',
+    title: 'SIRO-VÉD – Biztonságtechnika Székesfehérváron',
     description: 'Kamerarendszerek és riasztórendszerek telepítése, javítása Székesfehérváron és Fejér megyében.',
     type: 'website',
     locale: 'hu_HU',

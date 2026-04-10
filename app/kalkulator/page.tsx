@@ -6,14 +6,14 @@ import { CheckCircle2, Phone, Mail, ShieldCheck } from 'lucide-react';
 import { SITE } from '@/lib/config';
 
 export const metadata: Metadata = {
-    title: 'Ingyenes Árajánlat Kalkulátor – Siro Véd Biztonságtechnika',
+    title: 'Ingyenes Árajánlat Kalkulátor – SIRO-VÉD Biztonságtechnika',
     description:
         '8 kérdés, 5 perc – azonnal kap egy tájékoztató árat. Kamerarendszer, riasztórendszer és extra igények kalkulálása. Helyszíni felmérés nélkül, kötelezettség nélkül.',
     keywords: [
         'biztonságtechnika árajánlat',
         'kamerarendszer ár kalkulátor',
         'riasztórendszer árajánlat',
-        'Siro Véd',
+        'SIRO-VÉD',
         'Székesfehérvár',
     ],
 };
@@ -75,7 +75,7 @@ export default function KalkulatorPage() {
                                 Miért érdemes nálunk ajánlatot kérni?
                             </h2>
                             <p className="text-gray-500 text-sm">
-                                Több mint 500 elégedett ügyfél bízik a Siro Véd csapatában.
+                            Gyors, átlátható és kötelezettségmentes ajánlatkérés.
                             </p>
                         </div>
                         <div className="grid sm:grid-cols-3 gap-6">

@@ -15,7 +15,7 @@ export default function Footer() {
               <div className="bg-red-600 p-2 rounded-lg">
                 <Shield className="h-5 w-5 text-white" />
               </div>
-              <span className="text-lg font-bold">Siro Véd</span>
+              <span className="text-lg font-bold tracking-wide">SIRO-VÉD</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Biztonságtechnikai megoldások otthonok és vállalkozások számára.
@@ -30,7 +30,6 @@ export default function Footer() {
               {[
                 { href: '/', label: 'Főoldal' },
                 { href: '/szolgaltatasok', label: 'Szolgáltatások' },
-                { href: '/referenciak', label: 'Referenciák' },
                 { href: '/rolunk', label: 'Rólunk' },
                 { href: '/kalkulator', label: 'Árajánlat kalkulátor' },
                 { href: '/kapcsolat', label: 'Kapcsolat' },
@@ -101,7 +100,7 @@ export default function Footer() {
               <span>{SITE.address}</span>
             </div>
             <p className="text-gray-500 text-xs">
-              &copy; {currentYear} Siro Véd. Minden jog fenntartva.
+              &copy; {currentYear} SIRO-VÉD. Minden jog fenntartva.
             </p>
           </div>
         </div>
