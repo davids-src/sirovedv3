@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Shield, Phone, Mail, MapPin, Building2, FileText } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, Mail, MapPin, Building2, FileText } from 'lucide-react';
 import { SITE } from '@/lib/config';
 
 export default function Footer() {
@@ -12,10 +13,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="bg-red-600 p-2 rounded-lg">
-                <Shield className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-lg font-bold tracking-wide">SIRO-VÉD</span>
+              <Image 
+                src="/siroved_logo.png" 
+                alt="SIRO-VÉD Logo" 
+                width={200} 
+                height={60} 
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Biztonságtechnikai megoldások otthonok és vállalkozások számára.

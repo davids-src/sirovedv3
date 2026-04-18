@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'hu_HU',
   },
+  icons: {
+    icon: '/siroved_logo.png',
+    apple: '/siroved_logo.png',
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +32,32 @@ export default function RootLayout({
     <html lang="hu">
       <body className={inter.className}>
         <GoogleAnalytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SecurityService",
+              "name": "SIRO-VÉD",
+              "url": "https://siroved.hu",
+              "logo": "https://siroved.hu/siroved_logo.png",
+              "image": "https://siroved.hu/siroved_logo.png",
+              "description": "Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében.",
+              "telephone": "+36 70 273 5532",
+              "email": "hello@sironic.hu",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Lövölde utca 24",
+                "addressLocality": "Székesfehérvár",
+                "postalCode": "8000",
+                "addressRegion": "Fejér megye",
+                "addressCountry": "HU"
+              },
+              "areaServed": "Fejér megye",
+              "priceRange": "$$"
+            })
+          }}
+        />
         {children}
         <CookieBanner />
         <StickyKalkulatorCTA />

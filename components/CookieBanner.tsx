@@ -10,6 +10,13 @@ export default function CookieBanner() {
 
     useEffect(() => {
         const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === 'accepted') {
+            if (typeof window !== 'undefined' && (window as any).gtag) {
+                (window as any).gtag('consent', 'update', {
+                    'analytics_storage': 'granted'
+                });
+            }
+        }
         if (!stored) {
             // Delay slightly so it doesn't flash on first paint
             const t = setTimeout(() => setVisible(true), 800);
@@ -20,6 +27,11 @@ export default function CookieBanner() {
     function accept() {
         localStorage.setItem(STORAGE_KEY, 'accepted');
         setVisible(false);
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+            });
+        }
     }
 
     function decline() {

@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Shield, Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Navbar() {
@@ -33,10 +34,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="bg-red-600 p-2 rounded-lg group-hover:bg-red-700 transition-colors">
-              <Shield className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 tracking-wide">SIRO-VÉD</span>
+            <Image 
+              src="/siroved_logo.png" 
+              alt="SIRO-VÉD Logo" 
+              width={200} 
+              height={60} 
+              className="h-10 w-auto object-contain md:h-12"
+              priority
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
