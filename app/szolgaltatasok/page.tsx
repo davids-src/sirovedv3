@@ -114,8 +114,8 @@ export default function Szolgaltatasok() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
                     <Eye className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">360° látószög</h4>
-                    <p className="text-sm text-red-100">Teljes körű megfigyelés</p>
+                    <h4 className="font-semibold mb-2">Széles látószög</h4>
+                    <p className="text-sm text-red-100">HD/4K kép nappal és éjjel</p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
                     <Shield className="h-10 w-10 mb-4 text-white" />
@@ -145,8 +145,8 @@ export default function Szolgaltatasok() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
                     <Lock className="h-10 w-10 mb-4 text-red-400" />
-                    <h4 className="font-semibold mb-2">Automatikus riasztás</h4>
-                    <p className="text-sm text-gray-300">Azonnali értesítés</p>
+                    <h4 className="font-semibold mb-2">Mobilos értesítés</h4>
+                    <p className="text-sm text-gray-300">Azonnali push üzenet</p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
                     <Shield className="h-10 w-10 mb-4 text-red-400" />
@@ -273,8 +273,8 @@ export default function Szolgaltatasok() {
                       <CheckCircle className="h-5 w-5 text-green-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Automatikus riasztás</h3>
-                      <p className="text-gray-600">Hang és fény riasztás a jelzés után azonnal</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">Hang és fényriasztás</h3>
+                      <p className="text-gray-600">Sziréna és villogó a jelzés után azonnal aktiválódik</p>
                     </div>
                   </div>
 

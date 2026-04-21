@@ -1,0 +1,25 @@
+# *
+User-agent: *
+Allow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic-ai
+User-agent: Anthropic-ai
+Allow: /
+
+# Host
+Host: https://siroved.hu
+
+# Sitemaps
+Sitemap: https://siroved.hu/sitemap.xml

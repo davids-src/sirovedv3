@@ -86,7 +86,7 @@ export default function RiasztórendszerekPage() {
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-10 shadow-2xl">
                 <div className="grid grid-cols-2 gap-5">
                   {[
-                    { icon: Lock, title: 'Automatikus riasztás', desc: 'Azonnali értesítés' },
+                    { icon: Lock, title: 'Mobilos jelzés', desc: 'Azonnali push értesítés' },
                     { icon: Shield, title: 'Multi-szenzor', desc: 'Több érzékelő típus' },
                     { icon: Bell, title: 'Hang riasztás', desc: '120dB hangerő' },
                     { icon: Phone, title: '24/7 értesítés', desc: 'Mobilos push üzenet' },

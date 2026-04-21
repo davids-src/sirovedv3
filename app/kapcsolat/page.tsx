@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { Metadata } from 'next';
 import { SITE } from '@/lib/config';
 
@@ -60,7 +60,7 @@ export default function Kapcsolat() {
                         {SITE.phone}
                       </a>
                       <p className="text-sm text-gray-600 mt-1">
-                        Hívj bátran munkanapokon 8:00-18:00 között
+                        Visszahívást is kérhetsz – munkanapokon jellemzően délelőtt elérhetők vagyunk
                       </p>
                     </div>
                   </div>
@@ -95,35 +95,12 @@ export default function Kapcsolat() {
                       </h3>
                       <p className="text-lg text-gray-700">{SITE.address}</p>
                       <p className="text-sm text-gray-600 mt-1">
-                        {SITE.region} · Helyszíni konzultációra is van lehetőség
+                        Székesfehérvár, Mór, Bicíkérd, Gárdony, Ercsi, Polgardi, Marton vásár és környékük
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4 bg-gray-50 rounded-xl p-6">
-                    <div className="bg-red-100 rounded-lg p-3 flex-shrink-0">
-                      <Clock className="h-6 w-6 text-red-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">
-                        Nyitvatartás
-                      </h3>
-                      <div className="space-y-1">
-                        <p className="text-gray-700">
-                          <span className="font-medium">Hétfő - Péntek:</span> 8:00 - 18:00
-                        </p>
-                        <p className="text-gray-700">
-                          <span className="font-medium">Szombat:</span> 9:00 - 14:00
-                        </p>
-                        <p className="text-gray-700">
-                          <span className="font-medium">Vasárnap:</span> Zárva
-                        </p>
-                      </div>
-                      <p className="text-sm text-gray-600 mt-2">
-                        Sürgős esetben 24/7 elérhetők vagyunk
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
 
                 <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 text-white">

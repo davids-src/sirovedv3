@@ -6,6 +6,13 @@ import {
   priceRange,
   formatHuf,
   ExtraType,
+  TYPE_MULTIPLIERS,
+  SIZE_MULTIPLIERS,
+  CAM_BASE,
+  CAM_UNIT_PRICES,
+  ALARM_BASE,
+  SENSOR_PRICES,
+  EXTRA_PRICES,
 } from '@/components/calculator/types';
 
 // ─── Label maps ──────────────────────────────────────────────────────────────
@@ -81,6 +88,57 @@ function buildAdminHtml(answers: CalculatorAnswers, accepted: boolean): string {
     .map((e) => `<li>${EXTRA_LABELS[e]}</li>`)
     .join('');
 
+  // ── Kalakuláció részletezés ──
+  const typeMult = answers.q1 ? TYPE_MULTIPLIERS[answers.q1] : 1;
+  const sizeMult = answers.q2 ? SIZE_MULTIPLIERS[answers.q2] : 1;
+
+  let camBase = 0, camUnits = 0;
+  if (answers.q3 && answers.q3 !== 'nincs') {
+    camBase = CAM_BASE[answers.q3];
+    const u = CAM_UNIT_PRICES[answers.q3];
+    camUnits =
+      answers.q4.beltéri * u.beltéri +
+      answers.q4.kültéri * u.kültéri +
+      answers.q4.ptz * u.ptz;
+  }
+  const camTotal = camBase + camUnits;
+
+  let alarmBase = 0, alarmSensors = 0;
+  if (answers.q5) {
+    alarmBase = ALARM_BASE[answers.q5];
+    if (answers.q5 === 'uj' || answers.q5 === 'bovites') {
+      alarmSensors =
+        answers.q6.pir * SENSOR_PRICES.pir +
+        answers.q6.nyitas * SENSOR_PRICES.nyitas +
+        answers.q6.uveg * SENSOR_PRICES.uveg;
+    }
+  }
+  const alarmTotal = alarmBase + alarmSensors;
+  const extraTotal = answers.q7.reduce((s, e) => s + EXTRA_PRICES[e], 0);
+  const baseSum = camTotal + alarmTotal + extraTotal;
+
+  const calcRows = [
+    answers.q3 && answers.q3 !== 'nincs'
+      ? `<tr><td style="padding:3px 8px 3px 0;color:#555">Kamera alap (${KAMERA_LABELS[answers.q3]}):</td><td style="text-align:right">${formatHuf(camBase)}</td></tr>`
+      : '',
+    answers.q3 && answers.q3 !== 'nincs' && camUnits > 0
+      ? `<tr><td style="padding:3px 8px 3px 0;color:#555">Kamera egységárak (${answers.q4.beltéri}b + ${answers.q4.kültéri}k + ${answers.q4.ptz}ptz db):</td><td style="text-align:right">${formatHuf(camUnits)}</td></tr>`
+      : '',
+    answers.q5 && answers.q5 !== 'nincs'
+      ? `<tr><td style="padding:3px 8px 3px 0;color:#555">Riasztó alap (${RIASZTO_LABELS[answers.q5]}):</td><td style="text-align:right">${formatHuf(alarmBase)}</td></tr>`
+      : '',
+    alarmSensors > 0
+      ? `<tr><td style="padding:3px 8px 3px 0;color:#555">Érzékelők (${answers.q6.pir}×${formatHuf(SENSOR_PRICES.pir)} PIR + ${answers.q6.nyitas}×${formatHuf(SENSOR_PRICES.nyitas)} nyitás + ${answers.q6.uveg}×${formatHuf(SENSOR_PRICES.uveg)} üveg):</td><td style="text-align:right">${formatHuf(alarmSensors)}</td></tr>`
+      : '',
+    extraTotal > 0
+      ? `<tr><td style="padding:3px 8px 3px 0;color:#555">Extrák:</td><td style="text-align:right">${formatHuf(extraTotal)}</td></tr>`
+      : '',
+    `<tr style="border-top:1px solid #e5e5e5"><td style="padding:6px 8px 4px 0;font-weight:bold">Alap összeg:</td><td style="text-align:right;font-weight:bold">${formatHuf(baseSum)}</td></tr>`,
+    `<tr><td style="padding:3px 8px 3px 0;color:#555">× Ingatlan szorzó (${answers.q1 ?? '–'}):</td><td style="text-align:right">${typeMult.toFixed(2)}</td></tr>`,
+    `<tr><td style="padding:3px 8px 3px 0;color:#555">× Méret szorzó (${answers.q2 ?? '–'}):</td><td style="text-align:right">${sizeMult.toFixed(2)}</td></tr>`,
+    `<tr style="border-top:2px solid #D85A30"><td style="padding:8px 8px 4px 0;font-weight:bold;font-size:15px">PONTOS MUNKADÍJ:</td><td style="text-align:right;font-weight:bold;font-size:15px;color:#D85A30">${formatHuf(exact)}</td></tr>`,
+  ].filter(Boolean).join('');
+
   return `
 <html><body style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;color:#1a1a1a">
   <div style="background:#D85A30;padding:24px;border-radius:8px 8px 0 0">
@@ -108,7 +166,7 @@ function buildAdminHtml(answers: CalculatorAnswers, accepted: boolean): string {
     <h2 style="font-size:16px;border-bottom:2px solid #D85A30;padding-bottom:6px;margin-top:24px">Ingatlan adatok</h2>
     <table style="width:100%;font-size:14px;border-collapse:collapse">
       <tr><td style="padding:4px 0;color:#666;width:140px">Típus:</td><td>${answers.q1 ? INGATLAN_LABELS[answers.q1] : '–'}</td></tr>
-      <tr><td style="padding:4px 0;color:#666">Alapterület:</td><td>${answers.q2 ? MERET_LABELS[answers.q2] : '–'}</td></tr>
+      <tr><td style="padding:4px 0;color:#666">Alap terület:</td><td>${answers.q2 ? MERET_LABELS[answers.q2] : '–'}</td></tr>
     </table>
 
     <h2 style="font-size:16px;border-bottom:2px solid #D85A30;padding-bottom:6px;margin-top:24px">Kamerarendszer</h2>
@@ -136,10 +194,10 @@ function buildAdminHtml(answers: CalculatorAnswers, accepted: boolean): string {
     <ul style="font-size:14px;padding-left:20px">${extrasList}</ul>
     ` : ''}
 
-    <h2 style="font-size:16px;border-bottom:2px solid #D85A30;padding-bottom:6px;margin-top:24px">Kalkulált ár</h2>
-    <div style="background:#f9fafb;padding:16px;border-radius:6px;font-size:15px">
-      <p style="margin:0 0 8px 0"><strong>Pontos (belső):</strong> ${formatHuf(exact)} nettó</p>
-      <p style="margin:0"><strong>Tartomány (ügyfél látta):</strong> ${formatHuf(low)} – ${formatHuf(high)} nettó</p>
+    <h2 style="font-size:16px;border-bottom:2px solid #D85A30;padding-bottom:6px;margin-top:28px">🧮 Kalkuláció részletezése (belső)</h2>
+    <div style="background:#f0f4ff;border:1px solid #c7d2fe;border-radius:6px;padding:16px;font-size:13px">
+      <table style="width:100%;border-collapse:collapse">${calcRows}</table>
+      <p style="margin:12px 0 0;font-size:12px;color:#888">Az ügyfél ezt látta: ${formatHuf(low)} – ${formatHuf(high)} nettó (±15% sáv)</p>
     </div>
   </div>
 </body></html>`;

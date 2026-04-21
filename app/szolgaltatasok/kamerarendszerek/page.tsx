@@ -125,7 +125,7 @@ export default function KamerarendszerekPage() {
               <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-2xl p-10 shadow-2xl">
                 <div className="grid grid-cols-2 gap-5">
                   {[
-                    { icon: Eye, title: '360° látószög', desc: 'Teljes körű megfigyelés' },
+                    { icon: Eye, title: 'Széles látószög', desc: 'HD/4K, kültéri és beltéri' },
                     { icon: Shield, title: 'IP67 védelem', desc: 'Időjárásálló kivitel' },
                     { icon: Zap, title: 'Gyors telepítés', desc: '1–2 nap alatt kész' },
                     { icon: Camera, title: 'Smart AI', desc: 'Intelligens mozgásérzékelés' },

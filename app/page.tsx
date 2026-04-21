@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
-import TestimonialCard from '@/components/TestimonialCard';
 import { Button } from '@/components/ui/button';
 import { Camera, Bell, Flame, Clock, Users, Shield, CircleCheck as CheckCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -59,7 +58,7 @@ export default function Home() {
                 features={[
                   'Füstérzékelők',
                   'Hőmérséklet szenzorok',
-                  'Automatikus riasztás',
+                  'Hang- és fényriasztás',
                   'Rendszeres karbantartás',
                 ]}
                 href="/szolgaltatasok/tuzjelzo-rendszerek"
@@ -127,42 +126,6 @@ export default function Home() {
                   Telepítés után is számíthat ránk karbantartásban és javításban
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Ügyfeleink mondták
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Valós visszajelzések vállalkozásoktól és lakostulajdonosoktól
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <TestimonialCard
-                name="Kiss Péter"
-                role="Kisvállalkozó"
-                content="Professzionális munkát végeztek, a kamerarendszer hibátlanul működik. Végre nyugodtan alszom, tudva, hogy az üzletem biztonságban van."
-                rating={5}
-              />
-
-              <TestimonialCard
-                name="Nagy Eszter"
-                role="Lakástulajdonos"
-                content="Gyors, tiszta munka és nagyon kedves szakemberek. A riasztórendszer telepítése után sokkal biztonságosabbnak érzem magam otthon."
-                rating={5}
-              />
-
-              <TestimonialCard
-                name="Kovács János"
-                role="Bolttulajdonos"
-                content="Már többször is fordultam hozzájuk, mindig megbízhatóak és pontosak. A karbantartás is gyorsan és szakszerűen történik."
-                rating={5}
-              />
             </div>
           </div>
         </section>

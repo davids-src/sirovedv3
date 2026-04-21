@@ -9,10 +9,10 @@ interface Props {
 }
 
 const OPTIONS: { value: RiasztoType; label: string; sub: string; icon: React.ReactNode }[] = [
-    { value: 'nincs', label: 'Nem kérek riasztót', sub: 'Csak kamerarendszer', icon: <BellOff className="h-6 w-6" /> },
-    { value: 'uj', label: 'Igen, új riasztót kérek', sub: 'Teljesen új rendszer telepítése', icon: <BellRing className="h-6 w-6" /> },
-    { value: 'bovites', label: 'Meglévő riasztót bővítenék', sub: 'Extra érzékelők, zónák hozzáadása', icon: <PlusCircle className="h-6 w-6" /> },
-    { value: 'karbantartas', label: 'Meglévő riasztó karbantartása', sub: 'Éves felülvizsgálat, javítás, programozás', icon: <Wrench className="h-6 w-6" /> },
+    { value: 'nincs', label: 'Nem kérek riasztót', sub: 'Csak kamerarendszer kérek', icon: <BellOff className="h-6 w-6" /> },
+    { value: 'uj', label: 'Igen, új riasztót kérek', sub: 'Teljes új rendszer: központ, érzékelők, sziréna', icon: <BellRing className="h-6 w-6" /> },
+    { value: 'bovites', label: 'Meglévő riasztót bővínék', sub: 'Extra érzékelők, zónák hozzáadása meglévő központhoz', icon: <PlusCircle className="h-6 w-6" /> },
+    { value: 'karbantartas', label: 'Meglévő riasztó karbantartása', sub: 'Éves felülvizsgálat, hibás érzékelő csere, programozás', icon: <Wrench className="h-6 w-6" /> },
 ];
 
 export default function Q5Riaszto({ answers, onAnswer }: Props) {
