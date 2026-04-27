@@ -138,11 +138,11 @@ export function formatHuf(n: number): string {
 // ─── Step routing helpers ──────────────────────────────────────────────────────
 
 export function getSteps(a: CalculatorAnswers): number[] {
-  const steps = [1, 2, 3];
+  const steps = [0, 1, 2, 3];  // 0 = kapcsolat (első lépés)
   if (!a.q3 || a.q3 !== 'nincs') steps.push(4);
   steps.push(5);
   if (a.q5 === 'uj' || a.q5 === 'bovites') steps.push(6);
-  steps.push(7, 8);
+  steps.push(7);
   return steps;
 }
 

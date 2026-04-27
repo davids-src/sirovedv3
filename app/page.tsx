@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
+import KalkulatorBemutato from '@/components/KalkulatorBemutato';
 import { Button } from '@/components/ui/button';
 import { Camera, Bell, Flame, Clock, Users, Shield, CircleCheck as CheckCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -12,6 +13,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+
+        <KalkulatorBemutato />
 
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

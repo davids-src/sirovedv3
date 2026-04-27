@@ -25,6 +25,7 @@ const INITIAL_ANSWERS: CalculatorAnswers = {
 };
 
 const STEP_TITLES: Record<number, string> = {
+    0: 'Az Ön adatai – az ajánlatot ezekre küldjük',
     1: 'Milyen típusú ingatlanról van szó?',
     2: 'Mekkora az ingatlan alapterülete?',
     3: 'Milyen kamerarendszert szeretne?',
@@ -32,19 +33,12 @@ const STEP_TITLES: Record<number, string> = {
     5: 'Szeretne riasztórendszert?',
     6: 'Hány érzékelőre lenne szükség?',
     7: 'Milyen extra igények merülnek fel?',
-    8: 'Hova küldjük az ajánlatot?',
 };
 
 function validateStep(step: number, answers: CalculatorAnswers): { valid: boolean; contactErrors: Partial<Record<keyof ContactData, string>> } {
     const contactErrors: Partial<Record<keyof ContactData, string>> = {};
 
-    if (step === 1 && !answers.q1) return { valid: false, contactErrors };
-    if (step === 2 && !answers.q2) return { valid: false, contactErrors };
-    if (step === 3 && !answers.q3) return { valid: false, contactErrors };
-    if (step === 3 && answers.q3 === 'nincs' && answers.q5 === 'nincs') return { valid: false, contactErrors };
-    if (step === 5 && !answers.q5) return { valid: false, contactErrors };
-
-    if (step === 8) {
+    if (step === 0) {
         const c = answers.q8;
         if (!c?.nev?.trim()) contactErrors.nev = 'Kérjük adja meg a nevét.';
         if (!c?.telefon?.trim()) contactErrors.telefon = 'Kérjük adja meg a telefonszámát.';
@@ -53,6 +47,12 @@ function validateStep(step: number, answers: CalculatorAnswers): { valid: boolea
         if (!c?.helyszin?.trim()) contactErrors.helyszin = 'Kérjük adja meg a helyszínt.';
         return { valid: Object.keys(contactErrors).length === 0, contactErrors };
     }
+
+    if (step === 1 && !answers.q1) return { valid: false, contactErrors };
+    if (step === 2 && !answers.q2) return { valid: false, contactErrors };
+    if (step === 3 && !answers.q3) return { valid: false, contactErrors };
+    if (step === 3 && answers.q3 === 'nincs' && answers.q5 === 'nincs') return { valid: false, contactErrors };
+    if (step === 5 && !answers.q5) return { valid: false, contactErrors };
 
     return { valid: true, contactErrors };
 }
@@ -164,7 +164,7 @@ export default function KalkulatorWizard() {
                 )}
 
                 {/* Validation hint */}
-                {showValidationHint && currentStep !== 8 && (
+                {showValidationHint && currentStep !== 0 && (
                     <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700">
                         Kérjük válasszon egy lehetőséget a továbblépéshez.
                     </div>
@@ -172,6 +172,7 @@ export default function KalkulatorWizard() {
 
                 {/* Step content */}
                 <div className="min-h-[280px]">
+                    {currentStep === 0 && <Q8Kapcsolat answers={answers} onAnswer={handleAnswer} errors={contactErrors} />}
                     {currentStep === 1 && <Q1IngatlanTipus answers={answers} onAnswer={handleAnswer} />}
                     {currentStep === 2 && <Q2Alapterulet answers={answers} onAnswer={handleAnswer} />}
                     {currentStep === 3 && <Q3KameraRendszer answers={answers} onAnswer={handleAnswer} />}
@@ -179,7 +180,6 @@ export default function KalkulatorWizard() {
                     {currentStep === 5 && <Q5Riaszto answers={answers} onAnswer={handleAnswer} />}
                     {currentStep === 6 && <Q6ErzekeloDb answers={answers} onAnswer={handleAnswer} />}
                     {currentStep === 7 && <Q7ExtraIgnyek answers={answers} onAnswer={handleAnswer} />}
-                    {currentStep === 8 && <Q8Kapcsolat answers={answers} onAnswer={handleAnswer} errors={contactErrors} />}
                 </div>
 
                 {/* Navigation */}
