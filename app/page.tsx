@@ -4,7 +4,7 @@ import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
 import KalkulatorBemutato from '@/components/KalkulatorBemutato';
 import { Button } from '@/components/ui/button';
-import { Camera, Bell, Flame, Clock, Users, Shield, CircleCheck as CheckCircle, ArrowRight } from 'lucide-react';
+import { Camera, Bell, Flame, Clock, Users, Shield, CircleCheck as CheckCircle, ArrowRight, Zap, MapPin, CalendarCheck } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -15,6 +15,88 @@ export default function Home() {
         <Hero />
 
         <KalkulatorBemutato />
+
+        {/* ── Promóciós ajánlat banner ── */}
+        <section className="py-10 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-gray-900 via-gray-800 to-red-900 shadow-2xl">
+              {/* Háttér dekor körök */}
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-600/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-red-700/20 rounded-full blur-3xl pointer-events-none" />
+              {/* Finom rács textúra */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-[size:24px_24px] pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 lg:p-12">
+
+                {/* Kamera ikon blokk */}
+                <div className="shrink-0">
+                  <div className="relative">
+                    <div className="w-24 h-24 rounded-2xl bg-red-600/30 border border-red-500/40 flex items-center justify-center backdrop-blur-sm">
+                      <Camera className="h-12 w-12 text-red-400" />
+                    </div>
+                    {/* Pulzáló gyűrű */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-red-500/30 animate-ping" style={{ animationDuration: '2.5s' }} />
+                  </div>
+                </div>
+
+                {/* Szöveg blokk */}
+                <div className="flex-1 text-center lg:text-left">
+                  {/* Ajánlat badge */}
+                  <div className="inline-flex items-center gap-2 bg-red-600/80 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
+                    <Zap className="h-3.5 w-3.5" />
+                    Aktuális ajánlat
+                  </div>
+
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-3">
+                    4 kamerás rendszer{' '}
+                    <span className="text-red-400">már nettó 100 000 Ft-tól</span>
+                  </h2>
+                  <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-xl">
+                    Védd meg otthonod vagy vállalkozásod! Komplett HD kamerarendszer
+                    – telepítéssel, beüzemeléssel és mobilos táveléréssel. Profi munka, megfizethető áron.
+                  </p>
+
+                  {/* 3 apró jellemző */}
+                  <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-6">
+                    <div className="flex items-center gap-2 text-sm text-gray-200">
+                      <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                        <MapPin className="h-4 w-4 text-red-400" />
+                      </div>
+                      <span>Ingyenes helyszíni felmérés</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-200">
+                      <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                        <CalendarCheck className="h-4 w-4 text-red-400" />
+                      </div>
+                      <span>Akár 1 nap alatt kész</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-200">
+                      <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                        <CheckCircle className="h-4 w-4 text-red-400" />
+                      </div>
+                      <span>Garanciával, számlával</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA jobb oldal */}
+                <div className="shrink-0 flex flex-col items-center gap-3 w-full lg:w-auto">
+                  <Link href="/kalkulator" className="w-full lg:w-auto">
+                    <Button
+                      size="lg"
+                      className="bg-red-600 hover:bg-red-500 text-white font-bold shadow-[0_0_24px_rgba(220,38,38,0.45)] hover:shadow-[0_0_32px_rgba(220,38,38,0.65)] transition-all group w-full lg:w-auto whitespace-nowrap"
+                    >
+                      Árajánlatot kérek
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <p className="text-xs text-gray-400 text-center">Kötelezettségmentes · Ingyenes</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
