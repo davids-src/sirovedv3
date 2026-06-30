@@ -357,13 +357,6 @@ export default function Szolgaltatasok() {
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
-                  <p className="text-sm text-yellow-800">
-                    <strong>Hamarosan elérhető!</strong> Jelenleg folyamatban van a szolgáltatás bevezetése.
-                    Kérjen előzetes ajánlatot!
-                  </p>
-                </div>
-
                 <Link href="/szolgaltatasok/tuzjelzo-rendszerek">
                   <Button size="lg" className="bg-red-600 hover:bg-red-700">
                     További információk

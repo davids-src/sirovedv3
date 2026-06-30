@@ -152,7 +152,7 @@ function buildAdminHtml(answers: CalculatorAnswers, accepted: boolean): string {
     </div>
 
     ${hasFire ? `<div style="background:#fef3c7;padding:12px 16px;border-radius:6px;margin-bottom:20px;border-left:4px solid #f59e0b">
-      🔥 <strong>Tűzjelző iránt érdeklődött</strong> – hamarosan értesíteni kell az indulásról.
+      🔥 <strong>Tűzjelző rendszer iránt érdeklődött</strong> – ajánlat küldendő!
     </div>` : ''}
 
     <h2 style="font-size:16px;border-bottom:2px solid #D85A30;padding-bottom:6px">Kapcsolati adatok</h2>
@@ -254,7 +254,7 @@ function buildClientHtml(answers: CalculatorAnswers, accepted: boolean): string 
     <ul style="font-size:14px;padding-left:20px">${itemsHtml}</ul>
 
     ${hasFire ? `<div style="background:#fef3c7;padding:12px 16px;border-radius:6px;margin:20px 0;border-left:4px solid #f59e0b;font-size:14px">
-      🔥 <strong>Tűzjelző rendszer iránt érdeklődött.</strong> Ez a szolgáltatás hamarosan elérhető lesz – kollégánk tájékoztatja az indulásról.
+      🔥 <strong>Tűzjelző rendszer iránt is érdeklődött.</strong> Kollégánk erre is ajánlatot készít és felveszi Önnel a kapcsolatot.
     </div>` : ''}
 
     <div style="background:#f0fdf4;padding:14px 16px;border-radius:6px;margin:20px 0;font-size:14px">

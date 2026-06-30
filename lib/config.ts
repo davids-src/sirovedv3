@@ -6,8 +6,8 @@ export const SITE = {
     emailHref: 'mailto:hello@sironic.hu',
     address: '8000 Székesfehérvár, Lövölde utca 24',
     region: 'Fejér Vármegye, Székesfehérvár',
-    company: 'Skoda Dávid András Egyéni Vállalkozó',
-    taxNumber: '45755754-2-27',
+    company: 'SIROTECH Kft.',
+    taxNumber: '33056151-2-07',
     website: 'siroved.hu',
     ga: process.env.NEXT_PUBLIC_GA_ID ?? '',
 } as const;
