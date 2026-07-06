@@ -3,8 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X, Calculator } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,72 +27,85 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 h-16 border-b border-[#2A2A35]/60 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-[#0A0A0C]/95 backdrop-blur-xl'
+          : 'bg-[#0A0A0C]/80 backdrop-blur-xl'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link href="/" className="flex items-center space-x-2 group">
-            <Image 
-              src="/siroved_logo.png" 
-              alt="SIRO-VÉD Logo" 
-              width={200} 
-              height={60} 
-              className="h-10 w-auto object-contain md:h-12"
+      <div className="max-w-site mx-auto px-6 h-full">
+        <div className="flex justify-between items-center h-full">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/siroved_logo.png"
+              alt="SIRO-VÉD Logo"
+              width={160}
+              height={48}
+              className="h-7 w-auto object-contain"
               priority
             />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className="text-sm text-muted hover:text-ink transition-colors duration-150"
               >
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center">
             <Link href="/kalkulator">
-              <Button className="relative bg-red-600 hover:bg-red-700 shadow-[0_0_12px_rgba(220,38,38,0.45)] hover:shadow-[0_0_18px_rgba(220,38,38,0.65)] transition-shadow">
-                <Sparkles className="h-3.5 w-3.5 mr-1.5 opacity-90" />
+              <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-2.5 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8] hover:shadow-[0_0_56px_-10px_#1A6BE8]">
+                <Calculator size={16} />
                 Intelligens díjkalkulátor
-              </Button>
+              </button>
             </Link>
           </div>
 
+          {/* Mobile hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded hover:bg-[#111116] transition-colors duration-150"
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-gray-900" />
+              <X size={24} className="text-ink" />
             ) : (
-              <Menu className="h-6 w-6 text-gray-900" />
+              <Menu size={24} className="text-ink" />
             )}
           </button>
         </div>
       </div>
 
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-4 py-6 space-y-4">
+        <div className="md:hidden bg-[#18181F] border-t border-[#2A2A35]">
+          <div className="px-6 py-6 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-gray-700 hover:text-red-600 transition-colors font-medium py-2"
+                className="block text-sm text-muted hover:text-ink transition-colors duration-150 py-3 border-b border-[#2A2A35]/50 last:border-0"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/kalkulator" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full bg-red-600 hover:bg-red-700 shadow-[0_0_12px_rgba(220,38,38,0.35)]">
-                <Sparkles className="h-3.5 w-3.5 mr-1.5 opacity-90" />
-                Intelligens díjkalkulátor
-              </Button>
-            </Link>
+            <div className="pt-4">
+              <Link href="/kalkulator" onClick={() => setIsMobileMenuOpen(false)}>
+                <button className="flex items-center justify-center gap-2 w-full bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
+                  <Calculator size={16} />
+                  Intelligens díjkalkulátor
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

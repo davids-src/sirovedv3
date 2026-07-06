@@ -1,411 +1,242 @@
+'use client';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Camera, Bell, Flame, CircleCheck as CheckCircle, Phone, Shield, Eye, Lock, Zap } from 'lucide-react';
+import { Camera, Bell, Flame, CircleCheck as CheckCircle, Phone, Shield, Eye, Lock, Zap, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { Metadata } from 'next';
+import { motion } from 'framer-motion';
 
-export const metadata: Metadata = {
-  title: 'Biztonságtechnikai Szolgáltatások Székesfehérváron – Siro Véd',
-  description: 'Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében. Ingyenes konzultáció, gyors kiszállás.',
-  keywords: [
-    'biztonságtechnika Székesfehérvár',
-    'biztonsági rendszer telepítő',
-    'biztonságtechnikai cég Székesfehérvár',
-    'kamerarendszer',
-    'CCTV telepítés',
-    'biztonsági kamera',
-    'IP kamera rendszer',
-    'vezeték nélküli kamerarendszer',
-    'éjjellátó kamera rendszer',
-    'kamerarendszer szerviz',
-    'riasztórendszer',
-    'betörésvédelem',
-    'mozgásérzékelő telepítés',
-    'okos riasztó rendszer',
-    'riasztó szerviz',
-    'riasztó javítás',
-    'tűzjelző rendszer',
-    'füstérzékelő telepítés',
-    'tűzvédelmi rendszer',
-    'tűzjelző szerviz',
-    'beléptető rendszer',
-    'beléptető rendszer telepítés',
-    'kártyás beléptető rendszer',
-    'ujjlenyomatos beléptető',
-    'irodai beléptető rendszer',
-    'kapunyitó beléptető rendszer',
-    'munkaidő nyilvántartó rendszer',
-    'RFID beléptető rendszer',
-    'beléptető rendszer cégeknek',
-    'beléptető rendszer Székesfehérvár',
-    'kaputelefon telepítés',
-    'videó kaputelefon',
-    'okos kaputelefon rendszer',
-    'társasházi kaputelefon',
-    'kaputelefon javítás',
-    'kaputelefon szerviz',
-    'wifi kaputelefon',
-    'kaputelefon szerelő Fejér megye',
-    'kamerarendszer Székesfehérvár',
-    'kamerarendszer telepítő Székesfehérvár',
-    'riasztórendszer Fejér megye',
-    'biztonsági kamera telepítés Fejér megye',
-    'riasztó telepítés Székesfehérvár',
-    'riasztó szerelő Székesfehérvár',
-    'tűzjelző Székesfehérvár',
-    'tűzjelző rendszer Fejér megye',
-    'CCTV telepítő Fejér megye',
-    'CCTV szerviz Székesfehérvár',
-    'biztonságtechnikai szakember Székesfehérvár',
-    'kamera javítás Fejér megye',
-    'riasztó javítás Székesfehérvár',
-    'kamerarendszer karbantartás Fejér megye',
-    'biztonsági rendszer telepítő közelemben',
-    'kamerarendszer ár',
-    'riasztó telepítés ár',
-    'biztonságtechnika árajánlat',
-    'gyors árajánlat kamerarendszerre',
-    '24 órás biztonságtechnikai szerviz',
-    'sürgős kamera javítás',
-    'helyszíni felmérés ingyen',
-    'kamerarendszer telepítés garanciával',
-    'riasztórendszer telepítés garanciával',
-    'azonnali hibajavítás biztonsági rendszerhez',
-    'biztonságtechnikai szakember gyors kiszallással',
-    'ingyenes helyszíni felmérés Székesfehérvár',
-    'non-stop riasztó szerviz',
-    'ingyenes árajánlat biztonsági rendszer',
-  ],
+const ACCENT = '#1A6BE8';
+
+const reveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (d = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.6, delay: d, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] },
+  }),
 };
+
+const featureItems = (items: { title: string; desc: string }[]) =>
+  items.map(({ title, desc }) => (
+    <div key={title} className="flex items-start gap-3">
+      <CheckCircle size={18} strokeWidth={1.5} style={{ color: ACCENT }} className="shrink-0 mt-0.5" />
+      <div>
+        <h3 className="font-display font-semibold text-ink text-sm mb-0.5">{title}</h3>
+        <p className="text-muted text-sm leading-[1.7]">{desc}</p>
+      </div>
+    </div>
+  ));
 
 export default function Szolgaltatasok() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
-        <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                Szolgáltatásaink
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Komplett biztonságtechnikai megoldások otthonok, üzletek és irodák számára
-                Székesfehérváron és Fejér megyében. Minden szolgáltatásunk magában foglalja
-                a telepítést, beüzemelést és a folyamatos támogatást.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm">
-                <span className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium">
-                  <CheckCircle className="h-4 w-4" />
-                  <span>Ingyenes, kötelezettségmentes konzultáció</span>
+      <main className="pt-16">
+        {/* Hero */}
+        <section className="relative bg-bg pt-28 pb-20 overflow-hidden border-b border-[#2A2A35]/50">
+          <div className="hero-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] pointer-events-none" aria-hidden="true"
+            style={{ background: `radial-gradient(ellipse at center, ${ACCENT}12 0%, transparent 70%)` }} />
+          <div className="max-w-site mx-auto px-6 relative">
+            <motion.span className="eyebrow-chip" initial="hidden" animate="visible" custom={0.05} variants={reveal}>Komplett megoldások</motion.span>
+            <motion.h1 className="font-display mt-6 text-4xl sm:text-5xl font-bold text-ink tracking-[-0.04em] leading-[1.05]"
+              initial="hidden" animate="visible" custom={0.1} variants={reveal}>Szolgáltatásaink</motion.h1>
+            <motion.p className="mt-5 text-lg text-muted leading-[1.7] max-w-2xl"
+              initial="hidden" animate="visible" custom={0.15} variants={reveal}>
+              Komplett biztonságtechnikai megoldások otthonok, üzletek és irodák számára
+              Székesfehérváron és Fejér megyében. Minden szolgáltatásunk magában foglalja
+              a telepítést, beüzemelést és a folyamatos támogatást.
+            </motion.p>
+            <motion.div className="flex flex-wrap gap-4 mt-8 text-sm" initial="hidden" animate="visible" custom={0.2} variants={reveal}>
+              {['Ingyenes, kötelezettségmentes konzultáció', 'Gyors kiszállás', 'Javítást is vállalunk'].map((t) => (
+                <span key={t} className="flex items-center gap-2 text-muted">
+                  <CheckCircle size={14} style={{ color: ACCENT }} />
+                  {t}
                 </span>
-                <span className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium">
-                  <CheckCircle className="h-4 w-4" />
-                  <span>Gyors kiszállás</span>
-                </span>
-                <span className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium">
-                  <CheckCircle className="h-4 w-4" />
-                  <span>Javítást is vállalunk</span>
-                </span>
-              </div>
-            </div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        <section id="kamerarendszerek" className="py-20 bg-white scroll-mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center space-x-2 bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                  <Camera className="h-4 w-4" />
-                  <span>Megfigyelés</span>
-                </div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                  Kamerarendszerek
-                </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+        {/* Kamerarendszerek */}
+        <section id="kamerarendszerek" className="py-28 bg-bg border-b border-[#2A2A35]/50 scroll-mt-16">
+          <div className="max-w-site mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}>
+                <span className="eyebrow-chip">Megfigyelés</span>
+                <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">Kamerarendszerek</h2>
+                <p className="mt-5 text-muted text-base leading-[1.7] mb-8">
                   Modern CCTV kamerarendszerek telepítése és karbantartása. Akár otthonra, akár vállalkozásra van szükséged,
                   mi megtaláljuk a legmegfelelőbb megoldást.
                 </p>
-
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">HD és 4K felbontás</h3>
-                      <p className="text-gray-600">Kristálytiszta képminőség minden körülmények között</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Éjjellátó funkció</h3>
-                      <p className="text-gray-600">Infravörös technológia a sötétben is tiszta képért</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Távoli hozzáférés</h3>
-                      <p className="text-gray-600">Mobil app segítségével bárhonnan követhető a felvétel</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Felhő tároló</h3>
-                      <p className="text-gray-600">Biztonságos adattárolás és visszanézés lehetősége</p>
-                    </div>
-                  </div>
+                  {featureItems([
+                    { title: 'HD és 4K felbontás', desc: 'Kristálytiszta képminőség minden körülmények között' },
+                    { title: 'Éjjellátó funkció', desc: 'Infravörös technológia a sötétben is tiszta képért' },
+                    { title: 'Távoli hozzáférés', desc: 'Mobil app segítségével bárhonnan követhető a felvétel' },
+                    { title: 'Felhő tároló', desc: 'Biztonságos adattárolás és visszanézés lehetősége' },
+                  ])}
                 </div>
-
-                <Link href="/szolgaltatasok/kamerarendszerek">
-                  <Button size="lg" className="bg-red-600 hover:bg-red-700">
+                <Link href="/szolgaltatasok/kamerarendszerek" className="group">
+                  <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
                     További információk
-                  </Button>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
+                  </button>
                 </Link>
-              </div>
+              </motion.div>
 
-              <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-2xl p-12 shadow-2xl">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Eye className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">Széles látószög</h4>
-                    <p className="text-sm text-red-100">HD/4K kép nappal és éjjel</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Shield className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">IP67 védelem</h4>
-                    <p className="text-sm text-red-100">Időjárásálló kivitel</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Zap className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">Gyors telepítés</h4>
-                    <p className="text-sm text-red-100">1-2 nap alatt kész</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Camera className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">Smart AI</h4>
-                    <p className="text-sm text-red-100">Intelligens mozgásérzékelés</p>
-                  </div>
+              <motion.div
+                className="rounded-lg border p-10"
+                style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08`, boxShadow: `0 0 56px -14px ${ACCENT}` }}
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0.1} variants={reveal}
+              >
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: Eye, title: 'Széles látószög', desc: 'HD/4K kép nappal és éjjel' },
+                    { icon: Shield, title: 'IP67 védelem', desc: 'Időjárásálló kivitel' },
+                    { icon: Zap, title: 'Gyors telepítés', desc: '1-2 nap alatt kész' },
+                    { icon: Camera, title: 'Smart AI', desc: 'Intelligens mozgásérzékelés' },
+                  ].map(({ icon: Icon, title, desc }) => (
+                    <div key={title} className="rounded border p-5" style={{ background: `${ACCENT}10`, borderColor: `${ACCENT}30` }}>
+                      <Icon size={24} strokeWidth={1.5} style={{ color: ACCENT }} className="mb-3" />
+                      <h4 className="font-display font-semibold text-ink text-sm mb-1">{title}</h4>
+                      <p className="text-xs text-muted">{desc}</p>
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section id="riasztórendszerek" className="py-20 bg-gray-50 scroll-mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 shadow-2xl">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Lock className="h-10 w-10 mb-4 text-red-400" />
-                    <h4 className="font-semibold mb-2">Mobilos értesítés</h4>
-                    <p className="text-sm text-gray-300">Azonnali push üzenet</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Shield className="h-10 w-10 mb-4 text-red-400" />
-                    <h4 className="font-semibold mb-2">Multi-szenzor</h4>
-                    <p className="text-sm text-gray-300">Több érzékelő típus</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Bell className="h-10 w-10 mb-4 text-red-400" />
-                    <h4 className="font-semibold mb-2">Hang riasztás</h4>
-                    <p className="text-sm text-gray-300">120dB hangerő</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Phone className="h-10 w-10 mb-4 text-red-400" />
-                    <h4 className="font-semibold mb-2">24/7 monitoring</h4>
-                    <p className="text-sm text-gray-300">Non-stop védelem</p>
-                  </div>
+        {/* Riasztórendszerek */}
+        <section id="riasztórendszerek" className="py-28 bg-[#111116]/50 border-b border-[#2A2A35]/50 scroll-mt-16">
+          <div className="max-w-site mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <motion.div
+                className="rounded-lg border p-10 order-2 lg:order-1"
+                style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08`, boxShadow: `0 0 56px -14px ${ACCENT}` }}
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0.1} variants={reveal}
+              >
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: Lock, title: 'Mobilos értesítés', desc: 'Azonnali push üzenet' },
+                    { icon: Shield, title: 'Multi-szenzor', desc: 'Több érzékelő típus' },
+                    { icon: Bell, title: 'Hang riasztás', desc: '120dB hangerő' },
+                    { icon: Phone, title: '24/7 monitoring', desc: 'Non-stop védelem' },
+                  ].map(({ icon: Icon, title, desc }) => (
+                    <div key={title} className="rounded border p-5" style={{ background: `${ACCENT}10`, borderColor: `${ACCENT}30` }}>
+                      <Icon size={24} strokeWidth={1.5} style={{ color: ACCENT }} className="mb-3" />
+                      <h4 className="font-display font-semibold text-ink text-sm mb-1">{title}</h4>
+                      <p className="text-xs text-muted">{desc}</p>
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="order-1 lg:order-2">
-                <div className="inline-flex items-center space-x-2 bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                  <Bell className="h-4 w-4" />
-                  <span>Riasztás</span>
-                </div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                  Riasztórendszerek
-                </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <motion.div className="order-1 lg:order-2" initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}>
+                <span className="eyebrow-chip">Riasztás</span>
+                <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">Riasztórendszerek</h2>
+                <p className="mt-5 text-muted text-base leading-[1.7] mb-8">
                   Intelligens riasztórendszerek, amelyek azonnal értesítenek betörés vagy gyanús tevékenység esetén.
                   Otthonod vagy vállalkozásod védelme garantált.
                 </p>
-
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Mozgásérzékelők</h3>
-                      <p className="text-gray-600">Precíz PIR szenzorok hamis riasztások nélkül</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Ajtó és ablak érzékelők</h3>
-                      <p className="text-gray-600">Mágneses kapcsolók a nyílászárók védelmére</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Mobilapp értesítések</h3>
-                      <p className="text-gray-600">Azonnali push üzenetek esemény esetén</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Központi vezérlés</h3>
-                      <p className="text-gray-600">Egyszerű be- és kikapcsolás mobilról vagy távirányítóval</p>
-                    </div>
-                  </div>
+                  {featureItems([
+                    { title: 'Mozgásérzékelők', desc: 'Precíz PIR szenzorok hamis riasztások nélkül' },
+                    { title: 'Ajtó és ablak érzékelők', desc: 'Mágneses kapcsolók a nyílászárók védelmére' },
+                    { title: 'Mobilapp értesítések', desc: 'Azonnali push üzenetek esemény esetén' },
+                    { title: 'Központi vezérlés', desc: 'Egyszerű be- és kikapcsolás mobilról vagy távirányítóval' },
+                  ])}
                 </div>
-
-                <Link href="/szolgaltatasok/riasztorendszerek">
-                  <Button size="lg" className="bg-red-600 hover:bg-red-700">
+                <Link href="/szolgaltatasok/riasztorendszerek" className="group">
+                  <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
                     További információk
-                  </Button>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
+                  </button>
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section id="tuzjelzo" className="py-20 bg-white scroll-mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center space-x-2 bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                  <Flame className="h-4 w-4" />
-                  <span>Tűzvédelem</span>
-                </div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                  Tűzjelző rendszerek
-                </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+        {/* Tűzjelző */}
+        <section id="tuzjelzo" className="py-28 bg-bg border-b border-[#2A2A35]/50 scroll-mt-16">
+          <div className="max-w-site mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}>
+                <span className="eyebrow-chip">Tűzvédelem</span>
+                <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">Tűzjelző rendszerek</h2>
+                <p className="mt-5 text-muted text-base leading-[1.7] mb-8">
                   Megbízható tűzjelző rendszerek, amelyek életeket menthetnek és értékeket óvhatnak meg.
                   Megfelelünk minden biztonsági előírásnak.
                 </p>
-
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Füstérzékelők</h3>
-                      <p className="text-gray-600">Korai füst- és füstgázérzékelés optikai technológiával</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Hőmérséklet szenzorok</h3>
-                      <p className="text-gray-600">Hirtelen hőmérséklet-emelkedés azonnali észlelése</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Hang és fényriasztás</h3>
-                      <p className="text-gray-600">Sziréna és villogó a jelzés után azonnal aktiválódik</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Karbantartási csomag</h3>
-                      <p className="text-gray-600">Rendszeres karbantartás és ellenőrzés</p>
-                    </div>
-                  </div>
+                  {featureItems([
+                    { title: 'Füstérzékelők', desc: 'Korai füst- és füstgázérzékelés optikai technológiával' },
+                    { title: 'Hőmérséklet szenzorok', desc: 'Hirtelen hőmérséklet-emelkedés azonnali észlelése' },
+                    { title: 'Hang és fényriasztás', desc: 'Sziréna és villogó a jelzés után azonnal aktiválódik' },
+                    { title: 'Karbantartási csomag', desc: 'Rendszeres karbantartás és ellenőrzés' },
+                  ])}
                 </div>
-
-                <Link href="/szolgaltatasok/tuzjelzo-rendszerek">
-                  <Button size="lg" className="bg-red-600 hover:bg-red-700">
+                <Link href="/szolgaltatasok/tuzjelzo-rendszerek" className="group">
+                  <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
                     További információk
-                  </Button>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
+                  </button>
                 </Link>
-              </div>
+              </motion.div>
 
-              <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-12 shadow-2xl">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Flame className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">Korai észlelés</h4>
-                    <p className="text-sm text-orange-100">Másodpercek számítanak</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Shield className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">EN 54 szabvány</h4>
-                    <p className="text-sm text-orange-100">Teljes megfelelőség</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <Bell className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">90dB riasztás</h4>
-                    <p className="text-sm text-orange-100">Mindenkit ébreszti</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
-                    <CheckCircle className="h-10 w-10 mb-4 text-white" />
-                    <h4 className="font-semibold mb-2">10 év garancia</h4>
-                    <p className="text-sm text-orange-100">Minőségi eszközök</p>
-                  </div>
+              <motion.div
+                className="rounded-lg border p-10"
+                style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08`, boxShadow: `0 0 56px -14px ${ACCENT}` }}
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0.1} variants={reveal}
+              >
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: Flame, title: 'Korai észlelés', desc: 'Másodpercek számítanak' },
+                    { icon: Shield, title: 'EN 54 szabvány', desc: 'Teljes megfelelőség' },
+                    { icon: Bell, title: '90dB riasztás', desc: 'Mindenkit ébreszti' },
+                    { icon: CheckCircle, title: '10 év garancia', desc: 'Minőségi eszközök' },
+                  ].map(({ icon: Icon, title, desc }) => (
+                    <div key={title} className="rounded border p-5" style={{ background: `${ACCENT}10`, borderColor: `${ACCENT}30` }}>
+                      <Icon size={24} strokeWidth={1.5} style={{ color: ACCENT }} className="mb-3" />
+                      <h4 className="font-display font-semibold text-ink text-sm mb-1">{title}</h4>
+                      <p className="text-xs text-muted">{desc}</p>
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-6">
-              Van kérdésed a szolgáltatásokkal kapcsolatban?
-            </h2>
-            <p className="text-xl mb-8 text-red-100">
-              Lépj velünk kapcsolatba, és segítünk kiválasztani a számodra legmegfelelőbb rendszert!
-            </p>
-            <Link href="/kalkulator">
-              <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100">
-                <Phone className="mr-2 h-5 w-5" />
-                Árajánlat kalkulátor
-              </Button>
-            </Link>
+        {/* CTA */}
+        <section className="py-28 bg-[#111116]/50">
+          <div className="max-w-site mx-auto px-6">
+            <motion.div
+              className="relative overflow-hidden rounded-lg border p-12 lg:p-16"
+              style={{ borderColor: `${ACCENT}40`, boxShadow: `0 0 80px -20px ${ACCENT}` }}
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}
+            >
+              <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
+                style={{ background: `radial-gradient(ellipse 60% 40% at 50% 50%, ${ACCENT}10 0%, transparent 70%)` }} />
+              <div className="relative z-10">
+                <span className="eyebrow-chip mb-6 inline-block">Kérdésed van?</span>
+                <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">
+                  Van kérdésed a szolgáltatásokkal kapcsolatban?
+                </h2>
+                <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">
+                  Lépj velünk kapcsolatba, és segítünk kiválasztani a számodra legmegfelelőbb rendszert!
+                </p>
+                <Link href="/kalkulator" className="group">
+                  <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
+                    Árajánlat kalkulátor
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </section>
       </main>

@@ -1,11 +1,30 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieBanner from '@/components/CookieBanner';
 import StickyKalkulatorCTA from '@/components/StickyKalkulatorCTA';
 
-const inter = Inter({ subsets: ['latin'] });
+const fontDisplay = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const fontBody = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'SIRO-VÉD – Biztonságtechnika Székesfehérváron',
@@ -29,8 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="hu">
-      <body className={inter.className}>
+    <html
+      lang="hu"
+      className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}
+    >
+      <body className="font-body bg-bg text-ink">
         <GoogleAnalytics />
         <script
           type="application/ld+json"
