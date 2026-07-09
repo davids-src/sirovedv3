@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { CalculatorAnswers, calculatePrice, priceRange, formatHuf } from './types';
 import { CheckCircle2, Clock, ThumbsUp, ThumbsDown, Loader2, Flame, AlertTriangle } from 'lucide-react';
+import { gtag } from '@/lib/gtag';
 
 interface Props {
     answers: CalculatorAnswers;
@@ -70,6 +71,21 @@ export default function ResultPage({ answers, onReset }: Props) {
             if (!res.ok) throw new Error('error');
             setSubmitted(true);
             setDecision(accepted ? 'accepted' : 'declined');
+
+            // Track lead event in Google Analytics
+            gtag('event', 'generate_lead', {
+                event_category: 'Calculator',
+                event_label: accepted ? 'Calculator Accepted' : 'Calculator Info Only',
+                value: exact,
+                currency: 'HUF',
+                property_type: answers.q1,
+                accepted_contact: accepted,
+            });
+            gtag('event', 'calculator_submission', {
+                property_type: answers.q1,
+                price_estimate: exact,
+                accepted_contact: accepted
+            });
         } catch {
             setError('Az email küldése nem sikerült. Kérjük, hívjon minket közvetlenül!');
         } finally {

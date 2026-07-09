@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Cookie, X, Check } from 'lucide-react';
+import { gtag } from '@/lib/gtag';
 
 const STORAGE_KEY = 'siroved_cookie_consent';
 
@@ -11,11 +12,12 @@ export default function CookieBanner() {
     useEffect(() => {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored === 'accepted') {
-            if (typeof window !== 'undefined' && (window as any).gtag) {
-                (window as any).gtag('consent', 'update', {
-                    'analytics_storage': 'granted'
-                });
-            }
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted',
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
         }
         if (!stored) {
             // Delay slightly so it doesn't flash on first paint
@@ -27,16 +29,23 @@ export default function CookieBanner() {
     function accept() {
         localStorage.setItem(STORAGE_KEY, 'accepted');
         setVisible(false);
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-            (window as any).gtag('consent', 'update', {
-                'analytics_storage': 'granted'
-            });
-        }
+        gtag('consent', 'update', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted'
+        });
     }
 
     function decline() {
         localStorage.setItem(STORAGE_KEY, 'declined');
         setVisible(false);
+        gtag('consent', 'update', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+        });
     }
 
     if (!visible) return null;

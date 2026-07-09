@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Loader as Loader2 } from 'lucide-react';
+import { gtag } from '@/lib/gtag';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -35,6 +36,14 @@ export default function ContactForm() {
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       setSubmitStatus('success');
+      gtag('event', 'generate_lead', {
+        event_category: 'Contact',
+        event_label: 'Contact Form Submission',
+        value: 1
+      });
+      gtag('event', 'contact', {
+        method: 'form'
+      });
       setFormData({
         name: '',
         email: '',
