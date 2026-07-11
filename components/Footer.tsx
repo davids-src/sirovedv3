@@ -118,9 +118,15 @@ export default function Footer() {
               </span>
               <span>{SITE.address}</span>
             </div>
-            <p className="font-mono text-xs text-muted">
-              &copy; {currentYear} SIRO-VÉD. Minden jog fenntartva.
-            </p>
+            <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-muted">
+              <Link href="/aszf" className="hover:text-ink transition-colors">
+                ÁSZF
+              </Link>
+              <Link href="/adatvedelem" className="hover:text-ink transition-colors">
+                Adatkezelési Tájékoztató
+              </Link>
+              <span>&copy; {currentYear} SIRO-VÉD. Minden jog fenntartva.</span>
+            </div>
           </div>
         </div>
       </div>

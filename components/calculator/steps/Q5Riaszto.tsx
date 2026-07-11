@@ -18,7 +18,7 @@ const OPTIONS: { value: RiasztoType; label: string; sub: string; icon: React.Rea
 export default function Q5Riaszto({ answers, onAnswer }: Props) {
     return (
         <div>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-gray-400 mb-6">
                 A riasztó és a kamerarendszer kombinálható – együtt lényegesen hatékonyabb védelmet nyújtanak.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -29,16 +29,16 @@ export default function Q5Riaszto({ answers, onAnswer }: Props) {
                             key={opt.value}
                             onClick={() => onAnswer({ q5: opt.value })}
                             className={`flex items-start gap-4 p-4 rounded-xl border-2 text-left transition-all ${selected
-                                    ? 'border-red-600 bg-red-50'
-                                    : 'border-gray-200 bg-white hover:border-red-300 hover:bg-red-50/30'
+                                    ? 'border-red-600 bg-red-900/20'
+                                    : 'border-white/10 bg-[#12121A] hover:border-red-300 hover:bg-red-900/10'
                                 }`}
                         >
-                            <div className={`p-2 rounded-lg flex-shrink-0 ${selected ? 'bg-red-600 text-white' : 'bg-gray-100 text-gray-500'}`}>
+                            <div className={`p-2 rounded-lg flex-shrink-0 ${selected ? 'bg-red-600 text-white' : 'bg-white/10 text-gray-400'}`}>
                                 {opt.icon}
                             </div>
                             <div>
-                                <p className={`font-semibold text-sm ${selected ? 'text-red-700' : 'text-gray-900'}`}>{opt.label}</p>
-                                <p className="text-xs text-gray-500 mt-0.5">{opt.sub}</p>
+                                <p className={`font-semibold text-sm ${selected ? 'text-red-400' : 'text-white'}`}>{opt.label}</p>
+                                <p className="text-xs text-gray-400 mt-0.5">{opt.sub}</p>
                             </div>
                         </button>
                     );

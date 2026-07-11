@@ -128,17 +128,17 @@ export default function KalkulatorWizard() {
 
     if (showResult) {
         return (
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">🎉 Kalkulált árajánlat</h2>
+            <div className="bg-[#12121A] rounded-2xl shadow-lg border border-white/5 p-6 sm:p-8">
+                <h2 className="text-xl font-bold text-white mb-6">🎉 Kalkulált árajánlat</h2>
                 <ResultPage answers={answers} onReset={handleReset} />
             </div>
         );
     }
 
     return (
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        <div className="bg-[#12121A] rounded-2xl shadow-lg border border-white/5 overflow-hidden">
             {/* Progress bar */}
-            <div className="h-1.5 bg-gray-100">
+            <div className="h-1.5 bg-white/10">
                 <div
                     className="h-full bg-red-600 transition-all duration-500 ease-out"
                     style={{ width: `${progressPct}%` }}
@@ -148,24 +148,24 @@ export default function KalkulatorWizard() {
             <div className="p-6 sm:p-8">
                 {/* Step header */}
                 <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-medium text-red-600 bg-red-50 px-3 py-1 rounded-full">
+                    <span className="text-xs font-medium text-red-500 bg-red-900/20 px-3 py-1 rounded-full">
                         {stepIndex + 1} / {updatedSteps.length} lépés
                     </span>
                     <span className="text-xs text-gray-400">{progressPct}% kész</span>
                 </div>
 
-                <h2 className="text-xl font-bold text-gray-900 mb-6">{STEP_TITLES[currentStep]}</h2>
+                <h2 className="text-xl font-bold text-white mb-6">{STEP_TITLES[currentStep]}</h2>
 
                 {/* No-service warning */}
                 {noServiceSelected && currentStep === 5 && (
-                    <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-800">
+                    <div className="mb-4 p-3 bg-yellow-900/20 border border-yellow-900/50 rounded-xl text-sm text-yellow-400">
                         ⚠️ Kérjük válasszon legalább egy szolgáltatást (kamera vagy riasztó).
                     </div>
                 )}
 
                 {/* Validation hint */}
                 {showValidationHint && currentStep !== 0 && (
-                    <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700">
+                    <div className="mb-4 p-3 bg-red-900/20 border border-red-900/50 rounded-xl text-sm text-red-400">
                         Kérjük válasszon egy lehetőséget a továbblépéshez.
                     </div>
                 )}
@@ -183,11 +183,11 @@ export default function KalkulatorWizard() {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
+                <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/5">
                     <button
                         onClick={handleBack}
                         disabled={stepIndex === 0}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-gray-200 text-gray-600 text-sm font-medium hover:border-gray-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-white/10 text-gray-400 text-sm font-medium hover:border-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronLeft className="h-4 w-4" /> Vissza
                     </button>

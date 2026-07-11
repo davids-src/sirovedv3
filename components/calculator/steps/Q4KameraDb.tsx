@@ -31,25 +31,25 @@ export default function Q4KameraDb({ answers, onAnswer }: Props) {
 
     return (
         <div>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-gray-400 mb-6">
                 Adja meg a kívánt kamerák számát. Ha nem tudja pontosan, becsüljön – kollégánk a helyszíni felmérésen pontosítja.
             </p>
             <div className="space-y-4">
                 {FIELDS.map(({ key, label, sub }) => (
-                    <div key={key} className="flex items-center justify-between bg-white border-2 border-gray-200 rounded-xl p-4">
+                    <div key={key} className="flex items-center justify-between bg-[#12121A] border-2 border-white/10 rounded-xl p-4">
                         <div>
-                            <p className="font-semibold text-sm text-gray-900">{label}</p>
-                            <p className="text-xs text-gray-500">{sub}</p>
+                            <p className="font-semibold text-sm text-white">{label}</p>
+                            <p className="text-xs text-gray-400">{sub}</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={() => update(key, -1)}
                                 disabled={q4[key] === 0}
-                                className="h-8 w-8 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-600 hover:border-red-400 hover:text-red-600 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                className="h-8 w-8 rounded-full border-2 border-white/10 flex items-center justify-center text-gray-400 hover:border-red-500/50 hover:text-red-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                             >
                                 <Minus className="h-4 w-4" />
                             </button>
-                            <span className="w-6 text-center font-bold text-lg text-gray-900">{q4[key]}</span>
+                            <span className="w-6 text-center font-bold text-lg text-white">{q4[key]}</span>
                             <button
                                 onClick={() => update(key, 1)}
                                 disabled={q4[key] === MAX[key]}
@@ -62,7 +62,7 @@ export default function Q4KameraDb({ answers, onAnswer }: Props) {
                 ))}
             </div>
             {total > 0 && (
-                <p className="mt-4 text-sm text-red-600 font-medium text-center">
+                <p className="mt-4 text-sm text-red-500 font-medium text-center">
                     Összesen: {total} kamera
                 </p>
             )}
