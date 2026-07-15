@@ -9,5 +9,5 @@ export const SITE = {
     company: 'SIROTECH Kft.',
     taxNumber: '33056151-2-07',
     website: 'siroved.hu',
-    ga: process.env.NEXT_PUBLIC_GA_ID ?? '',
+    ga: process.env.NEXT_PUBLIC_GA_ID || 'G-MZ7RMC5YYL',
 } as const;
