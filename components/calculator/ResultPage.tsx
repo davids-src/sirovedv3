@@ -107,12 +107,12 @@ export default function ResultPage({ answers, onReset }: Props) {
                 </p>
                 <p className="text-sm text-gray-400 mb-8">Az összefoglaló e-mailt elküldtük a megadott email-re.</p>
                 <div className="flex items-center justify-center gap-2 text-gray-400 text-sm">
-                    <Clock className="h-4 w-4 text-red-500" />
+                    <Clock className="h-4 w-4 text-[#1A6BE8]" />
                     <span>Visszahívás: 1 munkanapon belül</span>
                 </div>
                 <button
                     onClick={onReset}
-                    className="mt-8 text-sm text-red-500 hover:text-red-400 underline underline-offset-2"
+                    className="mt-8 text-sm text-[#1A6BE8] hover:text-[#155ecc] underline underline-offset-2"
                 >
                     Új kalkuláció indítása
                 </button>
@@ -123,13 +123,13 @@ export default function ResultPage({ answers, onReset }: Props) {
     return (
         <div>
             {/* Price display */}
-            <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-6 text-center text-white mb-6">
-                <p className="text-red-200 text-sm mb-1">Tájékoztató egyszeri projektköltség (munkadíj)</p>
+            <div className="bg-gradient-to-br from-[#1A6BE8] to-[#155ecc] rounded-2xl p-6 text-center text-white mb-6">
+                <p className="text-blue-200 text-sm mb-1">Tájékoztató egyszeri projektköltség (munkadíj)</p>
                 <p className="text-4xl font-bold tracking-tight mb-1">
                     {formatHuf(low)} – {formatHuf(high)}
                 </p>
-                <p className="text-red-200 text-xs">nettó + ÁFA</p>
-                <p className="text-red-300 text-xs mt-2">Az eszközök (kamerák, érzékelők, rögzítők) ára külön</p>
+                <p className="text-blue-200 text-xs">nettó + ÁFA</p>
+                <p className="text-blue-300 text-xs mt-2">Az eszközök (kamerák, érzékelők, rögzítők) ára külön</p>
             </div>
 
             {/* Included items */}

@@ -116,6 +116,14 @@ export default function Footer() {
                 <FileText size={12} />
                 Adószám: {SITE.taxNumber}
               </span>
+              <span className="flex items-center gap-1.5">
+                <FileText size={12} />
+                Hat. Biz.: 07010-822/7987/2026. SZv.
+              </span>
+              <span className="flex items-center gap-1.5">
+                <FileText size={12} />
+                Épít. nyilv.: 17C03049
+              </span>
               <span>{SITE.address}</span>
             </div>
             <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-muted">

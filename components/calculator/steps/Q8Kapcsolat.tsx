@@ -48,12 +48,12 @@ export default function Q8Kapcsolat({ answers, onAnswer, errors }: Props) {
                                 onChange={(e) => handleChange(key, e.target.value)}
                                 placeholder={placeholder}
                                 className={`w-full pl-9 pr-4 py-3 border-2 rounded-xl text-sm outline-none transition-colors ${errors[key]
-                                        ? 'border-red-500/50 focus:border-red-600 bg-red-900/20'
-                                        : 'border-white/10 focus:border-red-500 bg-[#12121A]'
+                                        ? 'border-red-500/50 focus:border-[#1A6BE8] bg-[#1A6BE8]/10'
+                                        : 'border-white/10 focus:border-[#1A6BE8] bg-[#12121A]'
                                     }`}
                             />
                         </div>
-                        {errors[key] && <p className="mt-1 text-xs text-red-500">{errors[key]}</p>}
+                        {errors[key] && <p className="mt-1 text-xs text-[#1A6BE8]">{errors[key]}</p>}
                     </div>
                 ))}
             </div>

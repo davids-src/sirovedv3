@@ -29,15 +29,15 @@ export default function Q5Riaszto({ answers, onAnswer }: Props) {
                             key={opt.value}
                             onClick={() => onAnswer({ q5: opt.value })}
                             className={`flex items-start gap-4 p-4 rounded-xl border-2 text-left transition-all ${selected
-                                    ? 'border-red-600 bg-red-900/20'
-                                    : 'border-white/10 bg-[#12121A] hover:border-red-300 hover:bg-red-900/10'
+                                    ? 'border-[#1A6BE8] bg-[#1A6BE8]/10'
+                                    : 'border-white/10 bg-[#12121A] hover:border-[#1A6BE8]/40 hover:bg-[#1A6BE8]/05'
                                 }`}
                         >
-                            <div className={`p-2 rounded-lg flex-shrink-0 ${selected ? 'bg-red-600 text-white' : 'bg-white/10 text-gray-400'}`}>
+                            <div className={`p-2 rounded-lg flex-shrink-0 ${selected ? 'bg-[#1A6BE8] text-white' : 'bg-white/10 text-gray-400'}`}>
                                 {opt.icon}
                             </div>
                             <div>
-                                <p className={`font-semibold text-sm ${selected ? 'text-red-400' : 'text-white'}`}>{opt.label}</p>
+                                <p className={`font-semibold text-sm ${selected ? 'text-[#1A6BE8]' : 'text-white'}`}>{opt.label}</p>
                                 <p className="text-xs text-gray-400 mt-0.5">{opt.sub}</p>
                             </div>
                         </button>

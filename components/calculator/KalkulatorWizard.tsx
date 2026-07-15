@@ -140,7 +140,7 @@ export default function KalkulatorWizard() {
             {/* Progress bar */}
             <div className="h-1.5 bg-white/10">
                 <div
-                    className="h-full bg-red-600 transition-all duration-500 ease-out"
+                    className="h-full bg-[#1A6BE8] transition-all duration-500 ease-out"
                     style={{ width: `${progressPct}%` }}
                 />
             </div>
@@ -148,7 +148,7 @@ export default function KalkulatorWizard() {
             <div className="p-6 sm:p-8">
                 {/* Step header */}
                 <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-medium text-red-500 bg-red-900/20 px-3 py-1 rounded-full">
+                    <span className="text-xs font-medium text-[#1A6BE8] bg-[#1A6BE8]/10 px-3 py-1 rounded-full">
                         {stepIndex + 1} / {updatedSteps.length} lépés
                     </span>
                     <span className="text-xs text-gray-400">{progressPct}% kész</span>
@@ -165,7 +165,7 @@ export default function KalkulatorWizard() {
 
                 {/* Validation hint */}
                 {showValidationHint && currentStep !== 0 && (
-                    <div className="mb-4 p-3 bg-red-900/20 border border-red-900/50 rounded-xl text-sm text-red-400">
+                    <div className="mb-4 p-3 bg-[#1A6BE8]/10 border border-[#1A6BE8]/30 rounded-xl text-sm text-[#1A6BE8]">
                         Kérjük válasszon egy lehetőséget a továbblépéshez.
                     </div>
                 )}
@@ -194,7 +194,7 @@ export default function KalkulatorWizard() {
 
                     <button
                         onClick={handleNext}
-                        className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-colors"
+                        className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#1A6BE8] text-white text-sm font-semibold hover:bg-[#155ecc] transition-colors"
                     >
                         {stepIndex === updatedSteps.length - 1 ? 'Ajánlat megtekintése' : 'Következő'}
                         <ChevronRight className="h-4 w-4" />

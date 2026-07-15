@@ -24,12 +24,12 @@ export default function StickyKalkulatorCTA() {
 
     return (
         <div className="fixed bottom-24 right-4 sm:bottom-8 sm:right-6 z-40 animate-in slide-in-from-bottom-4 duration-300">
-            <div className="bg-red-600 text-white rounded-2xl shadow-2xl shadow-red-900/30 p-4 flex items-center gap-3 max-w-xs">
+        <div className="bg-[#1A6BE8] text-white rounded-2xl shadow-2xl shadow-[#1A6BE8]/30 p-4 flex items-center gap-3 max-w-xs">
                 <div className="flex-1">
-                    <p className="text-xs font-semibold text-red-200 mb-0.5">Mennyi lenne az ára?</p>
+                    <p className="text-xs font-semibold text-blue-200 mb-0.5">Mennyi lenne az ára?</p>
                     <Link
                         href="/kalkulator"
-                        className="flex items-center gap-1.5 text-sm font-bold hover:text-red-100 transition-colors"
+                        className="flex items-center gap-1.5 text-sm font-bold hover:text-blue-100 transition-colors"
                     >
                         <Sparkles className="h-3.5 w-3.5" />
                         Intelligens díjkalkulátor

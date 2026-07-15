@@ -54,15 +54,15 @@ export default function CookieBanner() {
         <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 animate-in slide-in-from-bottom duration-300">
             <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <div className="flex items-center gap-3 flex-shrink-0">
-                    <div className="bg-red-100 p-2.5 rounded-full">
-                        <Cookie className="h-5 w-5 text-red-600" />
+                    <div className="bg-[#1A6BE8]/10 p-2.5 rounded-full">
+                        <Cookie className="h-5 w-5 text-[#1A6BE8]" />
                     </div>
                 </div>
                 <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-gray-900 mb-1">🍪 Sütiket használunk</p>
                     <p className="text-xs text-gray-500 leading-relaxed">
                         A weboldal Google Analytics-et használ a látogatói statisztikákhoz. Az adatok névtelenül kerülnek feldolgozásra. Részletek az{' '}
-                        <a href="/adatvedelmi-tajekoztato" className="underline hover:text-red-600">adatvédelmi tájékoztatóban</a>.
+                        <a href="/adatvedelmi-tajekoztato" className="underline hover:text-[#1A6BE8]">adatvédelmi tájékoztatóban</a>.
                     </p>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0 w-full sm:w-auto">
@@ -75,7 +75,7 @@ export default function CookieBanner() {
                     </button>
                     <button
                         onClick={accept}
-                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-[#1A6BE8] text-white rounded-lg hover:bg-[#155ecc] transition-colors"
                     >
                         <Check className="h-3.5 w-3.5" />
                         Elfogadom

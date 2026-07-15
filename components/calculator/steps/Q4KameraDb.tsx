@@ -45,7 +45,7 @@ export default function Q4KameraDb({ answers, onAnswer }: Props) {
                             <button
                                 onClick={() => update(key, -1)}
                                 disabled={q4[key] === 0}
-                                className="h-8 w-8 rounded-full border-2 border-white/10 flex items-center justify-center text-gray-400 hover:border-red-500/50 hover:text-red-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                className="h-8 w-8 rounded-full border-2 border-white/10 flex items-center justify-center text-gray-400 hover:border-[#1A6BE8]/50 hover:text-[#1A6BE8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                             >
                                 <Minus className="h-4 w-4" />
                             </button>
@@ -53,7 +53,7 @@ export default function Q4KameraDb({ answers, onAnswer }: Props) {
                             <button
                                 onClick={() => update(key, 1)}
                                 disabled={q4[key] === MAX[key]}
-                                className="h-8 w-8 rounded-full border-2 border-red-600 bg-red-600 flex items-center justify-center text-white hover:bg-red-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                className="h-8 w-8 rounded-full border-2 border-red-600 bg-red-600 flex items-center justify-center text-white hover:bg-[#155ecc] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                             >
                                 <Plus className="h-4 w-4" />
                             </button>
@@ -62,7 +62,7 @@ export default function Q4KameraDb({ answers, onAnswer }: Props) {
                 ))}
             </div>
             {total > 0 && (
-                <p className="mt-4 text-sm text-red-500 font-medium text-center">
+                <p className="mt-4 text-sm text-[#1A6BE8] font-medium text-center">
                     Összesen: {total} kamera
                 </p>
             )}
