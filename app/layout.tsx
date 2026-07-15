@@ -27,11 +27,11 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'SIRO-VÉD – Biztonságtechnika Székesfehérváron',
+  title: 'SIRO-VÉD - Biztonságtechnika, Kamerarendszer, Riasztórendszer, Tűzvédelem',
   description: 'Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében. Ingyenes konzultáció, gyors kiszállás.',
   keywords: ['kamerarendszer telepítés', 'riasztórendszer telepítés', 'biztonságtechnika', 'megfigyelőrendszer', 'Székesfehérvár', 'Fejér megye', 'kamerarendszer javítás', 'riasztórendszer javítás'],
   openGraph: {
-    title: 'SIRO-VÉD – Biztonságtechnika Székesfehérváron',
+    title: 'SIRO-VÉD - Biztonságtechnika, Kamerarendszer, Riasztórendszer, Tűzvédelem',
     description: 'Kamerarendszerek és riasztórendszerek telepítése, javítása Székesfehérváron és Fejér megyében.',
     type: 'website',
     locale: 'hu_HU',
