@@ -9,6 +9,8 @@ import { Camera, Bell, Flame, Clock, Users, Shield, CircleCheck as CheckCircle, 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import FreeSecurityAssessmentSection from '@/components/FreeSecurityAssessmentSection';
+
 const ACCENT = '#1A6BE8';
 
 const revealVariants = {
@@ -26,6 +28,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+
+        {/* ── Ingyenes Vagyonvédelmi Állapotfelmérés Kampány Szekció ── */}
+        <FreeSecurityAssessmentSection variant="full" />
 
         <KalkulatorBemutato />
 

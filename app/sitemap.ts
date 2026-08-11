@@ -23,6 +23,7 @@ const routes: Array<{
   { path: "/", priority: 1.0, changefreq: "weekly" },
 
   // Fő aloldalak
+  { path: "/ingyenes-felmeres", priority: 0.95, changefreq: "weekly" },
   { path: "/szolgaltatasok", priority: 0.9, changefreq: "weekly" },
   { path: "/kalkulator", priority: 0.85, changefreq: "monthly" },
   { path: "/kapcsolat", priority: 0.8, changefreq: "monthly" },

@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { Bell, Phone, CheckCircle, Lock, Shield, Zap, Home, Store, Building, Warehouse, ArrowRight, Camera } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import FreeSecurityAssessmentSection from '@/components/FreeSecurityAssessmentSection';
 
 const ACCENT = '#1A6BE8';
 
@@ -196,6 +197,9 @@ export default function RiasztorendszerekPage() {
             </div>
           </div>
         </section>
+
+        {/* Ingyenes Állapotfelmérés Banner */}
+        <FreeSecurityAssessmentSection variant="compact" />
 
         {/* Helyi SEO */}
         <section className="py-16 bg-[#111116]/50 border-b border-[#2A2A35]/50">

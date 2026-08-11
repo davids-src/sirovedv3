@@ -36,6 +36,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { href: '/', label: 'Főoldal' },
+                { href: '/ingyenes-felmeres', label: 'Ingyenes Állapotfelmérés' },
                 { href: '/szolgaltatasok', label: 'Szolgáltatások' },
                 { href: '/rolunk', label: 'Rólunk' },
                 { href: '/kalkulator', label: 'Árajánlat kalkulátor' },
