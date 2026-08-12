@@ -287,10 +287,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Hiányzó kapcsolati adatok.' }, { status: 400 });
     }
 
-    const adminEmail = process.env.SIROVED_ADMIN_EMAIL;
-    if (!adminEmail) {
-      return NextResponse.json({ error: 'Admin email nincs beállítva.' }, { status: 500 });
-    }
+    const adminEmail = process.env.SIROVED_ADMIN_EMAIL || 'hello@sironic.hu';
 
     const transporter = createTransporter();
     const contact = answers.q8;
@@ -299,7 +296,7 @@ export async function POST(request: Request) {
 
     // Admin email
     await transporter.sendMail({
-      from: `"Siro Véd Kalkulátor" <${process.env.SMTP_USER}>`,
+      from: `"Siro Véd Kalkulátor" <${process.env.SMTP_USER || adminEmail}>`,
       to: adminEmail,
       subject: `Új ajánlatkérés – ${contact.nev} – ${city} – ${acceptedLabel}`,
       html: buildAdminHtml(answers, accepted),
@@ -307,7 +304,7 @@ export async function POST(request: Request) {
 
     // Client email
     await transporter.sendMail({
-      from: `"Siro Véd Biztonságtechnika" <${process.env.SMTP_USER}>`,
+      from: `"Siro Véd Biztonságtechnika" <${process.env.SMTP_USER || adminEmail}>`,
       to: contact.email,
       subject: 'Biztonságtechnika árajánlat – Siro Véd',
       html: buildClientHtml(answers, accepted),

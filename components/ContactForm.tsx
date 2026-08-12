@@ -61,7 +61,17 @@ function ContactFormContent() {
     setSubmitStatus('idle');
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error('Email sending failed');
+      }
 
       setSubmitStatus('success');
       gtag('event', 'generate_lead', {
@@ -83,6 +93,7 @@ function ContactFormContent() {
         privacyConsent: false,
       });
     } catch (error) {
+      console.error('Contact form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
