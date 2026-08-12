@@ -139,7 +139,7 @@ export default function Szolgaltatasok() {
                 <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">Riasztórendszerek</h2>
                 <p className="mt-5 text-muted text-base leading-[1.7] mb-8">
                   Intelligens riasztórendszerek, amelyek azonnal értesítenek betörés vagy gyanús tevékenység esetén.
-                  Otthonod vagy vállalkozásod védelme garantált.
+                  Otthonának vagy vállalkozásának megbízható védelméért.
                 </p>
                 <div className="space-y-4 mb-8">
                   {featureItems([
@@ -197,7 +197,7 @@ export default function Szolgaltatasok() {
                     { icon: Flame, title: 'Korai észlelés', desc: 'Másodpercek számítanak' },
                     { icon: Shield, title: 'EN 54 szabvány', desc: 'Teljes megfelelőség' },
                     { icon: Bell, title: '90dB riasztás', desc: 'Mindenkit ébreszti' },
-                    { icon: CheckCircle, title: '10 év garancia', desc: 'Minőségi eszközök' },
+                    { icon: CheckCircle, title: 'Gyártói garancia', desc: 'Minőségi eszközök' },
                   ].map(({ icon: Icon, title, desc }) => (
                     <div key={title} className="rounded border p-5" style={{ background: `${ACCENT}10`, borderColor: `${ACCENT}30` }}>
                       <Icon size={24} strokeWidth={1.5} style={{ color: ACCENT }} className="mb-3" />
@@ -222,19 +222,26 @@ export default function Szolgaltatasok() {
               <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
                 style={{ background: `radial-gradient(ellipse 60% 40% at 50% 50%, ${ACCENT}10 0%, transparent 70%)` }} />
               <div className="relative z-10">
-                <span className="eyebrow-chip mb-6 inline-block">Kérdésed van?</span>
+                <span className="eyebrow-chip mb-6 inline-block">Kérdése van?</span>
                 <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">
-                  Van kérdésed a szolgáltatásokkal kapcsolatban?
+                  Kérdése van szolgáltatásainkkal kapcsolatban?
                 </h2>
                 <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">
-                  Lépj velünk kapcsolatba, és segítünk kiválasztani a számodra legmegfelelőbb rendszert!
+                  Lépjen velünk kapcsolatba, és segítünk kiválasztani az Ön számára legmegfelelőbb rendszert!
                 </p>
-                <Link href="/kalkulator" className="group">
-                  <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
-                    Árajánlat kalkulátor
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
-                  </button>
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link href="/ingyenes-felmeres" className="group">
+                    <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
+                      Kérjen ingyenes felmérést
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
+                    </button>
+                  </Link>
+                  <Link href="/kapcsolat">
+                    <button className="flex items-center gap-2 border border-[#2A2A35] text-ink font-semibold rounded px-6 py-3 text-sm hover:border-[#C0C0D0]/50 transition-colors duration-150">
+                      Kapcsolatfelvétel
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>

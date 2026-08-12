@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Phone, CheckCircle, ClipboardList, Calculator, PhoneCall, ArrowRight } from 'lucide-react';
+import { CheckCircle, ClipboardList, Calculator, Shield, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ACCENT = '#1A6BE8';
@@ -10,27 +10,27 @@ const steps = [
   {
     number: '1',
     icon: ClipboardList,
-    title: 'Válaszolj 8 kérdésre',
-    description: 'Ingatlan típusa, méret, igények – mindössze 5 perc.',
+    title: 'Válaszoljon 8 kérdésre',
+    description: 'Ingatlan típusa, mérete és az alapvető igények.',
   },
   {
     number: '2',
     icon: Calculator,
-    title: 'Azonnali tájékoztató ár',
-    description: 'A kalkulátor azonnal megmutatja a becsült árat.',
+    title: 'Tájékoztató ár',
+    description: 'A kalkulátor azonnal megjeleníti a becsült nagyságrendi árat.',
   },
   {
     number: '3',
-    icon: PhoneCall,
-    title: 'Visszahívunk, ha szeretnéd',
-    description: 'Kötelezettség nélkül egyeztetünk a részletekről.',
+    icon: Shield,
+    title: 'Helyszíni felmérés',
+    description: 'Egyeztetett időpontban ingyenes helyszíni felmérést végzünk a pontos ajánlathoz.',
   },
 ];
 
 const trustBadges = [
   'Ingyenes és kötelezettségmentes',
-  'Adataid biztonságban vannak',
-  '24 órán belül visszahívunk',
+  'Adatai biztonságban vannak',
+  '1 munkanapon belül visszajelzünk',
 ];
 
 const revealVariants = {
@@ -70,7 +70,7 @@ export default function KalkulatorBemutato() {
                 name: 'Mennyibe kerül a riasztó telepítés ára?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'A riasztó telepítés ára az igényektől függ. Biztonságtechnika Székesfehérváron – ingyenes kalkulátorunk segítségével percek alatt tájékoztató árat kap.',
+                  text: 'A riasztó telepítés ára az igényektől függ. Ingyenes kalkulátorunk segítségével percek alatt tájékoztató árat kap.',
                 },
               },
             ],
@@ -102,8 +102,8 @@ export default function KalkulatorBemutato() {
               custom={0.08}
               variants={revealVariants}
             >
-              Kapj pontos árajánlatot –{' '}
-              <span style={{ color: ACCENT }}>helyszíni felmérés nélkül</span>
+              Nagyságrendi ár{' '}
+              <span style={{ color: ACCENT }}>néhány perc alatt</span>
             </motion.h2>
 
             <motion.p
@@ -114,14 +114,7 @@ export default function KalkulatorBemutato() {
               custom={0.12}
               variants={revealVariants}
             >
-              Nem kell megvárnod a szakembert. 8 egyszerű kérdésre válaszolva
-              percek alatt megkapod a tájékoztató{' '}
-              <strong className="text-ink">kamerarendszer árajánlatot</strong> vagy a{' '}
-              <strong className="text-ink">riasztó telepítés árát</strong> — teljesen
-              kötelezettségmentesen.{' '}
-              <span className="text-muted/70">
-                Biztonságtechnika Székesfehérváron és Fejér megyében.
-              </span>
+              Nyolc egyszerű kérdésre válaszolva néhány perc alatt tájékoztató árat kap a kamerarendszer vagy a riasztó telepítésére. A pontos ajánlathoz helyszíni felmérés szükséges — azt díjmentesen elvégezzük.
             </motion.p>
 
             {/* Trust badges */}
@@ -159,10 +152,10 @@ export default function KalkulatorBemutato() {
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
                 </button>
               </Link>
-              <Link href="tel:+36702735532">
+              <Link href="/ingyenes-felmeres">
                 <button className="flex items-center gap-2 border border-[#2A2A35] text-ink font-semibold rounded px-6 py-3 text-sm hover:border-[#C0C0D0]/50 transition-colors duration-150">
-                  <Phone size={16} className="text-muted" />
-                  Inkább felhívok
+                  <Shield size={16} className="text-muted" />
+                  Inkább felmérést kérek
                 </button>
               </Link>
             </motion.div>

@@ -47,7 +47,7 @@ export default function TuzjelzoRendszerekPage() {
             <motion.h1 className="font-display mt-6 text-4xl sm:text-5xl font-bold text-ink tracking-[-0.04em] leading-[1.05]"
               initial="hidden" animate="visible" custom={0.1} variants={reveal}>
               Tűzjelző rendszer telepítés<br />
-              <span style={{ color: ACCENT }}>Székesfehérváron és környékén</span>
+              <span style={{ color: ACCENT }}>Fejér megyében, Budapesten és a Közép-Dunántúlon</span>
             </motion.h1>
             <motion.p className="mt-5 text-lg text-muted leading-[1.7] max-w-2xl"
               initial="hidden" animate="visible" custom={0.15} variants={reveal}>
@@ -55,19 +55,19 @@ export default function TuzjelzoRendszerekPage() {
               vagyoni kárt. Megbízható tűzjelző rendszereket telepítünk, javítunk és karbantartunk.
             </motion.p>
             <motion.div className="mt-9 flex flex-col sm:flex-row gap-4" initial="hidden" animate="visible" custom={0.2} variants={reveal}>
-              <Link href="/kalkulator" className="group">
+              <Link href="/ingyenes-felmeres" className="group">
                 <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
-                  Kérj ingyenes konzultációt <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
+                  Kérjen ingyenes felmérést <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
                 </button>
               </Link>
               <Link href="tel:+36702735532">
                 <button className="flex items-center gap-2 border border-[#2A2A35] text-ink font-semibold rounded px-6 py-3 text-sm hover:border-[#C0C0D0]/50 transition-colors duration-150">
-                  <Phone size={16} className="text-muted" /> Hívj most
+                  <Phone size={16} className="text-muted" /> Hívjon most
                 </button>
               </Link>
             </motion.div>
             <motion.p className="mt-5 text-sm text-muted" initial="hidden" animate="visible" custom={0.25} variants={reveal}>
-              <span style={{ color: ACCENT }}>✓</span> Ingyenes konzultáció &nbsp;·&nbsp;
+              <span style={{ color: ACCENT }}>✓</span> Ingyenes felmérés &nbsp;·&nbsp;
               <span style={{ color: ACCENT }}>✓</span> Gyors kiszállás &nbsp;·&nbsp;
               <span style={{ color: ACCENT }}>✓</span> Javítást is vállalunk
             </motion.p>
@@ -88,11 +88,11 @@ export default function TuzjelzoRendszerekPage() {
                 </p>
                 <p className="mt-4 text-muted text-sm leading-[1.7]">
                   Egy korszerű tűzjelző rendszer füstérzékelőkből, hőérzékelőkből és egy vezérlőegységből áll.
-                  Riasztás esetén hangos szirena szól, és értesítési rendszeren keresztül te is azonnal értesülsz.
+                  Riasztás esetén hangos sziréna szól, és értesítési rendszeren keresztül Ön is azonnal értesül.
                 </p>
                 <p className="mt-4 text-muted text-sm leading-[1.7]">
                   <strong className="text-ink">Fontos:</strong> a tűzjelző rendszer telepítése és karbantartása néhány épülettípusnál
-                  jogszabályi kötelezettség. Ha bizonytalan vagy ebben, mi is segítünk tájékozódni.
+                  jogszabályi kötelezettség. Ha bizonytalan ebben, szívesen segítünk tájékozódni.
                 </p>
               </motion.div>
 
@@ -105,8 +105,8 @@ export default function TuzjelzoRendszerekPage() {
                   {[
                     { icon: Flame, title: 'Korai észlelés', desc: 'Másodpercek számítanak' },
                     { icon: Shield, title: 'EN 54 szabvány', desc: 'Teljes megfelelőség' },
-                    { icon: Bell, title: '90dB riasztás', desc: 'Mindenkit ébreszti' },
-                    { icon: CheckCircle, title: '10 év garancia', desc: 'Minőségi eszközök' },
+                    { icon: Bell, title: '90dB riasztás', desc: 'Azonnali hangjelzés' },
+                    { icon: CheckCircle, title: 'Gyártói garancia', desc: 'Minőségi eszközök' },
                   ].map(({ icon: Icon, title, desc }) => (
                     <div key={title} className="rounded border p-4" style={{ background: `${ACCENT}10`, borderColor: `${ACCENT}30` }}>
                       <Icon size={20} strokeWidth={1.5} style={{ color: ACCENT }} className="mb-2" />
@@ -204,12 +204,12 @@ export default function TuzjelzoRendszerekPage() {
           <div className="max-w-site mx-auto px-6">
             <motion.div className="max-w-3xl rounded-lg border p-8" style={{ borderColor: `${ACCENT}30`, background: `${ACCENT}08` }}
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}>
-              <h2 className="font-display text-xl font-semibold text-ink mb-4">Tűzjelző rendszer telepítés Székesfehérváron és Fejér megyében</h2>
+              <h2 className="font-display text-xl font-semibold text-ink mb-4">Tűzjelző rendszer telepítés Fejér megyében, Budapesten és a Közép-Dunántúlon</h2>
               <p className="text-muted text-sm leading-[1.7] mb-3">
-                A Siro Véd csapata Székesfehérváron és Fejér megye területén végez tűzjelző rendszer telepítést, javítást és karbantartást. Ismerjük a helyi igényeket és gyorsan ki tudunk szállni.
+                A SIROTECH Kft. (SIRO-VÉD) csapata Fejér megyében, Budapesten és a Közép-Dunántúl területén végez tűzjelző rendszer telepítést, javítást és karbantartást. Ismerjük a helyi igényeket és gyorsan ki tudunk szállni.
               </p>
               <p className="text-muted text-sm leading-[1.7]">
-                Ha már van tűzjelző rendszered, de nem működik megbízhatóan, vagy lejárt a karbantartása, azt is elvégezzük. Nem kell az egészet lecserélni — sokszor egy-egy érzékelő cseréje elegendő. Az első konzultáció mindig ingyenes.
+                Ha már van tűzjelző rendszere, de nem működik megbízhatóan, vagy lejárt a karbantartása, azt is elvégezzük. Nem kell az egészet lecserélni — sokszor egy-egy érzékelő cseréje elegendő. Az első konzultáció mindig ingyenes.
               </p>
             </motion.div>
           </div>
@@ -224,10 +224,10 @@ export default function TuzjelzoRendszerekPage() {
             </motion.div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
-                { title: 'Gyors reagálás', desc: 'Kiszállás általában 24–48 órán belül Székesfehérvár és környéke területén.' },
+                { title: 'Gyors reagálás', desc: '1 munkanapon belüli kapcsolatfelvétel és kiszállás.' },
                 { title: 'Személyre szabott', desc: 'Minden épülethez egyedi rendszert tervezünk a szabványok szerint.' },
                 { title: 'Javítást is vállalunk', desc: 'Meglévő rendszerek hibáit megjavítjuk — nem kell mindent lecserélni.' },
-                { title: 'Kis munkák is kellenek', desc: 'Egyetlen érzékelő cseréje vagy karbantartás is elegendő ok arra, hogy keress minket.' },
+                { title: 'Kisebb javítások is', desc: 'Egyetlen érzékelő cseréje vagy karbantartás is elegendő ok arra, hogy keressen minket.' },
               ].map(({ title, desc }, i) => (
                 <motion.div key={title}
                   className="rounded-lg border border-[#2A2A35] bg-surface p-6"
@@ -305,20 +305,20 @@ export default function TuzjelzoRendszerekPage() {
                 style={{ background: `radial-gradient(ellipse 60% 40% at 50% 50%, ${ACCENT}10 0%, transparent 70%)` }} />
               <div className="relative z-10">
                 <span className="eyebrow-chip mb-6 inline-block">Következő lépés</span>
-                <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">Készen állsz a következő lépésre?</h2>
+                <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">Készen áll a következő lépésre?</h2>
                 <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">
                   Az első konzultáció minden esetben ingyenes és kötelezettségmentes.
                   Nem csak teljes rendszerek kiépítésével foglalkozunk — meglévő rendszerek javítását és karbantartását is vállaljuk.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/kalkulator" className="group">
+                  <Link href="/ingyenes-felmeres" className="group">
                     <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
-                      Kérj ajánlatot <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
+                      Kérjen ingyenes felmérést <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
                     </button>
                   </Link>
-                  <Link href="/kalkulator">
+                  <Link href="/kapcsolat">
                     <button className="flex items-center gap-2 border border-[#2A2A35] text-ink font-semibold rounded px-6 py-3 text-sm hover:border-[#C0C0D0]/50 transition-colors duration-150">
-                      Ingyenes konzultáció
+                      Kapcsolatfelvétel
                     </button>
                   </Link>
                 </div>

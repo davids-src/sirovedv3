@@ -25,6 +25,7 @@ function ContactFormContent() {
     ingatlanTipus: 'lakoingatlan',
     jelenlegiRendszer: 'nincs',
     message: '',
+    privacyConsent: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,14 +43,20 @@ function ContactFormContent() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
+    const value = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.privacyConsent) {
+      setSubmitStatus('error');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -73,6 +80,7 @@ function ContactFormContent() {
         ingatlanTipus: 'lakoingatlan',
         jelenlegiRendszer: 'nincs',
         message: '',
+        privacyConsent: false,
       });
     } catch (error) {
       setSubmitStatus('error');
@@ -84,7 +92,7 @@ function ContactFormContent() {
   const isFelmeresSelected = formData.inquiryType === 'ingyenes-felmeres';
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} id="felmeres-urlap" className="space-y-6">
       {/* Bizalmi üzenet banner */}
       <div
         className="rounded-lg p-4 border text-sm space-y-1"
@@ -238,6 +246,26 @@ function ContactFormContent() {
         />
       </div>
 
+      {/* GDPR consent checkbox */}
+      <div className="flex items-start gap-3 pt-1">
+        <input
+          type="checkbox"
+          id="privacyConsent"
+          name="privacyConsent"
+          required
+          checked={formData.privacyConsent}
+          onChange={handleChange}
+          className="mt-1 h-4 w-4 rounded border-[#2A2A35] bg-[#111116] text-[#1A6BE8] focus:ring-[#1A6BE8] shrink-0 accent-[#1A6BE8]"
+        />
+        <Label htmlFor="privacyConsent" className="text-xs text-muted leading-[1.6] cursor-pointer">
+          Elfogadom az{' '}
+          <a href="/adatvedelem" target="_blank" rel="noopener noreferrer" className="underline text-ink hover:text-[#1A6BE8]">
+            Adatkezelési Tájékoztatót
+          </a>{' '}
+          és hozzájárulok adataim kezeléséhez a kapcsolatfelvétel céljából. *
+        </Label>
+      </div>
+
       {submitStatus === 'success' && (
         <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 px-4 py-3 rounded-lg text-sm">
           Köszönjük jelentkezését! Kollégánk hamarosan felveszi Önnel a kapcsolatot az időpont-egyeztetéshez.
@@ -246,14 +274,14 @@ function ContactFormContent() {
 
       {submitStatus === 'error' && (
         <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 px-4 py-3 rounded-lg text-sm">
-          Hiba történt a küldés során. Kérjük, próbálja újra vagy hívjon minket telefonon.
+          Kérjük, fogadja el az Adatkezelési Tájékoztatót és töltse ki az összes kötelező mezőt!
         </div>
       )}
 
       <Button
         type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-[#1A6BE8] hover:bg-[#155ecc] text-white font-semibold py-3 h-auto"
+        disabled={isSubmitting || !formData.privacyConsent}
+        className="w-full bg-[#1A6BE8] hover:bg-[#155ecc] text-white font-semibold py-3 h-auto disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isSubmitting ? (
           <>

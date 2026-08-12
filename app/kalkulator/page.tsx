@@ -18,9 +18,9 @@ const reveal = {
 };
 
 const TRUST_POINTS = [
-  { icon: ShieldCheck, title: 'Ingyenes helyszíni felmérés', desc: 'A kalkulátor után kollégánk személyesen is felméri az ingatlant – díjmentesen, kötelezettség nélkül.' },
+  { icon: ShieldCheck, title: 'Ingyenes helyszíni felmérés', desc: 'A kalkulációt követően kollégánk személyesen is felméri az ingatlant – díjmentesen, kötelezettség nélkül.' },
   { icon: CheckCircle2, title: 'Megbízható márkák, garanciával', desc: 'Csak bevált, minőségi eszközöket telepítünk – gyártói garanciával és 1 év munkadíj garanciával.' },
-  { icon: Phone, title: 'Gyors reagálás', desc: '1 munkanapon belül visszahívjuk – Székesfehérváron általában 24–48 órán belül ki tudunk szállni.' },
+  { icon: Phone, title: 'Gyors reagálás', desc: '1 munkanapon belül felvesszük Önnel a kapcsolatot a részletek egyeztetésére.' },
 ];
 
 export default function KalkulatorPage() {

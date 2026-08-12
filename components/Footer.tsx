@@ -38,6 +38,8 @@ export default function Footer() {
                 { href: '/', label: 'Főoldal' },
                 { href: '/ingyenes-felmeres', label: 'Ingyenes Állapotfelmérés' },
                 { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+                { href: '/referenciak', label: 'Referenciák' },
+                { href: '/blog', label: 'Blog' },
                 { href: '/rolunk', label: 'Rólunk' },
                 { href: '/kalkulator', label: 'Árajánlat kalkulátor' },
                 { href: '/kapcsolat', label: 'Kapcsolat' },
@@ -107,34 +109,41 @@ export default function Footer() {
 
         {/* Legal row */}
         <div className="border-t border-[#2A2A35]/50 pt-7">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 font-mono text-xs text-muted">
-              <span className="flex items-center gap-1.5">
-                <Building2 size={12} />
+          <div className="flex flex-col gap-4 text-xs text-muted">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono">
+              <span className="flex items-center gap-1.5 text-ink/90 font-semibold">
+                <Building2 size={13} style={{ color: ACCENT }} />
                 {SITE.company}
               </span>
-              <span className="flex items-center gap-1.5">
-                <FileText size={12} />
-                Adószám: {SITE.taxNumber}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <FileText size={12} />
-                Hat. Biz.: 07010-822/7987/2026. SZv.
-              </span>
-              <span className="flex items-center gap-1.5">
-                <FileText size={12} />
-                Épít. nyilv.: 17C03049
-              </span>
-              <span>{SITE.address}</span>
+              <span className="text-[#2A2A35]">·</span>
+              <span>Cégjegyzékszám: {SITE.registrationNumber}</span>
+              <span className="text-[#2A2A35]">·</span>
+              <span>Adószám: {SITE.taxNumber}</span>
+              <span className="text-[#2A2A35]">·</span>
+              <span>Nyilvántartó: {SITE.court}</span>
             </div>
-            <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-muted">
-              <Link href="/aszf" className="hover:text-ink transition-colors">
-                ÁSZF
-              </Link>
-              <Link href="/adatvedelem" className="hover:text-ink transition-colors">
-                Adatkezelési Tájékoztató
-              </Link>
-              <span>&copy; {currentYear} SIRO-VÉD. Minden jog fenntartva.</span>
+
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-muted/90 text-[11px] sm:text-xs">
+              <span className="flex items-center gap-1.5">
+                <FileText size={12} style={{ color: ACCENT }} />
+                Rendőrhatósági biztonságtechnikai engedély: 07010-822/7987/2026. SZv.
+              </span>
+              <span className="text-[#2A2A35]">·</span>
+              <span>Építőipari nyilvántartási szám: 17C03049</span>
+              <span className="text-[#2A2A35]">·</span>
+              <span>Felelősségbiztosítással rendelkező kivitelező</span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-[#2A2A35]/30">
+              <div className="flex items-center gap-4 font-mono">
+                <Link href="/aszf" className="hover:text-ink transition-colors">
+                  ÁSZF
+                </Link>
+                <Link href="/adatvedelem" className="hover:text-ink transition-colors">
+                  Adatkezelési Tájékoztató
+                </Link>
+              </div>
+              <p className="font-mono text-[11px]">&copy; {currentYear} {SITE.company}. Minden jog fenntartva.</p>
             </div>
           </div>
         </div>

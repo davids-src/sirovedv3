@@ -62,7 +62,7 @@ export default function CookieBanner() {
                     <p className="text-sm font-semibold text-gray-900 mb-1">🍪 Sütiket használunk</p>
                     <p className="text-xs text-gray-500 leading-relaxed">
                         A weboldal Google Analytics-et használ a látogatói statisztikákhoz. Az adatok névtelenül kerülnek feldolgozásra. Részletek az{' '}
-                        <a href="/adatvedelmi-tajekoztato" className="underline hover:text-[#1A6BE8]">adatvédelmi tájékoztatóban</a>.
+                        <a href="/adatvedelem" className="underline hover:text-[#1A6BE8]">adatvédelmi tájékoztatóban</a>.
                     </p>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0 w-full sm:w-auto">

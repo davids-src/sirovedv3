@@ -173,14 +173,21 @@ export default function ReferenciaPage() {
                   Szeretne hasonló rendszert?
                 </h2>
                 <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">
-                  8 kérdéssel kap egy tájékoztató árat – helyszíni felmérés nélkül.
+                  Kérjen ingyenes felmérést, és munkatársunk felveszi Önnel a kapcsolatot a pontos részletek megbeszélésére.
                 </p>
-                <Link href="/kalkulator" className="group">
-                  <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
-                    Intelligens díjkalkulátor
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
-                  </button>
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link href="/ingyenes-felmeres" className="group">
+                    <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
+                      Kérjen ingyenes felmérést
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
+                    </button>
+                  </Link>
+                  <Link href="/kapcsolat">
+                    <button className="flex items-center gap-2 border border-[#2A2A35] text-ink font-semibold rounded px-6 py-3 text-sm hover:border-[#C0C0D0]/50 transition-colors duration-150">
+                      Kapcsolatfelvétel
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>

@@ -71,8 +71,8 @@ export default function Home() {
                   </span>
 
                   <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink leading-[1.15] tracking-[-0.02em] mt-4 mb-3">
-                    Biztonságban a nyaralód –{' '}
-                    <span style={{ color: ACCENT }}>Hikvision kamerarendszer nettó 250 000 Ft, mindent beleértve</span>
+                    Biztonságban a nyaralója –{' '}
+                    <span style={{ color: ACCENT }}>Hikvision kamerarendszer, mindent beleértve</span>
                   </h2>
                   <p className="text-muted text-base leading-[1.7] mb-6 max-w-xl">
                     Hónapokig üresen álló nyaraló? Komplett Hikvision rendszer – kamerák, telepítés, beüzemelés, munkadíj –
@@ -106,12 +106,6 @@ export default function Home() {
                       Érdekel, kérek ajánlatot
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
                     </button>
-                  </Link>
-                  <Link href="/ajanlat/nyaralo-kamerarendszer" className="group">
-                    <span className="flex items-center gap-1.5 font-mono text-xs text-muted hover:text-ink transition-colors duration-150 mt-1">
-                      További információk
-                      <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform duration-150" />
-                    </span>
                   </Link>
                 </div>
               </div>
@@ -193,16 +187,16 @@ export default function Home() {
             >
               <span className="eyebrow-chip">Miért mi?</span>
               <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">
-                Miért válassz minket?
+                Miért érdemes minket választani?
               </h2>
               <p className="mt-5 text-muted text-lg leading-[1.7] max-w-2xl">
-                A biztonságod számunkra a legfontosabb
+                Az Ön biztonsága számunkra a legfontosabb
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: Clock, title: 'Gyors kiszállás', desc: '24 órán belül helyszíni felmérés és árajánlat készítés' },
+                { icon: Clock, title: 'Gyors kiszállás', desc: '1 munkanapon belüli válaszidő és helyszíni felmérés' },
                 { icon: Users, title: 'Személyre szabott', desc: 'Minden megoldást az ügyfél egyedi igényeihez igazítunk' },
                 { icon: Shield, title: 'Megbízható működés', desc: 'Csak minőségi, bevált technológiákat használunk' },
                 { icon: CheckCircle, title: 'Folyamatos támogatás', desc: 'Telepítés után is számíthat ránk karbantartásban és javításban' },
@@ -250,18 +244,17 @@ export default function Home() {
               />
 
               <div className="relative z-10">
-                <span className="eyebrow-chip mb-6 inline-block">Ajánlat</span>
+                <span className="eyebrow-chip mb-6 inline-block">Díjmentes felmérés</span>
                 <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">
-                  Kérj ajánlatot percek alatt
+                  Kérjen ingyenes helyszíni felmérést
                 </h2>
                 <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">
-                  Használd az <strong className="text-ink">intelligens díjkalkulátorunkat</strong> – percek alatt pontos árajánlatot kapsz,
-                  teljesen kötelezettségmentesen.
+                  Vegye fel velünk a kapcsolatot – ingyenesen felmérjük az ingatlant, feltérképezzük a gyenge pontokat, és személyre szabott ajánlatot adunk.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/kalkulator" className="group">
+                  <Link href="/ingyenes-felmeres" className="group">
                     <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8] hover:shadow-[0_0_56px_-10px_#1A6BE8]">
-                      Árajánlatkérés kalkulátorral
+                      Kérjen ingyenes felmérést
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
                     </button>
                   </Link>

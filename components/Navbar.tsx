@@ -21,6 +21,8 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Főoldal' },
     { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+    { href: '/referenciak', label: 'Referenciák' },
+    { href: '/blog', label: 'Blog' },
     { href: '/rolunk', label: 'Rólunk' },
     { href: '/kapcsolat', label: 'Kapcsolat' },
   ];
@@ -62,10 +64,10 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center">
-            <Link href="/kalkulator">
+            <Link href="/ingyenes-felmeres">
               <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-2.5 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8] hover:shadow-[0_0_56px_-10px_#1A6BE8]">
                 <Calculator size={16} />
-                Intelligens díjkalkulátor
+                Ingyenes felmérés
               </button>
             </Link>
           </div>
@@ -99,10 +101,10 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="pt-4">
-              <Link href="/kalkulator" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/ingyenes-felmeres" onClick={() => setIsMobileMenuOpen(false)}>
                 <button className="flex items-center justify-center gap-2 w-full bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
                   <Calculator size={16} />
-                  Intelligens díjkalkulátor
+                  Ingyenes felmérés
                 </button>
               </Link>
             </div>

@@ -33,9 +33,9 @@ const reveal = {
 const INCLUDED = [
   { icon: Camera, title: 'Hikvision kamerák', desc: 'Bevált, profi minőségű kamerarendszer – HD felbontással, éjjellátóval és időjárásállóan.' },
   { icon: Zap, title: 'Telepítés és beüzemelés', desc: 'A teljes kiépítési munkát elvégezzük: szerelés, kábelezés, konfigurálás – minden benne van az árban.' },
-  { icon: Smartphone, title: 'Mobilos távelérés', desc: 'Bárhonnan figyelheted élőben a kamerákat a telefonodról. Azonnali mozgásérzékelési értesítés.' },
+  { icon: Smartphone, title: 'Mobilos távelérés', desc: 'Bárhonnan figyelheti élőben a kamerákat a telefonjáról. Azonnali mozgásérzékelési értesítés.' },
   { icon: MapPin, title: 'Ingyenes helyszíni felmérés', desc: 'Nem sablon-megoldást adunk. Feltérképezzük az ingatlan valódi gyenge pontjait, és arra méretezett rendszert tervezünk.' },
-  { icon: Shield, title: 'Garancia', desc: 'Az eszközökre és a munkára is garanciát vállalunk. Telepítés után sem maradunk magadra.' },
+  { icon: Shield, title: 'Garancia', desc: 'Az eszközökre és a munkára is garanciát vállalunk. Telepítés után sem marad magára.' },
   { icon: BadgePercent, title: 'Biztosítói kedvezmény', desc: 'Sok biztosító jelentős díjkedvezményt nyújt kamerarendszerrel védett ingatlanra – a rendszer akár önmagát fizeti.' },
 ];
 
@@ -72,7 +72,7 @@ export default function NyaraloKamerarendszerPage() {
               className="font-display mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-ink tracking-[-0.04em] leading-[1.05] max-w-3xl"
               initial="hidden" animate="visible" custom={0.1} variants={reveal}
             >
-              Biztonságban a nyaralód –{' '}
+              Biztonságban a nyaralója –{' '}
               <span style={{ color: ACCENT }}>kamerarendszer, mindent beleértve</span>
             </motion.h1>
 
@@ -113,10 +113,10 @@ export default function NyaraloKamerarendszerPage() {
               >
                 <span className="eyebrow-chip">A valóság</span>
                 <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">
-                  Mikor nyugodtál meg utoljára igazán, hogy a nyaralód biztonságban van?
+                  Mikor nyugodott meg utoljára igazán, hogy a nyaralója biztonságban van?
                 </h2>
                 <p className="mt-5 text-muted text-base leading-[1.7]">
-                  Bezárod a kaput, indulsz haza, és már félúton ott motoszkál a kérdés:
+                  Bezárja a kaput, indul haza, és már félúton ott motoszkál a kérdés:
                   <em className="text-ink not-italic font-medium"> „Biztos, hogy mindent bezártam?&quot;</em>
                 </p>
                 <p className="mt-4 text-muted text-base leading-[1.7]">
@@ -133,7 +133,7 @@ export default function NyaraloKamerarendszerPage() {
                 {[
                   { icon: AlertTriangle, title: 'Feltörés kockázata', desc: 'Az üresen álló nyaralók kiemelt célpontjai a betörőknek, különösen a szezonon kívüli időszakban.' },
                   { icon: Home, title: 'Milliós kár', desc: 'Gépek, berendezések, bútorok, csónakmotorok – egy betörés akár több milliós veszteséget is okozhat.' },
-                  { icon: Eye, title: 'Nincs rálátás', desc: 'Távolból nem tudhatod, mi történik az ingatlannal. Egy kamerarendszer azonnal láthatóvá teszi a történéseket.' },
+                  { icon: Eye, title: 'Nincs rálátás', desc: 'Távolból nem tudhatja, mi történik az ingatlannal. Egy kamerarendszer azonnal láthatóvá teszi a történéseket.' },
                   { icon: Lock, title: 'Biztosítói nehézségek', desc: 'Biztosítók gyakran nehezen fizetnek, ha nincs megfelelő vagyonvédelmi rendszer. Egy professzionális telepítés jelentősen javítja a helyzetet.' },
                 ].map(({ icon: Icon, title, desc }, i) => (
                   <motion.div
@@ -198,12 +198,12 @@ export default function NyaraloKamerarendszerPage() {
               className="mb-14"
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}
             >
-              <span className="eyebrow-chip">Miért minket válassz?</span>
+              <span className="eyebrow-chip">Miért minket válasszon?</span>
               <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">
                 Nem csak felrakunk valamit
               </h2>
               <p className="mt-5 text-muted text-lg leading-[1.7] max-w-2xl">
-                Megértjük az ingatlanod elrendezését, és olyan rendszert tervezünk, ami valóban véd – nem csak mutatja magát.
+                Megértjük az ingatlan elrendezését, és olyan rendszert tervezünk, ami valóban véd – nem csak mutatja magát.
               </p>
             </motion.div>
 
@@ -268,10 +268,10 @@ export default function NyaraloKamerarendszerPage() {
               <div className="relative z-10 max-w-2xl">
                 <span className="eyebrow-chip mb-6 inline-block">Következő lépés</span>
                 <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">
-                  Kérj ingyenes helyszíni felmérést
+                  Kérjen ingyenes helyszíni felmérést
                 </h2>
                 <p className="text-muted text-lg leading-[1.7] mb-9">
-                  Vedd fel velünk a kapcsolatot – ingyenesen felmérjük az ingatlant, feltérképezzük a gyenge pontokat, és konkrét ajánlatot adunk.{' '}
+                  Vegye fel velünk a kapcsolatot – ingyenesen felmérjük az ingatlant, feltérképezzük a gyenge pontokat, és konkrét ajánlatot adunk.{' '}
                   <strong className="text-ink">Kötelezettségmentesen.</strong>
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">

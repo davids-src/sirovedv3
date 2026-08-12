@@ -18,18 +18,18 @@ const reveal = {
 };
 
 const steps = [
-  { n: '1', title: 'Ingyenes konzultáció', desc: 'Megbeszéljük az igényeidet: milyen területet kell védeni és mit vársz a rendszertől.' },
-  { n: '2', title: 'Helyszíni felmérés', desc: 'Kimegyünk és felmérjük a területet: ajtók, ablakok, belső terek — mindent figyelembe veszünk.' },
+  { n: '1', title: 'Ingyenes konzultáció', desc: 'Megbeszéljük az igényeket: milyen területet kell védeni és mit vár a rendszertől.' },
+  { n: '2', title: 'Helyszíni felmérés', desc: 'Személyesen felmérjük a területet: ajtók, ablakok, belső terek — mindent figyelembe veszünk.' },
   { n: '3', title: 'Egyedi ajánlat', desc: 'Személyre szabott ajánlatot készítünk részletes árazással és magyarázattal.' },
-  { n: '4', title: 'Telepítés / javítás', desc: 'Elvégezzük a munkát, beállítjuk a rendszert és megtanítjuk a kezelését.' },
-  { n: '5', title: 'Utókövetés', desc: 'Ha problémád van vagy bővítenéd a rendszert, elérhetők vagyunk.' },
+  { n: '4', title: 'Telepítés / javítás', desc: 'Elvégezzük a munkát, beállítjuk a rendszert és bemutatjuk a kezelését.' },
+  { n: '5', title: 'Utókövetés', desc: 'Ha kérdése van vagy bővítené a rendszert, elérhetők vagyunk.' },
 ];
 
 const faqs = [
   { q: 'Mennyibe kerül egy riasztórendszer telepítése?', a: 'Az ár a védendő terület és az érzékelők számától függ. Egy egyszerűbb, 3–5 érzékelős rendszer 60 000–120 000 Ft körül kezdődik. Ingyenes felmérésen pontos árat adunk.' },
   { q: 'Milyen típusú riasztórendszereket telepítetek?', a: 'Mozgásérzékelőket, ajtó- és ablakérzékelőket, hang- és fényriasztókat, valamint mobilos értesítési rendszereket. Minden igényre megtaláljuk a megfelelő megoldást.' },
-  { q: 'Meglévő riasztórendszert is lehet javítani vagy bővíteni?', a: 'Igen, abszolút. Ha a riasztód nem működik megfelelően, hibás egy érzékelő, vagy bővíteni szeretnéd a rendszert, azt is szívesen elvégezzük.' },
-  { q: 'Kapok értesítést, ha beindul a riasztó?', a: 'Igen. A modern rendszerek mobilos push értesítést, SMS-t vagy telefonhívást küldenek. Beállíthatod, ki kapja az értesítést.' },
+  { q: 'Meglévő riasztórendszert is lehet javítani vagy bővíteni?', a: 'Igen, abszolút. Ha a riasztó nem működik megfelelően, hibás egy érzékelő, vagy bővíteni szeretné a rendszert, azt is szívesen elvégezzük.' },
+  { q: 'Kapok értesítést, ha beindul a riasztó?', a: 'Igen. A modern rendszerek mobilos push értesítést, SMS-t vagy telefonhívást küldenek. Beállíthatja, ki kapja az értesítést.' },
   { q: 'Kell-e karbantartás a riasztórendszernek?', a: 'Éves ellenőrzés ajánlott: akkumulátorok, érzékelők és a vezérlő állapotának vizsgálata. Ezt is vállaljuk.' },
 ];
 
@@ -48,27 +48,27 @@ export default function RiasztorendszerekPage() {
             <motion.h1 className="font-display mt-6 text-4xl sm:text-5xl font-bold text-ink tracking-[-0.04em] leading-[1.05]"
               initial="hidden" animate="visible" custom={0.1} variants={reveal}>
               Riasztórendszer telepítés<br />
-              <span style={{ color: ACCENT }}>Székesfehérváron és környékén</span>
+              <span style={{ color: ACCENT }}>Fejér megyében, Budapesten és a Közép-Dunántúlon</span>
             </motion.h1>
             <motion.p className="mt-5 text-lg text-muted leading-[1.7] max-w-2xl"
               initial="hidden" animate="visible" custom={0.15} variants={reveal}>
-              Aggódsz, mi történik az otthonodban vagy az üzletedben, ha nem vagy ott?
+              Aggódik, mi történik az otthonában vagy az üzletében, ha nincs jelen?
               Egy jól megtervezett riasztórendszer azonnal értesít, ha valami nincs rendben.
             </motion.p>
             <motion.div className="mt-9 flex flex-col sm:flex-row gap-4" initial="hidden" animate="visible" custom={0.2} variants={reveal}>
-              <Link href="/kalkulator" className="group">
+              <Link href="/ingyenes-felmeres" className="group">
                 <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
-                  Kérj ingyenes konzultációt <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
+                  Kérjen ingyenes felmérést <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
                 </button>
               </Link>
               <Link href="tel:+36702735532">
                 <button className="flex items-center gap-2 border border-[#2A2A35] text-ink font-semibold rounded px-6 py-3 text-sm hover:border-[#C0C0D0]/50 transition-colors duration-150">
-                  <Phone size={16} className="text-muted" /> Hívj most
+                  <Phone size={16} className="text-muted" /> Hívjon most
                 </button>
               </Link>
             </motion.div>
             <motion.p className="mt-5 text-sm text-muted" initial="hidden" animate="visible" custom={0.25} variants={reveal}>
-              <span style={{ color: ACCENT }}>✓</span> Ingyenes konzultáció &nbsp;·&nbsp;
+              <span style={{ color: ACCENT }}>✓</span> Ingyenes felmérés &nbsp;·&nbsp;
               <span style={{ color: ACCENT }}>✓</span> Gyors kiszállás &nbsp;·&nbsp;
               <span style={{ color: ACCENT }}>✓</span> Javítást is vállalunk
             </motion.p>
@@ -83,15 +83,15 @@ export default function RiasztorendszerekPage() {
                 <span className="eyebrow-chip">Miért fontos?</span>
                 <h2 className="font-display mt-6 text-3xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">Miért érdemes riasztórendszert szereltetni?</h2>
                 <p className="mt-5 text-muted text-sm leading-[1.7]">
-                  A riasztórendszer célja egyszerű: ha valaki illetéktelenül próbál bejutni az ingatlanodba,
-                  azonnal jelez — hangosan és neked mobilon is. Ez nemcsak utólag segít, hanem <strong className="text-ink">elriasztja</strong> a betörőket, mielőtt még megpróbálkoznának.
+                  A riasztórendszer célja egyszerű: ha valaki illetéktelenül próbál bejutni az ingatlanba,
+                  azonnal jelez — hangosan és Önnek mobilon is. Ez nemcsak utólag segít, hanem <strong className="text-ink">elriasztja</strong> a betörőket, mielőtt még megpróbálkoznának.
                 </p>
                 <p className="mt-4 text-muted text-sm leading-[1.7]">
-                  A modern rendszerek okostelefonra is küldenek értesítést — bárhol is légy, azonnal tudni fogod, ha valami nem stimmel.
+                  A modern rendszerek okostelefonra is küldenek értesítést — bárhol is tartózkodjon, azonnal tudni fogja, ha valami nem stimmel.
                 </p>
                 <p className="mt-4 text-muted text-sm leading-[1.7]">
-                  Akkor is keress minket, ha csak egy kisebb problémát szeretnél megoldani — például egy érzékelő
-                  nem működik, vagy bővítenéd a meglévő rendszert.
+                  Akkor is keressen minket, ha csak egy kisebb problémát szeretne megoldani — például egy érzékelő
+                  nem működik, vagy bővítené a meglévő rendszert.
                 </p>
               </motion.div>
 
@@ -105,7 +105,7 @@ export default function RiasztorendszerekPage() {
                     { icon: Lock, title: 'Mobilos jelzés', desc: 'Azonnali push értesítés' },
                     { icon: Shield, title: 'Multi-szenzor', desc: 'Több érzékelő típus' },
                     { icon: Bell, title: 'Hang riasztás', desc: '120dB hangerő' },
-                    { icon: Phone, title: '24/7 értesítés', desc: 'Mobilos push üzenet' },
+                    { icon: Phone, title: 'Mobilos értesítés', desc: 'Azonnali üzenet' },
                   ].map(({ icon: Icon, title, desc }) => (
                     <div key={title} className="rounded border p-4" style={{ background: `${ACCENT}10`, borderColor: `${ACCENT}30` }}>
                       <Icon size={20} strokeWidth={1.5} style={{ color: ACCENT }} className="mb-2" />
@@ -158,9 +158,9 @@ export default function RiasztorendszerekPage() {
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { title: 'Biztonságérzet és védelem', desc: 'Tudod, hogy az ingatlanod védett — és ha valami történne, azonnal jelzést kapsz. Ez a nyugalom felbecsülhetetlen.' },
+                { title: 'Biztonságérzet és védelem', desc: 'Tudja, hogy az ingatlan védett — és ha valami történne, azonnal jelzést kap. Ez a nyugalom felbecsülhetetlen.' },
                 { title: 'Megelőzés és visszatartás', desc: 'A látható riasztórendszer önmagában elrettenti a lehetséges betörőket. A védett ingatlanokat ritkábban választják célpontul.' },
-                { title: 'Azonnali kontroll', desc: 'Mobilos értesítéssel azonnal tudni fogod, mi történt — és dönteni tudsz arról, mit tegyél. Mindig kézben tartod a helyzetet.' },
+                { title: 'Azonnali kontroll', desc: 'Mobilos értesítéssel azonnal tudni fogja, mi történt — és dönteni tud arról, mit tegyen. Mindig kézben tartja a helyzetet.' },
               ].map(({ title, desc }, i) => (
                 <motion.div key={title}
                   className="rounded-lg border border-[#2A2A35] bg-surface p-8"
@@ -206,9 +206,9 @@ export default function RiasztorendszerekPage() {
           <div className="max-w-site mx-auto px-6">
             <motion.div className="max-w-3xl rounded-lg border p-8" style={{ borderColor: `${ACCENT}30`, background: `${ACCENT}08` }}
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}>
-              <h2 className="font-display text-xl font-semibold text-ink mb-4">Riasztórendszer telepítés Székesfehérváron és Fejér megyében</h2>
-              <p className="text-muted text-sm leading-[1.7] mb-3">Székesfehérváron és Fejér megye területén dolgozunk — gyorsan, megbízhatóan, személyesen. Ismerjük a helyi igényeket és gyorsan ki tudunk szállni.</p>
-              <p className="text-muted text-sm leading-[1.7]">Vállalunk kis munkákat is: egyetlen érzékelő cseréje, meglévő riasztó beállítása is elegendő indok arra, hogy keress minket. Az első konzultáció mindig ingyenes.</p>
+              <h2 className="font-display text-xl font-semibold text-ink mb-4">Riasztórendszer telepítés Fejér megyében, Budapesten és a Közép-Dunántúlon</h2>
+              <p className="text-muted text-sm leading-[1.7] mb-3">Fejér megyében, Budapesten és a Közép-Dunántúl területén dolgozunk — gyorsan, megbízhatóan, személyesen. Ismerjük a helyi igényeket és gyorsan ki tudunk szállni.</p>
+              <p className="text-muted text-sm leading-[1.7]">Vállalunk kisebb munkákat is: egyetlen érzékelő cseréje, meglévő riasztó beállítása is elegendő indok arra, hogy keressen minket. Az első konzultáció mindig ingyenes.</p>
             </motion.div>
           </div>
         </section>
@@ -222,10 +222,10 @@ export default function RiasztorendszerekPage() {
             </motion.div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
-                { title: 'Gyors reagálás', desc: 'Kiszállás általában 24–48 órán belül Székesfehérvár és környéke területén.' },
+                { title: 'Gyors reagálás', desc: '1 munkanapon belüli kapcsolatfelvétel és kiszállás.' },
                 { title: 'Személyre szabott', desc: 'Minden helyszínhez egyedi rendszert tervezünk, nem sablonmegoldásokat.' },
                 { title: 'Javítást is vállalunk', desc: 'Meglévő rendszerek hibáit is megjavítjuk — nem kell mindent lecserélni.' },
-                { title: 'Kis munkák is kellenek', desc: 'Egyetlen problémás érzékelő is elegendő ok arra, hogy felhívj.' },
+                { title: 'Kisebb javítások is', desc: 'Egyetlen problémás érzékelő is elegendő ok arra, hogy felvegye velünk a kapcsolatot.' },
               ].map(({ title, desc }, i) => (
                 <motion.div key={title}
                   className="rounded-lg border border-[#2A2A35] bg-surface p-6"
@@ -303,17 +303,17 @@ export default function RiasztorendszerekPage() {
                 style={{ background: `radial-gradient(ellipse 60% 40% at 50% 50%, ${ACCENT}10 0%, transparent 70%)` }} />
               <div className="relative z-10">
                 <span className="eyebrow-chip mb-6 inline-block">Következő lépés</span>
-                <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">Készen állsz a következő lépésre?</h2>
-                <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">Az első konzultáció minden esetben ingyenes és kötelezettségmentes. Akkor is keress minket, ha csak egy kisebb problémát szeretnél megoldani.</p>
+                <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">Készen áll a következő lépésre?</h2>
+                <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">Az első konzultáció minden esetben ingyenes és kötelezettségmentes. Akkor is keressen minket, ha csak egy kisebb problémát szeretne megoldani.</p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/kalkulator" className="group">
+                  <Link href="/ingyenes-felmeres" className="group">
                     <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">
-                      Kérj ajánlatot <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
+                      Kérjen ingyenes felmérést <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
                     </button>
                   </Link>
-                  <Link href="/kalkulator">
+                  <Link href="/kapcsolat">
                     <button className="flex items-center gap-2 border border-[#2A2A35] text-ink font-semibold rounded px-6 py-3 text-sm hover:border-[#C0C0D0]/50 transition-colors duration-150">
-                      Ingyenes konzultáció
+                      Kapcsolatfelvétel
                     </button>
                   </Link>
                 </div>

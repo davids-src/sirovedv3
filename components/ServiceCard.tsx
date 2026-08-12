@@ -62,7 +62,7 @@ export default function ServiceCard({
       {href && (
         <Link href={href} className="group/link">
           <button className="flex items-center gap-2 text-sm font-semibold text-muted hover:text-ink transition-colors duration-150">
-            Tudj meg többet
+            Tudjon meg többet
             <ArrowRight
               size={16}
               className="group-hover/link:translate-x-1 transition-transform duration-150"

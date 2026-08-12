@@ -139,7 +139,7 @@ export default function Rolunk() {
           <div className="max-w-site mx-auto px-6">
             <motion.div className="mb-14" initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}>
               <span className="eyebrow-chip">Miért mi?</span>
-              <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">Miért dolgozz velünk?</h2>
+              <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">Miért dolgozzon velünk?</h2>
               <p className="mt-5 text-muted text-lg leading-[1.7]">Nem csak technológiát adunk, hanem biztonságot és nyugalmat</p>
             </motion.div>
 
@@ -181,11 +181,11 @@ export default function Rolunk() {
               <div className="relative z-10">
                 <span className="eyebrow-chip mb-6 inline-block">Következő lépés</span>
                 <h2 className="font-display text-3xl lg:text-4xl font-bold text-ink tracking-[-0.02em] leading-[1.15] mb-5">
-                  Készen állsz a következő lépésre?
+                  Készen áll a következő lépésre?
                 </h2>
                 <p className="text-muted text-lg leading-[1.7] mb-9 max-w-xl">
-                  Vedd fel velünk a kapcsolatot, és beszéljük meg, hogyan tehetjük
-                  biztonságosabbá otthonod vagy vállalkozásod!
+                  Vegye fel velünk a kapcsolatot, és beszéljük meg, hogyan tehetjük
+                  biztonságosabbá otthonát vagy vállalkozását!
                 </p>
                 <Link href="/kapcsolat" className="group">
                   <button className="flex items-center gap-2 bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8]">

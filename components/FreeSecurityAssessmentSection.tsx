@@ -62,7 +62,7 @@ export default function FreeSecurityAssessmentSection({
                   Tudja pontosan, mennyire védett az ingatlana és a vagyona?
                 </h3>
                 <p className="text-muted text-sm sm:text-base leading-[1.7]">
-                  Feltérképezzük meglévő kamera- és riasztórendszerét, valamint az ingatlan védtelen pontjait helyszíni felméréssel — konkrét fejlesztési javaslattal és becsült költséggel.
+                  Feltérképezzük meglévő kamera- és riasztórendszerét, valamint az ingatlan védelmi pontjait helyszíni felméréssel — konkrét fejlesztési javaslattal és tételes árajánlattal a felmérést követő egy héten belül.
                 </p>
                 <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-muted pt-1">
                   <span className="flex items-center gap-1.5 text-ink font-medium">
@@ -131,10 +131,6 @@ export default function FreeSecurityAssessmentSection({
                 <Shield size={13} style={{ color: ACCENT }} />
                 Elsődleges Vagyonvédelmi Ajánlat
               </span>
-              <span className="font-mono text-xs text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full flex items-center gap-1.5">
-                <Clock size={12} />
-                Havonta korlátozott számú ingyenes felmérés
-              </span>
             </div>
 
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-[-0.03em] leading-[1.12]">
@@ -142,7 +138,7 @@ export default function FreeSecurityAssessmentSection({
             </h2>
 
             <p className="text-muted text-base sm:text-lg leading-[1.75]">
-              Ingyenes, kötelezettségmentes vagyonvédelmi biztonságtechnikai állapotfelmérést készítünk — meglévő kamera- és riasztórendszerének, valamint az ingatlan védtelen pontjainak feltérképezése, konkrét fejlesztési javaslattal és becsült költséggel.
+              Ingyenes, kötelezettségmentes vagyonvédelmi biztonságtechnikai állapotfelmérést készítünk — meglévő kamera- és riasztórendszerének, valamint az ingatlan védelmi pontjainak feltérképezése, konkrét fejlesztési javaslattal és tételes árajánlattal a felmérést követő egy héten belül.
             </p>
 
             {/* Bullets with custom icons */}
@@ -154,7 +150,7 @@ export default function FreeSecurityAssessmentSection({
                 },
                 {
                   icon: AlertTriangle,
-                  text: 'Védtelen pontok és kockázati zónák azonosítása az ingatlanon',
+                  text: 'Védelmi pontok és kockázati zónák azonosítása az ingatlanon',
                 },
                 {
                   icon: Shield,
@@ -162,7 +158,7 @@ export default function FreeSecurityAssessmentSection({
                 },
                 {
                   icon: Bell,
-                  text: 'Konkrét fejlesztési javaslat, becsült költséggel',
+                  text: 'Konkrét fejlesztési javaslat és tételes árajánlat egy héten belül',
                 },
                 {
                   icon: Shield,
@@ -235,110 +231,74 @@ export default function FreeSecurityAssessmentSection({
               className="rounded-xl border bg-surface p-6 relative overflow-hidden shadow-2xl"
               style={{ borderColor: `${ACCENT}40`, boxShadow: `0 0 60px -20px ${ACCENT}` }}
             >
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#2A2A35]">
+              <div className="pb-4 mb-4 border-b border-[#2A2A35]">
                 <div className="flex items-center gap-2.5">
                   <div
-                    className="w-8 h-8 rounded-md flex items-center justify-center"
+                    className="w-8 h-8 rounded-md flex items-center justify-center shrink-0"
                     style={{ background: `${ACCENT}15` }}
                   >
                     <Shield size={18} style={{ color: ACCENT }} />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-ink">
-                      Vagyonvédelmi Audit Kártya
-                    </h4>
-                    <p className="font-mono text-[11px] text-muted">Helyszíni felmérés kimenete</p>
+                    <h3 className="font-display font-bold text-sm text-ink">
+                      Vagyonvédelmi Ellenőrzési Lista
+                    </h3>
+                    <p className="font-mono text-[11px] text-muted">Amit a helyszínen átvizsgálunk</p>
                   </div>
                 </div>
-                <span className="font-mono text-[11px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Készíthető
-                </span>
               </div>
 
               <div className="space-y-3">
                 {[
                   {
-                    title: 'Kamerarendszer lefedettség',
-                    status: 'Vakfolt azonosítva',
-                    type: 'warning',
-                    detail: 'Holttér a hátsó bejáratnál',
+                    title: '1. Kamerarendszer lefedettsége és látószögei',
+                    detail: 'Megfelelő kameraszám, vakfoltok elkerülése, éjszakai látótávolság',
                   },
                   {
-                    title: 'Riasztó érzékelők állapota',
-                    status: 'Megfelelő',
-                    type: 'success',
-                    detail: '24/7 mobilos értesítés',
+                    title: '2. Riasztó érzékelők elhelyezése és állapota',
+                    detail: 'Mozgás- és nyitásérzékelők elhelyezése, akkumulátorok állapota',
                   },
                   {
-                    title: 'Behatolási pontok védelme',
-                    status: 'Kockázatos',
-                    type: 'danger',
-                    detail: 'Védtelen raktári ablakok',
+                    title: '3. Behatolási pontok és nyílászárók védelme',
+                    detail: 'Kritikus behatolási útvonalak és nyílászárók biztonsági szintje',
                   },
                   {
-                    title: 'Biztosítói elvárások',
-                    status: 'Hiányos minimum',
-                    type: 'warning',
-                    detail: 'Felülvizsgálat szükséges',
+                    title: '4. Biztosítói minimumkövetelmények teljesülése',
+                    detail: 'Vagyonvédelmi előírásoknak való megfelelőség vizsgálata',
                   },
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-lg bg-[#111116] border border-[#2A2A35] flex items-center justify-between text-xs"
+                    className="p-3 rounded-lg bg-[#111116] border border-[#2A2A35] text-xs"
                   >
-                    <div>
-                      <p className="font-medium text-ink text-xs">{item.title}</p>
-                      <p className="text-[11px] text-muted mt-0.5">{item.detail}</p>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      {item.type === 'success' && (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                          <CheckCircle2 size={12} />
-                          {item.status}
-                        </span>
-                      )}
-                      {item.type === 'warning' && (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
-                          <AlertCircle size={12} />
-                          {item.status}
-                        </span>
-                      )}
-                      {item.type === 'danger' && (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-mono text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">
-                          <XCircle size={12} />
-                          {item.status}
-                        </span>
-                      )}
-                    </div>
+                    <p className="font-medium text-ink text-xs">{item.title}</p>
+                    <p className="text-[11px] text-muted mt-0.5">{item.detail}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* 2. Risk Zone / "Veszélyzóna" Visual Element */}
+            {/* 2. Risk Zone / Visual Element */}
             <div className="rounded-xl border border-[#2A2A35] bg-surface p-6 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="eyebrow-chip text-[11px] py-0.5 px-2">
-                  Kockázati térkép elemei
+                  TIPIKUSAN VIZSGÁLT ZÓNÁK
                 </span>
                 <span className="font-mono text-xs text-muted">Ingatlan fizikai ellenőrzése</span>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { label: 'Főbejárat & Kapu', state: 'Ajtónyitás érzékelő', color: 'border-amber-500/30 bg-amber-500/5 text-amber-300' },
-                  { label: 'Raktár & Értéktár', state: 'Hiányzó kamera', color: 'border-rose-500/30 bg-rose-500/5 text-rose-300' },
-                  { label: 'Udvar & Parkoló', state: 'Éjjellátó CCTV', color: 'border-emerald-500/30 bg-emerald-500/5 text-emerald-300' },
-                  { label: 'Vakfoltok zónája', state: 'Feltáratlan felület', color: 'border-rose-500/30 bg-rose-500/5 text-rose-300' },
+                  { label: 'Főbejárat & Kapu', state: 'Ajtónyitás és belépési pontok', color: 'border-[#1A6BE8]/30 bg-[#1A6BE8]/5 text-ink' },
+                  { label: 'Raktár & Értéktár', state: 'Belső terek és tárolók', color: 'border-[#1A6BE8]/30 bg-[#1A6BE8]/5 text-ink' },
+                  { label: 'Udvar & Parkoló', state: 'Külső kerület és megközelítés', color: 'border-[#1A6BE8]/30 bg-[#1A6BE8]/5 text-ink' },
                 ].map((zone, idx) => (
                   <div
                     key={idx}
                     className={`p-3 rounded-lg border text-left ${zone.color} space-y-1`}
                   >
                     <p className="font-display font-semibold text-xs text-ink">{zone.label}</p>
-                    <p className="font-mono text-[10px] opacity-80">{zone.state}</p>
+                    <p className="font-mono text-[10px] text-muted">{zone.state}</p>
                   </div>
                 ))}
               </div>

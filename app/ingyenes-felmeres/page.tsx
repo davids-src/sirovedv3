@@ -22,7 +22,11 @@ const ACCENT = '#1A6BE8';
 export const metadata: Metadata = {
   title: 'Ingyenes Vagyonvédelmi Állapotfelmérés | Kamera és Riasztórendszerek | SIRO-VÉD',
   description:
-    'Ingyenes, kötelezettségmentes helyszíni vagyonvédelmi biztonságtechnikai állapotfelmérés. Meglévő kamera- és riasztórendszerének, valamint ingatlanja védtelen pontjainak feltérképezése árazott fejlesztési javaslattal.',
+    'Ingyenes, kötelezettségmentes helyszíni vagyonvédelmi biztonságtechnikai állapotfelmérés. Meglévő kamera- és riasztórendszerének, valamint ingatlanja védelmi pontjainak feltérképezése árazott fejlesztési javaslattal.',
+  alternates: {
+    canonical: 'https://siroved.hu/ingyenes-felmeres',
+  },
+  robots: 'index, follow',
   keywords: [
     'ingyenes vagyonvédelmi felmérés',
     'ingyenes biztonságtechnikai állapotfelmérés',
@@ -65,32 +69,13 @@ export const metadata: Metadata = {
     'betörésvédelem telephely',
     'biztonságtechnika Budapest',
     'biztonságtechnika Székesfehérvár',
-    'biztonságtechnika Debrecen',
-    'biztonságtechnika Szeged',
-    'biztonságtechnika Pécs',
-    'biztonságtechnika Győr',
-    'biztonságtechnika Miskolc',
     'biztonságtechnika Fejér megye',
-    'biztonságtechnika Pest megye',
-    'kamerarendszer telepítés Budapest',
-    'kamerarendszer telepítés Székesfehérvár',
-    'kamerarendszer telepítés Debrecen',
-    'kamerarendszer telepítés Szeged',
-    'kamerarendszer telepítés Győr',
-    'riasztórendszer telepítés Budapest',
-    'riasztórendszer telepítés Székesfehérvár',
-    'riasztórendszer telepítés Pest megye',
-    'vagyonvédelmi felmérés Budapest',
-    'vagyonvédelmi felmérés Székesfehérvár',
-    'vagyonvédelmi felmérés Fejér megye',
-    'vagyonvédelmi felmérés országosan',
-    'ingyenes kamerarendszer felmérés Budapest',
-    'ingyenes riasztórendszer felmérés Budapest',
+    'biztonságtechnika Közép-Dunántúl',
   ],
   openGraph: {
     title: 'Ingyenes Vagyonvédelmi Állapotfelmérés | SIRO-VÉD',
     description:
-      'Feltérképezzük meglévő kamera- és riasztórendszerét, valamint az ingatlan védtelen pontjait helyszíni felméréssel.',
+      'Feltérképezzük meglévő kamera- és riasztórendszerét, valamint az ingatlan védelmi pontjait helyszíni felméréssel.',
     type: 'website',
     locale: 'hu_HU',
   },
@@ -100,25 +85,25 @@ const processSteps = [
   {
     step: '1. Jelentkezés',
     title: 'Kapcsolatfelvétel & Időpont',
-    desc: 'Kitölti a rövid űrlapot, mi pedig 24 órán belül felvesszük Önnel a kapcsolatot a helyszíni időpont-egyeztetésre.',
+    desc: 'Kitölti a rövid űrlapot, mi pedig 1 munkanapon belül felvesszük Önnel a kapcsolatot a helyszíni időpont-egyeztetésre.',
     icon: ClipboardCheck,
   },
   {
     step: '2. Helyszíni felmérés',
     title: 'Fizikai Ellenőrzés & Átvizsgálás',
-    desc: 'Átnézzük a meglévő kamera- és riasztórendszert, valamint az ingatlan fizikai védtelen pontjait és kockázati zónáit.',
+    desc: 'Szakemberünk átvizsgálja az ingatlan védelmi pontjait, valamint a meglévő kamera- és riasztórendszert (kb. 1–2 óra).',
     icon: MapPin,
   },
   {
     step: '3. Kiértékelés',
     title: 'Elemzés & Árazott Javaslat',
-    desc: 'Elkészítjük a részletes elemzést és a konkrét fejlesztési javaslatot, világos és átlátható becsült költségekkel.',
+    desc: 'Egy héten belül elküldjük az írásos összefoglalót és a tételes fejlesztési javaslatot, kiszámítható árakkal.',
     icon: FileSpreadsheet,
   },
   {
     step: '4. Döntés Önnél',
     title: 'Kötelezettségmentes Döntés',
-    desc: 'Megkapja az eredményt és az ajánlatot — Ön dönti el, kér-e tőlünk további munkát. Nincs nyomás, nincs automatikus szerződés.',
+    desc: 'Ön dönt a megvalósításról. Nincs kötelezettség, nincs automatikus szerződés.',
     icon: UserCheck,
   },
 ];
@@ -135,12 +120,12 @@ export default function IngyenesFelmeresPage() {
             name: 'Ingyenes Vagyonvédelmi Biztonságtechnikai Állapotfelmérés',
             provider: {
               '@type': 'SecurityService',
-              name: 'SIRO-VÉD',
+              name: 'SIRO-VÉD Kft.',
               url: 'https://siroved.hu',
             },
             serviceType: 'Vagyonvédelmi Biztonságtechnikai Audit',
             description:
-              'Ingyenes helyszíni felmérés meglévő kamera- és riasztórendszerek felülvizsgálatára, ingatlanok védtelen pontjainak azonosítására.',
+              'Ingyenes helyszíni felmérés meglévő kamera- és riasztórendszerek felülvizsgálatára, ingatlanok védelmi pontjainak azonosítására.',
             offers: {
               '@type': 'Offer',
               price: '0',
@@ -154,6 +139,8 @@ export default function IngyenesFelmeresPage() {
       <Navbar />
 
       <main className="pt-16">
+        <h1 className="sr-only">Ingyenes Vagyonvédelmi Állapotfelmérés — SIRO-VÉD</h1>
+
         {/* Főoldali kiemelt felmérés szekció */}
         <FreeSecurityAssessmentSection variant="full" />
 
@@ -220,7 +207,7 @@ export default function IngyenesFelmeresPage() {
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   {[
-                    { title: 'Kamera vakfolt keresés', sub: 'Látószögek és fényviszonyok' },
+                    { title: 'Kamera lefedettség teszt', sub: 'Látószögek és fényviszonyok' },
                     { title: 'Riasztó érzékelő teszt', sub: 'Mozgás- és nyitásérzékelők' },
                     { title: 'Biztosítói ellenőrzés', sub: 'Minimumkövetelmény teszt' },
                     { title: 'Rendszer felülvizsgálat', sub: 'Kábelek és rögzítési kapacitás' },
@@ -252,10 +239,10 @@ export default function IngyenesFelmeresPage() {
 
                 <div className="space-y-4">
                   {[
-                    'Részletes jegyzőkönyvet a meglévő kamera- és riasztórendszer állapotáról',
-                    'Vízszintes és függőleges kockázati zónatérképet a védtelen nyílászárókról',
-                    'Két alternatív fejlesztési javaslatot (költséghatékony vs. maximális védelem)',
-                    'Konkrét, tételes árajánlatot rejtett költségek nélkül',
+                    'Meglévő kamera- és riasztórendszer állapotának összefoglalója',
+                    'Védelmi pontok és kockázati zónák azonosítása',
+                    'Konkrét fejlesztési és korszerűsítési javaslatok',
+                    'Tételes, rejtett költségektől mentes árajánlat',
                   ].map((text, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div
@@ -269,8 +256,12 @@ export default function IngyenesFelmeresPage() {
                   ))}
                 </div>
 
+                <div className="pt-2 text-xs font-mono text-muted">
+                  Az anyagot a felmérést követő egy héten belül küldjük.
+                </div>
+
                 <div className="pt-4 border-t border-[#2A2A35]">
-                  <Link href="/kapcsolat?forras=ingyenes-felmeres-aloldal" className="group block">
+                  <Link href="/kapcsolat?forras=ingyenes-felmeres#felmeres-urlap" className="group block">
                     <button className="w-full flex items-center justify-center gap-2.5 bg-[#1A6BE8] text-white font-semibold rounded-lg py-3.5 text-sm hover:scale-[1.01] transition-transform shadow-[0_0_28px_-12px_#1A6BE8]">
                       <span>Kérem az ingyenes helyszíni felmérést</span>
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -292,7 +283,7 @@ export default function IngyenesFelmeresPage() {
               <span className="eyebrow-chip inline-block">Vegye kézbe ingatlana védelmét</span>
 
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink tracking-[-0.02em]">
-                Ne várja meg, míg egy káresemény rávilágít a védtelen pontokra!
+                Mérje fel ingatlana vagyonvédelmi biztonságát!
               </h2>
 
               <p className="text-muted text-base sm:text-lg leading-[1.7] max-w-2xl mx-auto">
@@ -300,7 +291,7 @@ export default function IngyenesFelmeresPage() {
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/kapcsolat?forras=ingyenes-felmeres-aloldal" className="group w-full sm:w-auto">
+                <Link href="/kapcsolat?forras=ingyenes-felmeres#felmeres-urlap" className="group w-full sm:w-auto">
                   <button className="flex items-center justify-center gap-3 w-full sm:w-auto bg-[#1A6BE8] text-white font-semibold rounded-lg px-8 py-4 text-base hover:scale-[1.02] transition-transform shadow-[0_0_30px_-10px_#1A6BE8]">
                     <span>Időpontot kérek a felmérésre</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

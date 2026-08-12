@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieBanner from '@/components/CookieBanner';
-import StickyKalkulatorCTA from '@/components/StickyKalkulatorCTA';
+import { SITE } from '@/lib/config';
 
 const fontDisplay = Space_Grotesk({
   subsets: ['latin'],
@@ -28,11 +28,11 @@ const fontMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'SIRO-VÉD - Biztonságtechnika, Kamerarendszer, Riasztórendszer, Tűzvédelem',
-  description: 'Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében. Ingyenes konzultáció, gyors kiszállás.',
-  keywords: ['kamerarendszer telepítés', 'riasztórendszer telepítés', 'biztonságtechnika', 'megfigyelőrendszer', 'Székesfehérvár', 'Fejér megye', 'kamerarendszer javítás', 'riasztórendszer javítás'],
+  description: 'Kamerarendszerek és riasztórendszerek szakszerű telepítése, javítása és karbantartása Fejér megyében, Budapesten és a Közép-Dunántúlon. Ingyenes helyszíni állapotfelmérés cégeknek és magánszemélyeknek. Kérjen ajánlatot 1 munkanapon belül!',
+  keywords: ['kamerarendszer telepítés', 'riasztórendszer telepítés', 'biztonságtechnika', 'megfigyelőrendszer', 'Székesfehérvár', 'Fejér megye', 'Budapest', 'Közép-Dunántúl', 'kamerarendszer javítás', 'riasztórendszer javítás'],
   openGraph: {
     title: 'SIRO-VÉD - Biztonságtechnika, Kamerarendszer, Riasztórendszer, Tűzvédelem',
-    description: 'Kamerarendszerek és riasztórendszerek telepítése, javítása Székesfehérváron és Fejér megyében.',
+    description: 'Kamerarendszerek és riasztórendszerek telepítése, javítása és karbantartása Fejér megyében, Budapesten és a Közép-Dunántúlon. Ingyenes állapotfelmérés.',
     type: 'website',
     locale: 'hu_HU',
   },
@@ -60,29 +60,28 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SecurityService",
-              "name": "SIRO-VÉD",
+              "name": `${SITE.company} (SIRO-VÉD)`,
               "url": "https://siroved.hu",
               "logo": "https://siroved.hu/siroved_logo.png",
               "image": "https://siroved.hu/siroved_logo.png",
-              "description": "Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Székesfehérváron és Fejér megyében.",
-              "telephone": "+36 70 273 5532",
-              "email": "hello@sironic.hu",
+              "description": "Kamerarendszerek, riasztórendszerek és tűzjelző rendszerek telepítése, javítása és karbantartása Fejér megyében, Budapesten és a Közép-Dunántúlon.",
+              "telephone": SITE.phone,
+              "email": SITE.email,
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Lövölde utca 24",
+                "streetAddress": "Lövölde utca 24 4/15",
                 "addressLocality": "Székesfehérvár",
                 "postalCode": "8000",
                 "addressRegion": "Fejér megye",
                 "addressCountry": "HU"
               },
-              "areaServed": "Fejér megye",
+              "areaServed": "Fejér megye, Budapest, Közép-Dunántúl",
               "priceRange": "$$"
             })
           }}
         />
         {children}
         <CookieBanner />
-        <StickyKalkulatorCTA />
       </body>
     </html>
   );

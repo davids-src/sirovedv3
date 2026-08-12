@@ -29,7 +29,7 @@ export default function Kapcsolat() {
             style={{ background: `radial-gradient(ellipse at center, ${ACCENT}12 0%, transparent 70%)` }} />
           <div className="max-w-site mx-auto px-6 relative">
             <motion.span className="eyebrow-chip" initial="hidden" animate="visible" custom={0.05} variants={reveal}>
-              Lépj velünk kapcsolatba
+              Lépjen velünk kapcsolatba
             </motion.span>
             <motion.h1 className="font-display mt-6 text-4xl sm:text-5xl font-bold text-ink tracking-[-0.04em] leading-[1.05]"
               initial="hidden" animate="visible" custom={0.1} variants={reveal}>
@@ -37,8 +37,7 @@ export default function Kapcsolat() {
             </motion.h1>
             <motion.p className="mt-5 text-lg text-muted leading-[1.7] max-w-xl"
               initial="hidden" animate="visible" custom={0.15} variants={reveal}>
-              Van kérdésed vagy szeretnél ajánlatot kérni? Vedd fel velünk a kapcsolatot
-              az alábbi módokon, és hamarosan válaszolunk!
+              Kérdése van vagy ajánlatot szeretne kérni? Vegye fel velünk a kapcsolatot az alábbi módokon, és 1 munkanapon belül válaszolunk!
             </motion.p>
           </div>
         </section>
@@ -49,7 +48,7 @@ export default function Kapcsolat() {
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Form */}
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} custom={0} variants={reveal}>
-                <h2 className="font-display text-2xl font-semibold text-ink tracking-[-0.02em] mb-8">Küldj üzenetet</h2>
+                <h2 className="font-display text-2xl font-semibold text-ink tracking-[-0.02em] mb-8">Küldjön üzenetet</h2>
                 <ContactForm />
               </motion.div>
 
@@ -61,9 +60,9 @@ export default function Kapcsolat() {
                 </motion.h2>
 
                 {[
-                  { icon: Phone, label: 'Telefonszám', value: SITE.phone, href: SITE.phoneTel, sub: 'Visszahívást is kérhetsz – munkanapokon jellemzően délelőtt elérhetők vagyunk' },
-                  { icon: Mail, label: 'Email cím', value: SITE.email, href: SITE.emailHref, sub: 'Válaszolunk 24 órán belül' },
-                  { icon: MapPin, label: 'Cím', value: SITE.address, href: undefined, sub: 'Székesfehérvár, Mór, Bicíkérd, Gárdony, Ercsi, Polgardi, Martonvásár és környékük' },
+                  { icon: Phone, label: 'Telefonszám', value: SITE.phone, href: SITE.phoneTel, sub: 'Visszahívást is kérhet — munkanapokon elérhetőek vagyunk' },
+                  { icon: Mail, label: 'Email cím', value: SITE.email, href: SITE.emailHref, sub: 'Válaszolunk 1 munkanapon belül' },
+                  { icon: MapPin, label: 'Helyszíni lefedettség', value: SITE.region, href: undefined, sub: 'Fejér megye, Budapest és a Közép-Dunántúl egész területén' },
                 ].map(({ icon: Icon, label, value, href, sub }, i) => (
                   <motion.div key={label}
                     className="flex items-start gap-4 rounded-lg border border-[#2A2A35] bg-surface p-6"
@@ -93,11 +92,11 @@ export default function Kapcsolat() {
                 >
                   <h3 className="font-display text-lg font-semibold text-ink mb-3">Ingyenes helyszíni felmérés</h3>
                   <p className="text-muted text-sm leading-[1.7] mb-5">
-                    Kérj ingyenes helyszíni felmérést, ahol személyesen megbeszéljük az igényeidet
+                    Kérjen ingyenes helyszíni felmérést, ahol személyesen megbeszéljük az igényeit
                     és elkészítjük a személyre szabott ajánlatot!
                   </p>
                   <ul className="space-y-2.5">
-                    {['24 órán belül kiszállás', 'Részletes árajánlat', 'Szakmai tanácsadás', 'Kötelezettség nélkül'].map((item) => (
+                    {['1 munkanapon belüli válaszidő', 'Részletes árajánlat', 'Szakmai tanácsadás', 'Kötelezettség nélkül'].map((item) => (
                       <li key={item} className="flex items-center gap-2.5 text-sm text-muted">
                         <CheckCircle size={15} strokeWidth={1.5} style={{ color: ACCENT }} className="shrink-0" />
                         {item}
@@ -123,11 +122,11 @@ export default function Kapcsolat() {
 
             <div className="max-w-3xl space-y-4">
               {[
-                { q: 'Mennyi idő alatt tudnak kiszállni?', a: 'Általában 24 órán belül tudunk helyszíni felmérést végezni, de sürgős esetben akár azonnal is reagálunk.' },
-                { q: 'Mennyibe kerül egy átlagos kamerarendszer?', a: 'Az ár a kamerák számától, minőségétől és a helyszín adottságaitól függ. Egy alapvető 4 kamerás rendszer kb. 200.000 Ft-tól elérhető telepítéssel együtt.' },
-                { q: 'Van garancia a telepített rendszerre?', a: 'Igen, minden általunk telepített eszközre garanciát vállalunk. Az eszközökre gyártói garancia vonatkozik, a munkára pedig 1 év garanciát adunk.' },
-                { q: 'Tudnak mobilról is megfigyelni a kamerákat?', a: 'Igen, minden általunk telepített rendszer támogatja a távoli hozzáférést mobil applikáción keresztül, így bárhonnan megtekintheted a felvételeket.' },
-                { q: 'Kell-e karbantartani a rendszert?', a: 'Ajánlott évente egyszer karbantartást végezni, amely során ellenőrizzük a rendszer működését, tisztítjuk a kamerákat és frissítjük a szoftvereket.' },
+                { q: 'Mennyi idő alatt tudnak kiszállni?', a: '1 munkanapon belül reagálunk a megkeresésekre, és rugalmasan egyeztetünk időpontot a helyszíni felmérésre.' },
+                { q: 'Mennyibe kerül egy átlagos kamerarendszer?', a: 'Az ár a kamerák számától, típusától és a helyszín adottságaitól függ. Egyedi igényekre szabott pontos ajánlatot a felmérést követően adunk.' },
+                { q: 'Van garancia a telepített rendszerre?', a: 'Igen, a telepített eszközökre a gyártó által biztosított garancia érvényes, a kivitelezési munkára pedig 1 év garanciát vállalunk.' },
+                { q: 'Tudom mobilról is megfigyelni a kamerákat?', a: 'Igen, az általunk telepített rendszerek támogatják a távoli hozzáférést mobilalkalmazáson keresztül, így bárhonnan biztonságosan megtekintheti a felvételeket.' },
+                { q: 'Kérhető rendszeres karbantartás?', a: 'Igen, vállaljuk a meglévő és az általunk telepített rendszerek rendszeres műszaki felülvizsgálatát és karbantartását.' },
               ].map(({ q, a }, i) => (
                 <motion.div key={q}
                   className="rounded-lg border border-[#2A2A35] bg-surface p-6"

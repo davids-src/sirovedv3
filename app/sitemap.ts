@@ -1,12 +1,8 @@
 import { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/blog";
 
 const BASE = "https://siroved.hu";
 
-/**
- * Dinamikus sitemap — Next.js natívan kiszolgálja /sitemap.xml útvonalon.
- * Nincs szükség postbuild scriptre vagy next-sitemap csomagra.
- * Új oldal hozzáadásához egyszerűen add hozzá az alábbi tömbhöz.
- */
 const routes: Array<{
   path: string;
   priority: number;
@@ -25,6 +21,7 @@ const routes: Array<{
   // Fő aloldalak
   { path: "/ingyenes-felmeres", priority: 0.95, changefreq: "weekly" },
   { path: "/szolgaltatasok", priority: 0.9, changefreq: "weekly" },
+  { path: "/blog", priority: 0.85, changefreq: "weekly" },
   { path: "/kalkulator", priority: 0.85, changefreq: "monthly" },
   { path: "/kapcsolat", priority: 0.8, changefreq: "monthly" },
   { path: "/referenciak", priority: 0.7, changefreq: "monthly" },
@@ -46,10 +43,20 @@ const routes: Array<{
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  return routes.map((route) => ({
+  const staticEntries = routes.map((route) => ({
     url: `${BASE}${route.path}`,
     lastModified: now,
     changeFrequency: route.changefreq,
     priority: route.priority,
   }));
+
+  const blogPosts = getAllPosts();
+  const blogEntries = blogPosts.map((post) => ({
+    url: `${BASE}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }
