@@ -13,7 +13,7 @@ Egy riasztó, ha hibás, jelez. Egy kamera, ami hetek óta nem rögzít, ugyanú
 
 A nyár vége erre a legjobb időpont, három okból: a hőség megviselte az elektronikát, a por lerakódott, a növényzet pedig teljesen benőtt mindent, ami tavasszal még szabadon volt.
 
-## 1. Nézze meg az élő képet — mindegyikét
+<h2>1. Nézze meg az élő képet — mindegyikét</h2>
 
 Nem elég, hogy a rendszer „megy". Nyissa meg egyesével az összes kamerát.
 
@@ -21,7 +21,7 @@ Amit keressen: fekete kép, fagyott kép (ha a felvétel nem mozdul, csak egy á
 
 Ez tíz perc, és a leggyakoribb hibát azonnal kimutatja.
 
-## 2. Ellenőrizze a felvételeket — ne csak az élő képet
+<h2>2. Ellenőrizze a felvételeket — ne csak az élő képet</h2>
 
 Ez az, amit szinte senki nem csinál.
 
@@ -29,7 +29,7 @@ Keressen vissza egy tegnapi felvételt. Aztán egy egyhetest. Aztán egy egyhón
 
 Gyakori eset, hogy az élő kép tökéletes, de a rögzítés hetek óta nem működik — mert megtelt a merevlemez, mert leállt egy szolgáltatás, vagy mert egy áramszünet után nem indult újra rendesen.
 
-## 3. Nézzen bele a lombosodás miatti változásba
+<h2>3. Nézzen bele a lombosodás miatti változásba</h2>
 
 Ami áprilisban szabad rálátás volt, augusztusra gyakran egy ág vagy egy bokor.
 
@@ -37,13 +37,13 @@ Menjen végig a kültéri kamerákon, és nézze meg, mit takar el a növényzet
 
 Egy metszőollóval a legtöbb ilyen probléma megoldható.
 
-## 4. Törölje le a lencséket
+<h2>4. Törölje le a lencséket</h2>
 
 Pókháló, por, madárürülék, esőcsík. A kültéri kamerák lencséje egy szezon alatt jelentősen bepiszkolódik, és ez éjszaka sokkal jobban látszik, mint nappal: a szennyeződés szórja az infravörös fényt, és a kép ködössé válik.
 
 Puha ronggyal, óvatosan. Karcolni nem szabad.
 
-## 5. Nézze meg éjszaka is
+<h2>5. Nézze meg éjszaka is</h2>
 
 Ez a legfontosabb pont, és a legritkábban ellenőrzött.
 
@@ -51,13 +51,13 @@ Nappal szinte minden kamera jó képet ad. A kérdés az, mit lát éjjel — am
 
 Nézze meg az élő képet este tíz körül. Amit keressen: teljes sötétség egyes területeken, túlvilágított előtér és sötét háttér (ez akkor jellemző, ha egy lámpa túl közel van a kamerához), túl rövid hatótáv.
 
-## 6. Ellenőrizze a tárolási időt
+<h2>6. Ellenőrizze a tárolási időt</h2>
 
 Mennyi ideig őrzi meg a rendszer a felvételeket? Ha nem tudja, nézze meg, meddig lehet visszakeresni.
 
 Sok kár csak napokkal később derül ki. Ha a tárolás három napra elég, a legtöbb esemény már nem visszakereshető.
 
-## Ha valamelyik ponton elakad
+<h2>Ha valamelyik ponton elakad</h2>
 
 A fenti hatból négyet bárki elvégez. Az éjszakai képminőség és a tárolási idő az, amihez általában már szakember kell — ott ugyanis nem elég látni a problémát, meg is kell tudni oldani.
 
