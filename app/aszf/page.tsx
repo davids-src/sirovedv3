@@ -54,7 +54,7 @@ export default function AszfPage() {
                                 </tr>
                                 <tr>
                                     <td className="py-3 pr-4 text-muted">Székhely</td>
-                                    <td className="py-3">8000 Székesfehérvár, Lövölde utca 24 4/15</td>
+                                    <td className="py-3">8000 Székesfehérvár, Lövölde utca 24. 4/15.</td>
                                 </tr>
                                 <tr>
                                     <td className="py-3 pr-4 text-muted">Adószám</td>
@@ -84,7 +84,7 @@ export default function AszfPage() {
                                     <td className="py-3 pr-4 text-muted align-top">Tárhelyszolgáltató</td>
                                     <td className="py-3 leading-relaxed">
                                         SIROTECH Kft.<br />
-                                        8000 Székesfehérvár, Lövölde utca 24 4/15
+                                        8000 Székesfehérvár, Lövölde utca 24. 4/15.
                                     </td>
                                 </tr>
                             </tbody>

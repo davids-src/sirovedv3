@@ -4,7 +4,7 @@ export const SITE = {
     phoneTel: 'tel:+36702735532',
     email: 'hello@sironic.hu',
     emailHref: 'mailto:hello@sironic.hu',
-    address: '8000 Székesfehérvár, Lövölde utca 24 4/15',
+    address: '8000 Székesfehérvár, Lövölde utca 24. 4/15.',
     region: 'Fejér megye, Budapest és Közép-Dunántúl',
     company: 'SIROTECH Kft.',
     taxNumber: '33056151-2-07',

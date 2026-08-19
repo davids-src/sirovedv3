@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Building2, FileText } from 'lucide-react';
@@ -11,8 +13,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-[#2A2A35]/50 bg-[#111116]/40 py-16">
       <div className="max-w-site mx-auto px-6">
-        {/* 3-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        {/* 5-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
           {/* Brand */}
           <div>
             <Link href="/" className="inline-flex items-center mb-5">
@@ -103,6 +105,46 @@ export default function Footer() {
                 <MapPin size={14} className="flex-shrink-0 mt-0.5" style={{ color: ACCENT }} />
                 <p className="text-sm text-muted">{SITE.address}</p>
               </li>
+            </ul>
+          </div>
+
+          {/* SIROTECH GROUP */}
+          <div>
+            <h3 className="font-display text-sm font-semibold text-ink mb-4">SIROTECH GROUP</h3>
+            <ul className="space-y-4">
+              {[
+                { nev: 'SIRONIC', leiras: 'Hálózatépítés, IT-üzemeltetés', href: 'https://sironic.eu', szin: '#E8271A' },
+                { nev: 'SIROSOFT', leiras: 'Egyedi szoftverfejlesztés', href: 'https://sirosoft.hu', szin: '#1AE87B' },
+                { nev: 'SIROVILL', leiras: 'Villanyszerelés, kábelezés', href: 'https://sirovill.hu', szin: '#F5B81C', hamarosan: true },
+                { nev: 'SIROTECH', leiras: 'Központi oldal', href: 'https://sirotech.hu', szin: '#C0C0D0' },
+              ].map((item) => (
+                <li key={item.nev}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex items-start gap-2 transition-opacity duration-150 ${(item as any).hamarosan ? 'opacity-60 hover:opacity-100' : ''}`}
+                    onClick={() => {
+                      if (typeof window !== 'undefined' && (window as any).gtag) {
+                        (window as any).gtag('event', 'outbound_click', {
+                          target_site: item.href.replace('https://', ''),
+                          location: 'footer'
+                        });
+                      }
+                    }}
+                  >
+                    <div className="w-2 h-2 rounded-full flex-shrink-0 mt-1.5" style={{ backgroundColor: item.szin }} />
+                    <span className="text-sm text-muted leading-[1.6]">
+                      <span className="font-mono tracking-widest text-ink font-bold uppercase transition-colors duration-150 group-hover:[color:var(--hover-color)]" style={{ '--hover-color': item.szin } as React.CSSProperties}>{item.nev}</span>
+                      {(item as any).hamarosan && (
+                        <span className="ml-2 px-1.5 py-0.5 rounded bg-[#2A2A35]/60 text-[9px] font-semibold text-muted uppercase tracking-wider relative -top-0.5">Hamarosan</span>
+                      )}
+                      <span className="text-[#2A2A35] mx-1">—</span>
+                      {item.leiras}
+                    </span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

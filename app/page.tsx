@@ -34,85 +34,6 @@ export default function Home() {
 
         <KalkulatorBemutato />
 
-        {/* ── Nyaraló kampány banner ── */}
-        <section className="py-12 bg-bg border-t border-[#2A2A35]/50">
-          <div className="max-w-site mx-auto px-6">
-            <motion.div
-              className="relative overflow-hidden rounded-lg border bg-surface"
-              style={{ borderColor: `${ACCENT}40`, boxShadow: `0 0 56px -14px ${ACCENT}` }}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {/* Ambient glow */}
-              <div
-                className="absolute -top-32 -right-32 w-96 h-96 pointer-events-none"
-                aria-hidden="true"
-                style={{ background: `radial-gradient(ellipse at center, ${ACCENT}12 0%, transparent 70%)` }}
-              />
-
-              <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 lg:p-12">
-                {/* Ikon */}
-                <div className="shrink-0">
-                  <div
-                    className="w-20 h-20 rounded-lg flex items-center justify-center"
-                    style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}40` }}
-                  >
-                    <Camera size={40} style={{ color: ACCENT }} strokeWidth={1.5} />
-                  </div>
-                </div>
-
-                {/* Szöveg */}
-                <div className="flex-1 text-left">
-                  <span className="eyebrow-chip mb-4 inline-flex items-center gap-2">
-                    <Zap size={12} />
-                    Aktuális kampány
-                  </span>
-
-                  <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink leading-[1.15] tracking-[-0.02em] mt-4 mb-3">
-                    Biztonságban a nyaralója –{' '}
-                    <span style={{ color: ACCENT }}>Hikvision kamerarendszer, mindent beleértve</span>
-                  </h2>
-                  <p className="text-muted text-base leading-[1.7] mb-6 max-w-xl">
-                    Hónapokig üresen álló nyaraló? Komplett Hikvision rendszer – kamerák, telepítés, beüzemelés, munkadíj –
-                    egyetlen, átlátható áron. Semmilyen rejtett költség.
-                  </p>
-
-                  {/* 3 jellemző */}
-                  <div className="flex flex-wrap gap-4">
-                    {[
-                      { icon: MapPin, text: 'Ingyenes helyszíni felmérés' },
-                      { icon: Smartphone, text: 'Élő megfigyelés telefonról' },
-                      { icon: CheckCircle, text: 'Telepítéssel, garanciával' },
-                    ].map(({ icon: Icon, text }) => (
-                      <div key={text} className="flex items-center gap-2 text-sm text-muted">
-                        <div
-                          className="w-7 h-7 rounded flex items-center justify-center shrink-0"
-                          style={{ background: `${ACCENT}12` }}
-                        >
-                          <Icon size={14} style={{ color: ACCENT }} />
-                        </div>
-                        <span>{text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="shrink-0 flex flex-col items-center gap-3 w-full lg:w-auto">
-                  <Link href="/kapcsolat" className="group w-full lg:w-auto">
-                    <button className="flex items-center justify-center gap-2 w-full lg:w-auto bg-[#1A6BE8] text-white font-semibold rounded px-6 py-3 text-sm hover:scale-[1.02] transition-transform duration-150 ease-out shadow-[0_0_28px_-14px_#1A6BE8] hover:shadow-[0_0_56px_-10px_#1A6BE8] whitespace-nowrap">
-                      Érdekel, kérek ajánlatot
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-150" />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
         {/* ── Szolgáltatások ── */}
         <section className="py-28 bg-bg border-t border-[#2A2A35]/50">
           <div className="max-w-site mx-auto px-6">
@@ -219,6 +140,82 @@ export default function Home() {
                   </div>
                   <h3 className="font-display text-base font-semibold text-ink mb-3">{title}</h3>
                   <p className="text-sm text-muted leading-[1.7]">{desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SIROTECH GROUP szekció ── */}
+        <section className="py-28 bg-[#111116]/50 border-t border-[#2A2A35]/50">
+          <div className="max-w-site mx-auto px-6">
+            <motion.div
+              className="mb-14"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              custom={0}
+              variants={revealVariants}
+            >
+              <span className="eyebrow-chip">SIROTECH GROUP</span>
+              <h2 className="font-display mt-6 text-3xl lg:text-4xl font-semibold text-ink tracking-[-0.02em] leading-[1.15]">
+                Egy fal, három szakma
+              </h2>
+              <p className="mt-5 text-muted text-lg leading-[1.7] max-w-2xl">
+                Egy irodafelújításon ma három szakember dolgozik ugyanabba a falba: villanyszerelő, hálózatépítő, biztonságtechnikus. Ugyanaz a nyomvonal, három külön időpont — és a koordináció az ügyfélé.
+              </p>
+              <p className="mt-4 text-ink font-semibold">
+                Nálunk ez egy csapat, egy ütemezés. Ha valami nem stimmel, nincs kinek mutogatni.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { nev: 'SIRONIC', szoveg: 'Hálózatépítés, IT-üzemeltetés', href: 'https://sironic.eu', szin: '#E8271A' },
+                { nev: 'SIROSOFT', szoveg: 'Egyedi szoftverfejlesztés', href: 'https://sirosoft.hu', szin: '#1AE87B' },
+                { nev: 'SIROVILL', szoveg: 'Villanyszerelés, kábelezés', href: 'https://sirovill.hu', szin: '#F5B81C', hamarosan: true },
+              ].map((card, index) => (
+                <motion.div
+                  key={card.nev}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-80px' }}
+                  custom={index * 0.07}
+                  variants={revealVariants}
+                  className="h-full"
+                >
+                  <a
+                    href={card.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex flex-col h-full p-8 rounded-lg border border-[#2A2A35] bg-surface transition-all duration-300 hover:[border-color:var(--card-color)] hover:[box-shadow:0_0_32px_-12px_var(--card-color)] ${(card as any).hamarosan ? 'opacity-60 hover:opacity-100' : ''}`}
+                    style={{ '--card-color': card.szin } as React.CSSProperties}
+                    onClick={() => {
+                      if (typeof window !== 'undefined' && (window as any).gtag) {
+                        (window as any).gtag('event', 'outbound_click', {
+                          target_site: card.href.replace('https://', ''),
+                          location: 'cegcsoport_szekcio'
+                        });
+                      }
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: card.szin }} />
+                      <div className="flex items-center gap-2">
+                        <h3 className="font-mono text-sm tracking-widest text-ink font-bold uppercase">{card.nev}</h3>
+                        {(card as any).hamarosan && (
+                          <span className="px-1.5 py-0.5 rounded bg-[#2A2A35]/60 text-[10px] font-semibold text-muted uppercase tracking-wider">Hamarosan</span>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-muted text-sm leading-[1.7] mb-8">
+                      {card.szoveg}
+                    </p>
+                    <div className="mt-auto flex items-center gap-2 text-sm font-semibold transition-colors duration-300" style={{ color: card.szin }}>
+                      Megnyitás
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </a>
                 </motion.div>
               ))}
             </div>
