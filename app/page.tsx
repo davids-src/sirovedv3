@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import FreeSecurityAssessmentSection from '@/components/FreeSecurityAssessmentSection';
+import PartnerBrandsSection from '@/components/PartnerBrandsSection';
 
 const ACCENT = '#1A6BE8';
 
@@ -221,6 +222,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ── Technológiai Partnerek / Márkák ── */}
+        <PartnerBrandsSection />
 
         {/* ── CTA banner ── */}
         <section className="py-28 bg-bg border-t border-[#2A2A35]/50">

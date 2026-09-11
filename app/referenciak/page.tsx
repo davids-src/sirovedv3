@@ -18,46 +18,84 @@ const reveal = {
 
 const REFERENCES = [
   {
+    category: 'Lakóingatlan, nyaraló', icon: Home,
+    title: 'Nyaraló – Fejér Vármegye',
+    summary: '15 db kültéri IP kamera + riasztó',
+    details: [
+      '15 db kültéri HD IP kamera',
+      'NVR Rögzítő, 30 napos felvételtárolás',
+      '8 zónás riasztórendszer',
+      'Mobilapp távelérés'
+    ],
+    tag: 'IP Kamera · Riasztó',
+  },
+  {
+    category: 'Üzlet', icon: Store,
+    title: 'Üzlet – Székesfehérvár',
+    summary: '8 kamerás analóg rendszer',
+    details: [
+      '8 db beltéri analóg kamera',
+      'Analóg DVR, üzlet igényeire optimalizálva',
+      'Mobilapp távelérés beállítva'
+    ],
+    tag: 'Analóg kamera',
+  },
+  {
     category: 'Lakóingatlan', icon: Home,
-    title: 'Családi ház – Székesfehérvár',
-    summary: '4 kültéri IP kamera + mozgásérzékelős riasztó',
-    details: ['4 db kültéri HD IP kamera (kapu, terasz, garázs, kert)', 'NVR rögzítő, 30 napos felvételtárolás', 'Mobilapp távelérés beállítva', 'Mozgásérzékelős riasztórendszer, 3 zóna', 'GSM értesítés beállítva'],
-    tag: 'IP kamera · Riasztó',
+    title: 'Családi ház – Velencei-tó',
+    summary: '4 db kamera + riasztó',
+    details: [
+      '4 db kültéri HD IP kamera',
+      '6 zónás riasztórendszer, Mobilapp táveléréssel',
+      'NVR Rögzítő, 15 napos felvételtárolás',
+      'Mobilapp távelérés beállítva'
+    ],
+    tag: 'IP Kamera',
   },
   {
-    category: 'Üzlethelyiség', icon: Store,
-    title: 'Virágüzlet – Székesfehérvár belváros',
-    summary: '6 kamerás rendszer + beléptető',
-    details: ['2 db beltéri + 4 db kültéri kamera', 'RFID kártyás beléptető az iroda ajtajára', 'Analóg DVR rögzítő, üzleti igényekre optimalizálva', 'Meglévő riasztó GSM modullal bővítve'],
-    tag: 'Kamera · Beléptető',
+    category: 'Üzlet', icon: Store,
+    title: 'Üzlet – Székesfehérvár',
+    summary: '6 kamerás IP rendszer',
+    details: [
+      '6 kamerás rendszer (2 db kültéri, 4 db beltéri)',
+      'NVR Rögzítő, üzleti igényekre optimalizálva'
+    ],
+    tag: 'IP Kamera',
   },
   {
-    category: 'Iroda', icon: Building,
-    title: 'Ügyvédi iroda – Fejér megye',
-    summary: '8 kamera + új riasztórendszer + távfelügyelet',
-    details: ['8 db IP HD kamera (folyosók, tárgyaló, recepció, bejárat)', 'Új DSC riasztóközpont, 8 zóna', '4 db PIR mozgásérzékelő + 6 db nyitásérzékelő', 'IP alapú távfelügyelet összekötés', 'Mobilapp kezelés + kódpanel'],
-    tag: 'IP kamera · Riasztó · Távfelügyelet',
+    category: 'Ipari létesítmény', icon: Building,
+    title: 'Gyártó Cég – Székesfehérvár',
+    summary: '32 kamerás ipari rendszer',
+    details: [
+      '32 kamerás IP rendszer',
+      'NVR Rögzítő, ipari igényekre optimalizálva',
+      'Biztonságos távelérés',
+      '30 napos felvételtárolás'
+    ],
+    tag: 'IP Kamera',
   },
   {
-    category: 'Raktár / Telephely', icon: Warehouse,
-    title: 'Kis raktárcsarnok – Székesfehérvár ipari negyed',
-    summary: 'Gazdaságos analóg rendszer, nagy terület lefedése',
-    details: ['6 db kültéri analóg kamera + 2 db beltéri forgókamera (PTZ)', 'DVR rögzítő, 60 napos felvételtárolás', 'Perimetrikus mozgásérzékelők a bejáratoknál', 'Hang + fény riasztó, GSM visszaigazolás'],
-    tag: 'Analóg · PTZ · Riasztó',
+    category: 'Ipari létesítmény', icon: Warehouse,
+    title: 'Gyártó Cég – Székesfehérvár',
+    summary: '50 kamerás rendszer rendszámfelismeréssel',
+    details: [
+      '50 kamerás IP rendszer',
+      '2 db NVR Rögzítő, ipari igényekre optimalizálva',
+      'Rendszámfelismerő kapunyitás',
+      'Mobilapp távelérés beállítva'
+    ],
+    tag: 'IP Kamera · Rendszámfelismerés',
   },
   {
-    category: 'Vendéglátás', icon: Store,
-    title: 'Kávézó – Fejér megye',
-    summary: 'Meglévő rendszer bővítése + karbantartás',
-    details: ['Meglévő 4 kamerás rendszer 3 új kamerával bővítve', 'Rögzítő szoftver és mobil hozzáférés frissítve', 'Riasztórendszer felülvizsgálat + akkumulátor csere', 'Képminőség javítás: régi kamerák HD-re cserélve'],
-    tag: 'Bővítés · Karbantartás',
-  },
-  {
-    category: 'Egészségügy', icon: Bell,
-    title: 'Magánrendelő – Székesfehérvár',
-    summary: 'Diszkrét IP kamerarendszer + beléptető vezérlés',
-    details: ['5 db diszkrét beltéri IP kamera (folyosó, váróterem, bejárat)', 'RFID kártyás beléptető a rendelő ajtaján', 'Titkosított felvételtárolás (GDPR-megfelelő konfig)', 'Mobilapp hozzáférés az orvos részére'],
-    tag: 'IP kamera · Beléptető · GDPR',
+    category: 'Lakóingatlan', icon: Home,
+    title: 'Családi ház – Móri Járás',
+    summary: '5 kamerás analóg HD rendszer',
+    details: [
+      '5 db kültéri analóg HD kamera',
+      '30 napos felvétel megőrzés',
+      'Mobilapp beállítás, távelérés'
+    ],
+    tag: 'Analóg HD Kamera',
   },
 ];
 
@@ -89,7 +127,7 @@ export default function ReferenciaPage() {
         <section className="py-8 bg-[#111116]/50 border-b border-[#2A2A35]/50">
           <div className="max-w-site mx-auto px-6">
             <div className="flex flex-wrap gap-6 text-sm text-muted">
-              {['500+ elvégzett projekt', 'Székesfehérvár és Fejér megye', 'Otthontól ipari telephelyig', 'Javítást és bővítést is vállalunk'].map((t) => (
+              {['Székesfehérvár és Fejér megye', 'Otthontól ipari telephelyig', 'Javítást és bővítést is vállalunk'].map((t) => (
                 <span key={t} className="flex items-center gap-2">
                   <CheckCircle2 size={14} style={{ color: ACCENT }} />
                   {t}

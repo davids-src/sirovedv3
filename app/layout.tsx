@@ -76,7 +76,14 @@ export default function RootLayout({
                 "addressCountry": "HU"
               },
               "areaServed": "Fejér megye, Budapest, Közép-Dunántúl",
-              "priceRange": "$$"
+              "priceRange": "$$",
+              "brand": [
+                { "@type": "Brand", "name": "Hikvision" },
+                { "@type": "Brand", "name": "Dahua" },
+                { "@type": "Brand", "name": "Uniview" },
+                { "@type": "Brand", "name": "Videosec" },
+                { "@type": "Brand", "name": "Paradox" }
+              ]
             })
           }}
         />
