@@ -174,7 +174,7 @@ export default function Home() {
               {[
                 { nev: 'SIRONIC', szoveg: 'Hálózatépítés, IT-üzemeltetés', href: 'https://sironic.eu', szin: '#E8271A' },
                 { nev: 'SIROSOFT', szoveg: 'Egyedi szoftverfejlesztés', href: 'https://sirosoft.hu', szin: '#1AE87B' },
-                { nev: 'SIROVILL', szoveg: 'Villanyszerelés, kábelezés', href: 'https://sirovill.hu', szin: '#F5B81C', hamarosan: true },
+                { nev: 'SIROVILL', szoveg: 'Villanyszerelés, kábelezés', href: 'https://sirovill.hu', szin: '#F5B81C' },
               ].map((card, index) => (
                 <motion.div
                   key={card.nev}
@@ -225,6 +225,19 @@ export default function Home() {
 
         {/* ── Technológiai Partnerek / Márkák ── */}
         <PartnerBrandsSection />
+
+        {/* ── B2B utalás ── */}
+        <section className="py-6 bg-bg border-t border-[#2A2A35]/50">
+          <div className="max-w-site mx-auto px-6">
+            <p className="text-sm text-muted text-center">
+              Generálkivitelező vagy szakági cég?{' '}
+              <Link href="/partneri-egyuttmukodes" className="text-[#1A6BE8] hover:underline">
+                Alvállalkozóként is dolgozunk — részletek a B2B együttműködésről
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
 
         {/* ── CTA banner ── */}
         <section className="py-28 bg-bg border-t border-[#2A2A35]/50">

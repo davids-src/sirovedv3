@@ -21,6 +21,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Főoldal' },
     { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+    { href: '/partneri-egyuttmukodes', label: 'B2B partner' },
     { href: '/referenciak', label: 'Referenciák' },
     { href: '/blog', label: 'Blog' },
     { href: '/rolunk', label: 'Rólunk' },

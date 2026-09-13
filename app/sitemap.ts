@@ -21,6 +21,7 @@ const routes: Array<{
   // Fő aloldalak
   { path: "/ingyenes-felmeres", priority: 0.95, changefreq: "weekly" },
   { path: "/szolgaltatasok", priority: 0.9, changefreq: "weekly" },
+  { path: "/partneri-egyuttmukodes", priority: 0.8, changefreq: "monthly" },
   { path: "/blog", priority: 0.85, changefreq: "weekly" },
   { path: "/kalkulator", priority: 0.85, changefreq: "monthly" },
   { path: "/kapcsolat", priority: 0.8, changefreq: "monthly" },

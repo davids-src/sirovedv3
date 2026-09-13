@@ -10,12 +10,28 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# OAI-SearchBot
+User-agent: OAI-SearchBot
+Allow: /
+
 # PerplexityBot
 User-agent: PerplexityBot
 Allow: /
 
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+
 # Anthropic-ai
-User-agent: Anthropic-ai
+User-agent: anthropic-ai
+Allow: /
+
+# CCBot
+User-agent: CCBot
 Allow: /
 
 # Host

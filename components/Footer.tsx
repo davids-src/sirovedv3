@@ -40,6 +40,7 @@ export default function Footer() {
                 { href: '/', label: 'Főoldal' },
                 { href: '/ingyenes-felmeres', label: 'Ingyenes Állapotfelmérés' },
                 { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+                { href: '/partneri-egyuttmukodes', label: 'B2B partner' },
                 { href: '/referenciak', label: 'Referenciák' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/rolunk', label: 'Rólunk' },
@@ -115,7 +116,7 @@ export default function Footer() {
               {[
                 { nev: 'SIRONIC', leiras: 'Hálózatépítés, IT-üzemeltetés', href: 'https://sironic.eu', szin: '#E8271A' },
                 { nev: 'SIROSOFT', leiras: 'Egyedi szoftverfejlesztés', href: 'https://sirosoft.hu', szin: '#1AE87B' },
-                { nev: 'SIROVILL', leiras: 'Villanyszerelés, kábelezés', href: 'https://sirovill.hu', szin: '#F5B81C', hamarosan: true },
+                { nev: 'SIROVILL', leiras: 'Villanyszerelés, kábelezés', href: 'https://sirovill.hu', szin: '#F5B81C' },
                 { nev: 'SIROTECH', leiras: 'Központi oldal', href: 'https://sirotech.hu', szin: '#C0C0D0' },
               ].map((item) => (
                 <li key={item.nev}>
