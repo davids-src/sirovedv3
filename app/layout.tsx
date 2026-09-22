@@ -27,6 +27,7 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://siroved.hu'),
   title: 'SIRO-VÉD - Biztonságtechnika, Kamerarendszer, Riasztórendszer, Tűzvédelem',
   description: 'Kamerarendszerek és riasztórendszerek szakszerű telepítése, javítása és karbantartása Fejér megyében, Budapesten és a Közép-Dunántúlon. Ingyenes helyszíni állapotfelmérés cégeknek és magánszemélyeknek. Kérjen ajánlatot 1 munkanapon belül!',
   keywords: ['kamerarendszer telepítés', 'riasztórendszer telepítés', 'biztonságtechnika', 'megfigyelőrendszer', 'Székesfehérvár', 'Fejér megye', 'Budapest', 'Közép-Dunántúl', 'kamerarendszer javítás', 'riasztórendszer javítás'],

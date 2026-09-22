@@ -26,6 +26,7 @@ export interface ContactData {
 }
 
 export interface CalculatorAnswers {
+  mode?: 'uj' | 'bovites'; // pre-screen selection (new system vs. expansion)
   q1?: IngatlanType;
   q2?: MeretType;
   q3?: KameraType;
